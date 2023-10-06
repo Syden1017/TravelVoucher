@@ -162,5 +162,13 @@
                 </ListView>
             </StackPanel>
         </Grid>
+
+        <Grid Background="Aquamarine"
+              Margin="61 61 0 0">
+            <Image Source="C:\Users\ИСП-32\source\repos\TravelVoucher-loc\TravelVoucher\Images\HotTours\London.jpg"
+                   Height="150"
+                   Width="300"
+                   Margin="-470 25 50 300"/>
+        </Grid>
     </Grid>
 </Page>

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using WpfApp1.Tools;
 
 namespace TravelVoucher.Pages
 {
@@ -15,7 +16,7 @@ namespace TravelVoucher.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Navigation.id = 1;
         }
 
         private void btnAccount_Click(object sender, RoutedEventArgs e)
@@ -35,17 +36,46 @@ namespace TravelVoucher.Pages
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.frmObj.Navigate(new LoginPage());
         }
 
         private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            btnOpenMenu.Visibility = Visibility.Visible;
+            btnCloseMenu.Visibility = Visibility.Collapsed;
         }
 
         private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
         {
+            btnOpenMenu.Visibility = Visibility.Collapsed;
+            btnCloseMenu.Visibility = Visibility.Visible;
+        }
 
+        private void listViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "listViewItemHome":
+                    MessageBox.Show(
+                        "Невозможно перейти на главную страницу." +
+                        "\nПопробуйте перейти на другую страницу и повторить попытку",
+                        "Ошибка перехода",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
+                    break;
+
+                case "listViewItemFindTour":
+                    Navigation.frmObj.Navigate(new FindTour());
+                    break;
+
+                case "listViewItemTickets":
+                    Navigation.frmObj.Navigate(new MyTickets());
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
