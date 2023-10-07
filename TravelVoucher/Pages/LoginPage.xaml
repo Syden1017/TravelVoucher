@@ -17,7 +17,6 @@
 
     <Border Padding="180">
         <Grid>
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="1.4*"/>
@@ -55,12 +54,11 @@
                        Text="Пароль:"
                        Style="{StaticResource txtBlockLogin}"/>
 
-            <TextBox x:Name="passBox"
-                     Grid.Column="2"
-                     Grid.Row="2"
-                     Margin="10"
-                     TextAlignment="Left"
-                     FontSize="14"/>
+            <PasswordBox x:Name="passBox"
+                         Grid.Column="2"
+                         Grid.Row="2"
+                         Margin="10"
+                         FontSize="14"/>
 
             <Button x:Name="btnEnter"
                     Click="btnEnter_Click"

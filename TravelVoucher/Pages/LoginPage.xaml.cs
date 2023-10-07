@@ -21,10 +21,10 @@ namespace TravelVoucher.Pages
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBoxLogin.Text == "Пользователь" && passBox.Text == "12345" ||
-                txtBoxLogin.Text == "Админ" && passBox.Text == "qwerty" ||
-                txtBoxLogin.Text == "User" && passBox.Text == "12345" ||
-                txtBoxLogin.Text == "Admin" && passBox.Text == "qwerty")
+            if (txtBoxLogin.Text == "Пользователь" && passBox.Password == "12345" ||
+                txtBoxLogin.Text == "Админ" && passBox.Password == "qwerty" ||
+                txtBoxLogin.Text == "User" && passBox.Password == "12345" ||
+                txtBoxLogin.Text == "Admin" && passBox.Password == "qwerty")
             {
                 Navigation.frmObj.Navigate(new HomePage());
             }
