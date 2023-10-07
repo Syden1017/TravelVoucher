@@ -14,21 +14,21 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Tools;
 
-namespace TravelVoucher.Pages
+namespace TravelVoucher.Pages.TourPages
 {
     /// <summary>
-    /// Логика взаимодействия для MyTickets.xaml
+    /// Interaction logic for ShoppingPage.xaml
     /// </summary>
-    public partial class MyTickets : Page
+    public partial class ShoppingPage : Page
     {
-        public MyTickets()
+        public ShoppingPage()
         {
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Navigation.id = 3;
+            Navigation.id = 7;
         }
     }
 }

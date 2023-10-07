@@ -53,7 +53,6 @@
     <!-- Главное окно -->
     <Grid x:Name="gridMain" 
           Background="#ffffff">
-
         <Grid Style="{DynamicResource gridTitle}">
             <!-- Заголовок страницы -->
             <TextBlock Text="Главное меню"
@@ -140,7 +139,7 @@
                                                      Height="35"
                                                      Margin="5"/>
 
-                            <TextBlock Text="Поиск тура"
+                            <TextBlock Text="Поиск путёвки"
                                        Style="{DynamicResource txtBlockSidebar}"/>
                         </StackPanel>
                     </ListViewItem>
@@ -164,7 +163,7 @@
         </Grid>
 
         <ScrollViewer Background="Aquamarine"
-                      Margin="61 61 0 0">
+                      Margin="60 60 0 0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -216,7 +215,7 @@
                            Grid.Row="3"
                            Grid.ColumnSpan="2"
                            Foreground="Black"
-                           Margin="5 15 0 0"
+                           Margin="5 15 0 10"
                            Text="Предлагаем посетить Дубаи"
                            TextWrapping="Wrap"/>
             </Grid>
