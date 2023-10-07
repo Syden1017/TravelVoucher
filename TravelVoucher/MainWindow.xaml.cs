@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using TravelVoucher.Pages;
 using WpfApp1.Tools;
-using TravelVoucher.Pages;
 
 namespace TravelVoucher
 {
