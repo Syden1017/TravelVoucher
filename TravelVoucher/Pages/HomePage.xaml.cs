@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using TravelVoucher.Pages.PopUpMenuPages;
 using WpfApp1.Tools;
 
 namespace TravelVoucher.Pages
@@ -21,12 +22,12 @@ namespace TravelVoucher.Pages
 
         private void btnAccount_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.frmObj.Navigate(new AccountPage());
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.frmObj.Navigate(new SettingsPage());
         }
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
