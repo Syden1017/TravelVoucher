@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using TravelVoucher.Tools;
 using WpfApp1.Tools;
 
 namespace TravelVoucher.Pages
@@ -21,8 +22,7 @@ namespace TravelVoucher.Pages
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBoxLogin.Text == "Пользователь" && passBox.Password == "12345" ||
-                txtBoxLogin.Text == "User" && passBox.Password == "12345")
+            if (txtBoxLogin.Text == "User" && passBox.Password == "12345")
             {
                 Navigation.frmObj.Navigate(new HomePage());
             }

@@ -181,7 +181,7 @@
                        Grid.Row="0"
                        Width="420"
                        Margin="0 10 0 0"
-                       Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\HotTours\London.jpg"/>
+                       Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\HotTours\London.jpg"/>
 
                 <TextBlock Grid.Column="0"
                            Grid.Row="1"
@@ -194,7 +194,7 @@
                        Grid.Row="0"
                        Width="420"
                        Margin="0 10 0 0"
-                       Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\HotTours\Maiami.png"/>
+                       Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\HotTours\Maiami.png"/>
 
                 <TextBlock Grid.Column="1"
                            Grid.Row="1"
@@ -209,7 +209,7 @@
                        Stretch="Fill"
                        Width="900"
                        Height="400"
-                       Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\HotTours\Dubai.jpg"/>
+                       Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\HotTours\Dubai.jpg"/>
 
                 <TextBlock Grid.Column="0"
                            Grid.Row="3"

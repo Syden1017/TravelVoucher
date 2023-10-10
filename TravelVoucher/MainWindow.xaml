@@ -53,7 +53,7 @@
                     Style="{StaticResource mainButton}">
 
                 <Button.Content>
-                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\minimize.png"/>
+                    <Image Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\ControlImages\minimize.png"/>
                 </Button.Content>
             </Button>
 
@@ -64,7 +64,7 @@
                     Style="{StaticResource mainButton}">
 
                 <Button.Content>
-                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\maximize.png"/>
+                    <Image Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\ControlImages\maximize.png"/>
                 </Button.Content>
             </Button>
 
@@ -75,7 +75,7 @@
                     Style="{StaticResource mainButton}">
 
                 <Button.Content>
-                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\exit.png"/>
+                    <Image Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\ControlImages\exit.png"/>
                 </Button.Content>
             </Button>
 

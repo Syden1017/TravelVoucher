@@ -14,12 +14,11 @@
 
     <Grid Background="Aquamarine">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="1.7*"/>
-            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="1.4*"/>
+            <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="2.7*"/>
             <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
@@ -29,17 +28,17 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1.6*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.55*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -77,98 +76,120 @@
             </StackPanel>
         </Grid>
 
+        <!-- Разметка страницы -->
         <TextBlock Grid.Column="1" 
                    Grid.Row="2"
                    Text="Откуда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   FontSize="20"
+                   Margin="5 0 0 0"/>
 
         <ComboBox x:Name="cBoxFrom"
                   Grid.Column="1"
                   Grid.Row="3"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="1"
+                   Grid.Row="5"
+                   Text="Тип транспорта"
+                   FontSize="20"
+                   Margin="5 0 0 0"/>
 
         <ComboBox x:Name="cBoxTransport"
                   Grid.Column="1"
-                  Grid.Row="5"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Grid.Row="6"
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="1"
+                   Grid.Row="8"
+                   Text="Курорт/отель"
+                   FontSize="20"
+                   Margin="5 0 0 0"/>
 
         <ComboBox x:Name="cBoxHotel"
                   Grid.Column="1"
-                  Grid.Row="6"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Grid.Row="9"
+                  Margin="5"/>
 
         <TextBlock Grid.Column="1" 
+                   Grid.Row="11"
+                   Text="Питание"
+                   FontSize="20"
+                   Margin="5 0 0 0"/>
+
+        <ComboBox Name="cBoxFood"
+                  Grid.Column="1"
+                  Grid.Row="12"
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="3" 
+                   Grid.Row="2"
+                   Text="Куда?"
+                   FontSize="20"
+                   Margin="5 0 0 0"/>
+
+        <ComboBox x:Name="cBoxTo"
+                  Grid.Column="3"
+                  Grid.Row="3"
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="3"
+                   Grid.Row="5"
+                   Margin="5 0 0 0"
+                   Text="Дата"
+                   FontSize="20"/>
+
+        <DatePicker Grid.Column="3" 
+                    Grid.Row="6"
+                    Margin="5"/>
+
+        <TextBlock Grid.Column="3" 
                    Grid.Row="8"
                    Text="Класс отеля"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   FontSize="20"
+                   Margin="5 0 0 0"/>
 
-        <TextBlock Grid.Column="1" 
+        <TextBlock Grid.Column="3" 
                    Grid.Row="9"
                    Text="Stars"
                    FontSize="24"
                    HorizontalAlignment="Center"/>
 
-        <TextBlock Grid.Column="1" 
+        <TextBlock Grid.Column="3" 
                    Grid.Row="11"
-                   Text="ComboBox"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
-
-        <TextBlock Grid.Column="1" 
-                   Grid.Row="13"
                    Text="Количество гостей"
                    TextWrapping="Wrap"
-                   FontSize="16"/>
+                   FontSize="20"
+                   Margin="5 0 0 0"/>
 
-        <TextBlock Grid.Column="4" 
-                   Grid.Row="2"
-                   Text="Куда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
-
-        <ComboBox x:Name="cBoxTo"
-                  Grid.Column="4"
-                  Grid.Row="3"
-                  Width="223"/>
-
-        <TextBlock Grid.Column="4"
-                   Grid.Row="5"
-                   Margin="20 0 0 0"
-                   Text="Дата"
-                   FontSize="24"/>
-
-        <DatePicker Grid.Column="4" 
-                    Grid.Row="6"
-                    Width="220"/>
+        <TextBox x:Name="txtBoxNumberOfGuests" 
+                 Grid.Column="3"
+                 Grid.Row="12"
+                 Margin="5 0 0 10"/>
 
         <Button x:Name="btnBuyTicket" 
                 Click="btnBuyTicket_Click"
                 Content="Купить"
-                Grid.Column="4"
+                Grid.Column="3"
                 Grid.Row="13"
                 Margin="5 0 5 0"/>
 
-        <ScrollViewer Grid.Column="6" 
+        <ScrollViewer Grid.Column="5" 
                       Grid.Row="2"
                       Grid.RowSpan="12"
-                      Background="BlanchedAlmond">
+                      Background="AntiqueWhite">
 
         </ScrollViewer>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="15"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal"
+                    Margin="-5 0 0 0">
             <Button x:Name="btnBack"
                     Click="btnBack_Click"
                     Style="{DynamicResource mainButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\backico.png"/>
+                        <Image Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\ControlImages\backico.png"/>
 
                         <TextBlock Text="Назад"
                                    Margin="-7 6 0 0"
