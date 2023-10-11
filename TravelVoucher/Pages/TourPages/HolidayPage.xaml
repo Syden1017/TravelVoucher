@@ -12,7 +12,7 @@
       
       Loaded="Page_Loaded">
 
-    <Grid Background="Aquamarine">
+    <Grid Style="{DynamicResource gridTours}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="*"/>
@@ -80,8 +80,7 @@
         <TextBlock Grid.Column="1" 
                    Grid.Row="2"
                    Text="Откуда?"
-                   FontSize="20"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox x:Name="cBoxFrom"
                   Grid.Column="1"
@@ -91,8 +90,7 @@
         <TextBlock Grid.Column="1"
                    Grid.Row="5"
                    Text="Тип транспорта"
-                   FontSize="20"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox x:Name="cBoxTransport"
                   Grid.Column="1"
@@ -102,8 +100,7 @@
         <TextBlock Grid.Column="1"
                    Grid.Row="8"
                    Text="Курорт/отель"
-                   FontSize="20"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox x:Name="cBoxHotel"
                   Grid.Column="1"
@@ -113,8 +110,7 @@
         <TextBlock Grid.Column="1" 
                    Grid.Row="11"
                    Text="Питание"
-                   FontSize="20"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox Name="cBoxFood"
                   Grid.Column="1"
@@ -124,8 +120,7 @@
         <TextBlock Grid.Column="3" 
                    Grid.Row="2"
                    Text="Куда?"
-                   FontSize="20"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox x:Name="cBoxTo"
                   Grid.Column="3"
@@ -134,9 +129,8 @@
 
         <TextBlock Grid.Column="3"
                    Grid.Row="5"
-                   Margin="5 0 0 0"
                    Text="Дата"
-                   FontSize="20"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <DatePicker Grid.Column="3" 
                     Grid.Row="6"
@@ -145,8 +139,7 @@
         <TextBlock Grid.Column="3" 
                    Grid.Row="8"
                    Text="Класс отеля"
-                   FontSize="20"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <TextBlock Grid.Column="3" 
                    Grid.Row="9"
@@ -157,28 +150,19 @@
         <TextBlock Grid.Column="3" 
                    Grid.Row="11"
                    Text="Количество гостей"
-                   TextWrapping="Wrap"
-                   FontSize="20"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <TextBox x:Name="txtBoxNumberOfGuests" 
                  Grid.Column="3"
                  Grid.Row="12"
-                 Margin="5 0 0 10"/>
+                 Style="{DynamicResource txtBoxGuests}"/>
 
         <Button x:Name="btnBuyTicket" 
                 Click="btnBuyTicket_Click"
                 Content="Купить"
                 Grid.Column="3"
                 Grid.Row="13"
-                Margin="5 0 5 0"/>
-
-        <ScrollViewer Grid.Column="5" 
-                      Grid.Row="2"
-                      Grid.RowSpan="12"
-                      Background="AntiqueWhite">
-
-        </ScrollViewer>
+                Style="{DynamicResource btnTours}"/>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="15"
@@ -189,14 +173,20 @@
                     Style="{DynamicResource mainButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\ИСП-32\source\TravelVoucher\TravelVoucher\Images\ControlImages\backico.png"/>
+                        <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\backico.png"/>
 
                         <TextBlock Text="Назад"
-                                   Margin="-7 6 0 0"
-                                   FontSize="16"/>
+                                   Style="{DynamicResource txtBlockButtonBackContent}"/>
                     </StackPanel>
                 </Button.Content>
             </Button>
         </StackPanel>
+
+        <ScrollViewer Grid.Column="5" 
+                      Grid.Row="2"
+                      Grid.RowSpan="12"
+                      Style="{DynamicResource scrollTours}">
+
+        </ScrollViewer>
     </Grid>
 </Page>

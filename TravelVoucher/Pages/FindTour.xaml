@@ -91,7 +91,7 @@
                     <Button x:Name="btnCloseMenu"
                             Click="btnCloseMenu_Click"
                             Style="{DynamicResource btnCloseMenu}">
-                        <materialDesign:PackIcon Foreground="#F50128"
+                        <materialDesign:PackIcon Foreground="#000000"
                                                  Kind="ArrowLeft"
                                                  Width="35"
                                                  Height="35"/>
@@ -100,7 +100,7 @@
                     <Button x:Name="btnOpenMenu" 
                             Click="btnOpenMenu_Click"
                             Style="{DynamicResource btnOpenMenu}">
-                        <materialDesign:PackIcon Foreground="#F50128"
+                        <materialDesign:PackIcon Foreground="#000000"
                                                  Kind="Menu"
                                                  Width="35"
                                                  Height="35"/>
@@ -111,7 +111,7 @@
                 <ListView x:Name="listViewMenu" 
                           SelectionChanged="listViewMenu_SelectionChanged"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                          Foreground="White">
+                          Foreground="#000000">
                     <!-- Главное меню -->
                     <ListViewItem x:Name="listViewItemHome" 
                                   Height="60">
@@ -160,8 +160,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Background="Aquamarine"
-              Margin="60 60 0 0">
+        <Grid Style="{DynamicResource gridFindTour}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
@@ -182,62 +181,44 @@
             <Button x:Name="btnHoliday"
                     Click="btnHoliday_Click"
                     Content="Отдых"
-                    FontSize="32"
                     Grid.Column="1"
                     Grid.Row="1"
-                    Margin="10"
-                    Background="AntiqueWhite"
-                    Style="{DynamicResource mainButton}"/>
+                    Style="{DynamicResource btnFindTour}"/>
 
             <Button x:Name="btnExcursion"
                     Click="btnExcursion_Click"
                     Content="Экскурсия"
-                    FontSize="32"
                     Grid.Column="1"
                     Grid.Row="2"
-                    Margin="10"
-                    Background="AntiqueWhite"
-                    Style="{DynamicResource mainButton}"/>
+                    Style="{DynamicResource btnFindTour}"/>
 
             <Button x:Name="btnSanatorium"
                     Click="btnSanatorium_Click"
                     Content="Санаторий"
-                    FontSize="32"
                     Grid.Column="1"
                     Grid.Row="3"
-                    Margin="10"
-                    Background="AntiqueWhite"
-                    Style="{DynamicResource mainButton}"/>
+                    Style="{DynamicResource btnFindTour}"/>
 
             <Button x:Name="btnShopping"
                     Click="btnShopping_Click"
                     Content="Шоппинг"
-                    FontSize="32"
                     Grid.Column="1"
                     Grid.Row="4"
-                    Margin="10"
-                    Background="AntiqueWhite"
-                    Style="{DynamicResource mainButton}"/>
+                    Style="{DynamicResource btnFindTour}"/>
 
             <Button x:Name="btnCruise"
                     Click="btnCruise_Click"
                     Content="Круиз"
-                    FontSize="32"
                     Grid.Column="1"
                     Grid.Row="5"
-                    Margin="10"
-                    Background="AntiqueWhite"
-                    Style="{DynamicResource mainButton}"/>
+                    Style="{DynamicResource btnFindTour}"/>
 
             <Button x:Name="btnBusTour"
                     Click="btnBusTour_Click"
                     Content="Автобусный тур"
-                    FontSize="32"
                     Grid.Column="1"
                     Grid.Row="6"
-                    Margin="10"
-                    Background="AntiqueWhite"
-                    Style="{DynamicResource mainButton}"/>
+                    Style="{DynamicResource btnFindTour}"/>
         </Grid>
     </Grid>
 </Page>

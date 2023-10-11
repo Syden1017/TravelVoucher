@@ -91,7 +91,7 @@
                     <Button x:Name="btnCloseMenu"
                             Click="btnCloseMenu_Click"
                             Style="{DynamicResource btnCloseMenu}">
-                        <materialDesign:PackIcon Foreground="#F50128"
+                        <materialDesign:PackIcon Foreground="#000000"
                                                  Kind="ArrowLeft"
                                                  Width="35"
                                                  Height="35"/>
@@ -100,7 +100,7 @@
                     <Button x:Name="btnOpenMenu" 
                             Click="btnOpenMenu_Click"
                             Style="{DynamicResource btnOpenMenu}">
-                        <materialDesign:PackIcon Foreground="#F50128"
+                        <materialDesign:PackIcon Foreground="#000000"
                                                  Kind="Menu"
                                                  Width="35"
                                                  Height="35"/>
@@ -111,7 +111,7 @@
                 <ListView x:Name="listViewMenu" 
                           SelectionChanged="listViewMenu_SelectionChanged"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                          Foreground="White">
+                          Foreground="#000000">
                     <!-- Главное меню -->
                     <ListViewItem x:Name="listViewItemHome" 
                                   Height="60">
@@ -160,8 +160,7 @@
             </StackPanel>
         </Grid>
 
-        <ScrollViewer Background="Aquamarine"
-                      Margin="60 60 0 0">
+        <ScrollViewer Style="{DynamicResource scrollMyTickets}">
             
         </ScrollViewer>
     </Grid>

@@ -12,7 +12,7 @@
       
       Loaded="Page_Loaded">
 
-    <Grid Background="Aquamarine">
+    <Grid Style="{DynamicResource gridTours}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.6*"/>
             <ColumnDefinition Width="*"/>
@@ -119,7 +119,7 @@
                 Content="Купить"
                 Grid.Column="1"
                 Grid.Row="12"
-                Margin="5 0 5 0"/>
+                Style="{DynamicResource btnTours}"/>
 
         <TextBlock Grid.Column="4"
                    Grid.Row="2"
@@ -157,11 +157,10 @@
                     Style="{DynamicResource mainButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\backico.png"/>
+                        <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\backico.png"/>
 
                         <TextBlock Text="Назад"
-                                   Margin="-7 6 0 0"
-                                   FontSize="16"/>
+                                   Style="{DynamicResource txtBlockButtonBackContent}"/>
                     </StackPanel>
                 </Button.Content>
             </Button>
