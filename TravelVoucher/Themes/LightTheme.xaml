@@ -5,7 +5,7 @@
            TargetType="StackPanel">
         <Style.Setters>
             <Setter Property="Background" 
-                    Value="#000000"/>
+                    Value="#7BABAA"/>
         </Style.Setters>
     </Style>
 

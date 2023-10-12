@@ -9,8 +9,6 @@
       d:DesignHeight="600" 
       d:DesignWidth="1000"
       
-      Title="Вход в систему"
-      
       Loaded="Page_Loaded">
 
     <Border Style="{DynamicResource borderLogin}">
