@@ -32,7 +32,13 @@ namespace TravelVoucher.Pages.TourPages
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show(
+                "Остались вопросы?" +
+                "\nВы можете задать их по номеру телефона: 89005063245",
+                "Поддержка",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+                );
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

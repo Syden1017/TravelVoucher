@@ -132,7 +132,8 @@
                    Text="Дата"
                    Style="{DynamicResource txtBlockHoliday}"/>
 
-        <DatePicker Grid.Column="3" 
+        <DatePicker x:Name="datePickerHoliday"
+                    Grid.Column="3" 
                     Grid.Row="6"
                     Margin="5"/>
 

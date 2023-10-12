@@ -429,6 +429,15 @@
         </Style.Setters>
     </Style>
 
+    <Style x:Key="txtBlockButtonBackContentExcursion"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockButtonBackContent}">
+        <Style.Setters>
+            <Setter Property="Margin"
+                    Value="-7 10 0 0"/>
+        </Style.Setters>
+    </Style>
+
     <!-- Контент страницы с выбором отдыха -->
     <Style x:Key="txtBoxGuests"
            TargetType="TextBox">
@@ -464,6 +473,70 @@
         </Style.Setters>
     </Style>
 
+    <!--<Style x:Key="cBoxHoliday"
+           TargetType="ComboBox">
+        <Style.Setters>
+            <Setter Property="Margin"
+                    Value="5"/>
+
+            <Setter Property="Background"
+                    Value="#0000"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0 0 0 1.2"/>
+
+            <Setter Property=""/>
+        </Style.Setters>
+    </Style>-->
+
+    <!-- Контент страницы с выбором экскурсии -->
+    <Style x:Key="txtBlockExcursion"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockHoliday}">
+        
+    </Style>
+
+    <Style x:Key="txtBlockNumbers"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockExcursion}">
+        <Style.Setters>
+            <Setter Property="TextWrapping"
+                    Value="Wrap"/>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="txtBoxExcursion"
+           TargetType="TextBox"
+           BasedOn="{StaticResource txtBoxGuests}">
+        
+    </Style>
+
+    <!-- Контент страницы с выбором круиза -->
+    <Style x:Key="txtBlockCruise"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockHoliday}">
+        
+    </Style>
+
+    <Style x:Key="txtBlockNumberOfPeoples"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockNumbers}">
+        
+    </Style>
+
+    <Style x:Key="txtBoxCruise"
+           TargetType="TextBox"
+           BasedOn="{StaticResource txtBoxGuests}">
+        
+    </Style>
+
+    <Style x:Key="txtBlockDays"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockNumberOfPeoples}">
+
+    </Style>
+
+    <!-- Область прокрутки (покупка билетов) -->
     <Style x:Key="scrollTours"
            TargetType="ScrollViewer">
         <Style.Setters>

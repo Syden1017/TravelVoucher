@@ -29,14 +29,14 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1.2*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -75,44 +75,46 @@
             </StackPanel>
         </Grid>
 
+        <!-- Разметка страницы -->
         <TextBlock Grid.Column="1"
                    Grid.Row="2"
                    Text="Откуда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxFrom"
                   Grid.Column="1"
                   Grid.Row="3"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="1"
                    Grid.Row="5" 
                    Text="Тип экскурсии"
-                   TextWrapping="Wrap"
-                   FontSize="20"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxExcursionType"
                   Grid.Column="1"
                   Grid.Row="6"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="8"
                    Text="Количество туристов:"
-                   TextWrapping="Wrap"
-                   FontSize="16"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockNumbers}"/>
 
-        <TextBlock Grid.Column="1" 
-                   Grid.Row="10"
+        <TextBox x:Name="txtBoxNumberOfTourists"
+                 Grid.Column="1"
+                 Grid.Row="9"
+                 Style="{DynamicResource txtBoxExcursion}"/>
+
+        <TextBlock Grid.Column="4" 
+                   Grid.Row="8"
                    Text="Количество дней экскурсии:"
-                   FontSize="16"
-                   TextWrapping="Wrap"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockNumbers}"/>
+
+        <TextBox x:Name="txtBoxExcursionDays"
+                 Grid.Column="4"
+                 Grid.Row="9"
+                 Style="{DynamicResource txtBoxExcursion}"/>
 
         <Button x:Name="btnBuyTicket" 
                 Click="btnBuyTicket_Click"
@@ -124,23 +126,22 @@
         <TextBlock Grid.Column="4"
                    Grid.Row="2"
                    Text="Куда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxTo"
                   Grid.Column="4"
                   Grid.Row="3"
-                  Width="223"/>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="4"
                    Grid.Row="5"
-                   Margin="20 0 0 0"
                    Text="Дата"
-                   FontSize="24"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
-        <DatePicker Grid.Column="4" 
+        <DatePicker x:Name="datePickerExcursion" 
+                    Grid.Column="4" 
                     Grid.Row="6"
-                    Width="220"/>
+                    Margin="5"/>
 
         <ScrollViewer Grid.Column="6" 
                       Grid.Row="2"
@@ -151,7 +152,8 @@
 
         <StackPanel Grid.Column="0"
                     Grid.Row="15"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal"
+                    Margin="-5 0 0 0">
             <Button x:Name="btnBack"
                     Click="btnBack_Click"
                     Style="{DynamicResource mainButton}">
@@ -160,7 +162,7 @@
                         <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\backico.png"/>
 
                         <TextBlock Text="Назад"
-                                   Style="{DynamicResource txtBlockButtonBackContent}"/>
+                                   Style="{DynamicResource txtBlockButtonBackContentExcursion}"/>
                     </StackPanel>
                 </Button.Content>
             </Button>
