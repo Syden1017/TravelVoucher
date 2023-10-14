@@ -31,7 +31,7 @@ namespace TravelVoucher.Pages.PopUpMenuPages
 
         private void btnAccountExit_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.frmObj.Navigate(new LoginPage());
         }
     }
 }

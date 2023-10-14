@@ -17,14 +17,10 @@
                 <RowDefinition Height="0.15*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <StackPanel Grid.Column="0"
-                        Grid.Row="0"
-                        Grid.ColumnSpan="5"
-                        Style="{DynamicResource stcPanelSettings}">
-                <TextBlock Text="Настройки"
-                           Style="{DynamicResource txtBlockSettingsTitle}"/>
-            </StackPanel>
+            
+            <TextBlock Text="Настройки"
+                       Grid.Row="0"
+                       Style="{DynamicResource txtBlockSettingsTitle}"/>
 
             <Border Grid.Row="1"
                     Style="{DynamicResource furtherBorderSettings}">

@@ -45,6 +45,18 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!-- Кнопка назад -->
+        <Style x:Key="txtBlockButtonBackContent"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="-7 6 0 0 "/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
+            </Style.Setters>
+        </Style>
     <!--#endregion-->
 
     <!--#region Авторизация-->
@@ -644,19 +656,11 @@
             
     <!--#region Окно настроек -->
         <Style x:Key="borderSettings"
-               TargetType="Border">
+                   TargetType="Border">
             <Style.Setters>
-                 <Setter Property="Background"
-                         Value="#7BABAA"/>
+                <Setter Property="Background"
+                             Value="#7BABAA"/>
             </Style.Setters>
-        </Style>
-
-        <Style x:Key="stcPanelSettings"
-               TargetType="StackPanel">
-            <Style.Setters>
-            <Setter Property="Background"
-                        Value="#7BABAA"/>
-        </Style.Setters>
         </Style>
 
         <Style x:Key="txtBlockSettingsTitle"
@@ -677,7 +681,7 @@
                TargetType="Border">
             <Style.Setters>
                 <Setter Property="Padding"
-                        Value="30"/>
+                        Value="20"/>
                 
                 <Setter Property="Background"
                         Value="#DFEBEA"/>
@@ -700,7 +704,7 @@
                TargetType="Button">
             <Style.Setters>
                 <Setter Property="Margin"
-                        Value="20 10 20 10"/>
+                        Value="50 10 10 10"/>
 
                 <Setter Property="Background"
                         Value="#84CCCA"/>
@@ -803,16 +807,193 @@
             </Style.Setters>
         </Style>
     <!--#endregion-->
+    
+    <!--#region Окно аккаунта -->
+        <Style x:Key="borderAccount"
+               TargetType="Border"
+               BasedOn="{StaticResource borderSettings}">
+            
+        </Style>
 
-    <!-- Кнопка назад -->
-    <Style x:Key="txtBlockButtonBackContent"
-           TargetType="TextBlock">
-        <Style.Setters>
-            <Setter Property="Margin"
-                    Value="-7 6 0 0 "/>
+        <Style x:Key="txtBlockAccount"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockSettingsTitle}">
+            
+        </Style>
 
-            <Setter Property="FontSize"
-                    Value="16"/>
-        </Style.Setters>
-    </Style>
+        <Style x:Key="furtherBorderAccount"
+               TargetType="Border"
+               BasedOn="{StaticResource furtherBorderSettings}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockUser"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="40"/>
+
+                <Setter Property="Margin"
+                        Value="15 10 0 0"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxUser"
+               TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+
+                <Setter Property="FontSize"
+                        Value="26"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockBalance"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockUser}">
+        
+        </Style>
+
+        <Style x:Key="txtBoxBalance"
+               TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="FontSize"
+                        Value="26"/>
+
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+            </Style.Setters>
+        </Style>
+    
+        <!-- Кнопки на странице аккаунта -->
+        <Style x:Key="btnAccountBack"
+               TargetType="Button"
+               BasedOn="{StaticResource mainButton}">
+            <Style.Setters>
+                <Setter Property="Width"
+                        Value="120"/>
+
+                <Setter Property="Height"
+                        Value="50"/>
+
+                <Setter Property="Margin"
+                        Value="0 5 155 0 "/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnTopUpBalance"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockButtonPopUpBalance"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 5 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnAccAccountExit"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockAccButtonExit"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 15 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
 </ResourceDictionary>

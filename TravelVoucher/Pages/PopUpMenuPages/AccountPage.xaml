@@ -5,11 +5,109 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TravelVoucher.Pages.PopUpMenuPages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AccountPage"
+      
+      d:DesignHeight="600" 
+      d:DesignWidth="1000"
+      
       Loaded="Page_Loaded">
 
-    <Grid>
-        
-    </Grid>
+    <Border Style="{DynamicResource borderAccount}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Аккаунт"
+                       Grid.Row="0"
+                       Style="{DynamicResource txtBlockAccount}"/>
+
+            <Border Grid.Row="1"
+                    Style="{DynamicResource furtherBorderAccount}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.16*"/>
+                        <RowDefinition Height="0.16*"/>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Пользователь:"
+                               Grid.Column="0"
+                               Grid.Row="0"
+                               Style="{DynamicResource txtBlockUser}"/>
+
+                    <TextBox x:Name="txtBoxUser"
+                             Grid.Column="1"
+                             Grid.Row="0"
+                             Grid.ColumnSpan="2"
+                             Style="{DynamicResource txtBoxUser}"/>
+
+                    <TextBlock Text="Баланс:"
+                               Grid.Column="0"
+                               Grid.Row="1"
+                               Style="{DynamicResource txtBlockBalance}"/>
+
+                    <TextBox x:Name="txtBoxBalance"
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             Text="0 руб."
+                             Style="{DynamicResource txtBoxBalance}"/>
+
+                    <Button x:Name="btnTopUpBalance"
+                            Click="btnTopUpBalance_Click"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Style="{DynamicResource btnTopUpBalance}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\Balance.png"/>
+
+                                <TextBlock Text="Пополнить баланс"
+                                           Style="{DynamicResource txtBlockButtonPopUpBalance}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnAccountExit"
+                            Click="btnAccountExit_Click"
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            Style="{DynamicResource btnAccAccountExit}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\logout.png"/>
+
+                                <TextBlock Text="Выйти из профиля"
+                       Style="{DynamicResource txtBlockAccButtonExit}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnBack"
+                            Click="btnBack_Click"
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            Style="{DynamicResource btnAccountBack}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\seettingsBack.png"
+                                       Width="35"
+                                       Height="35"/>
+
+                                <TextBlock Text="Назад"
+                                           Style="{DynamicResource txtBlockButtonSettingsBack}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Page>
