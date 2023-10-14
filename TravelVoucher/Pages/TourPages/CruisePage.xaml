@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d"
       
       d:DesignHeight="600" 
@@ -28,8 +27,8 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="1.3*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="1.2*"/>
@@ -47,34 +46,9 @@
             <!-- Заголовок страницы -->
             <TextBlock Text="Круиз"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
-            <StackPanel Style="{DynamicResource stcPanelTitle}">
-                <materialDesign:PopupBox Margin="10"
-                                         PlacementMode="BottomAndAlignRightEdges"
-                                         StaysOpen="False">
-                    <StackPanel>
-                        <Button x:Name="btnAccount"
-                                Click="btnAccount_Click"
-                                Content="Аккаунт"/>
-
-                        <Button x:Name="btnSettings"
-                                Click="btnSettings_Click"
-                                Content="Настройки"/>
-
-                        <Button x:Name="btnHelp"
-                                Click="btnHelp_Click"
-                                Content="Поддержка"/>
-
-                        <Separator/>
-
-                        <Button x:Name="btnLogout"
-                                Click="btnLogout_Click"
-                                Content="Выйти"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
         </Grid>
 
-        <!-- Разметка страницы -->
+        <!-- Контент страницы -->
         <TextBlock Text="Откуда?"
                    Grid.Column="1"
                    Grid.Row="2"
@@ -105,7 +79,7 @@
                  Grid.Row="9"
                  Style="{DynamicResource txtBoxCruise}"/>
 
-        <TextBlock Text="Маршрут"
+        <TextBlock Text="Куда?"
                    Grid.Column="3"
                    Grid.Row="2"
                    Style="{DynamicResource txtBlockCruise}"/>
@@ -147,7 +121,7 @@
                       Grid.Row="2"
                       Grid.RowSpan="11"
                       Style="{DynamicResource scrollTours}">
-            
+
         </ScrollViewer>
 
         <StackPanel Grid.Column="0"
@@ -159,7 +133,7 @@
                     Style="{DynamicResource mainButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\backico.png"/>
+                        <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\back.png"/>
 
                         <TextBlock Text="Назад"
                                    Style="{DynamicResource txtBlockButtonBackContent}"/>

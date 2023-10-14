@@ -41,11 +41,6 @@ namespace TravelVoucher.Pages
                 );
         }
 
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new LoginPage());
-        }
-
         private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
         {
             btnOpenMenu.Visibility = Visibility.Visible;

@@ -49,8 +49,55 @@
     </Page.Triggers>
 
     <!-- Главное окно -->
-    <Grid x:Name="gridMain" 
-          Background="#ffffff">
+    <Grid x:Name="gridMain">
+        <ScrollViewer Style="{DynamicResource scrollHome}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Column="0" 
+                       Grid.Row="0"
+                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\London.jpg"
+                       Style="{DynamicResource mainImgHome}"/>
+
+                <TextBlock Grid.Column="0"
+                           Grid.Row="1"
+                           Text="Предлагаем посетить Лондон"
+                           Style="{DynamicResource txtBlockHome}"/>
+
+                <Image Grid.Column="1" 
+                       Grid.Row="0"
+                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\Maiami.png"
+                       Style="{DynamicResource mainImgHome}"/>
+
+                <TextBlock Grid.Column="1"
+                           Grid.Row="1"
+                           Text="Предлагаем посетить Майами"
+                           Style="{DynamicResource txtBlockHome}"/>
+
+                <Image Grid.Column="0" 
+                       Grid.Row="2"
+                       Grid.ColumnSpan="2"
+                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\Dubai.jpg"
+                       Style="{DynamicResource bigImgHome}"/>
+
+                <TextBlock Grid.Column="0"
+                           Grid.Row="3"
+                           Grid.ColumnSpan="2"
+                           Text="Предлагаем посетить Дубаи"
+                           Style="{DynamicResource txtBlockHome}"/>
+            </Grid>
+        </ScrollViewer>
+
         <Grid Style="{DynamicResource gridTitle}">
             <!-- Заголовок страницы -->
             <TextBlock Text="Главное меню"
@@ -68,15 +115,11 @@
                                 Click="btnSettings_Click"
                                 Content="Настройки"/>
 
+                        <Separator/>
+
                         <Button x:Name="btnHelp"
                                 Click="btnHelp_Click"
                                 Content="Поддержка"/>
-
-                        <Separator/>
-
-                        <Button x:Name="btnLogout"
-                                Click="btnLogout_Click"
-                                Content="Выйти"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
@@ -85,7 +128,6 @@
         <!-- Боковое меню -->
         <Grid x:Name="gridMenu" 
               Style="{DynamicResource gridSidebarMenu}">
-            <!-- Верхняя панель бокового меню -->
             <StackPanel>
                 <Grid Style="{DynamicResource gridSidebarTop}">
                     <Button x:Name="btnCloseMenu"
@@ -114,7 +156,8 @@
                           Foreground="#000000">
                     <!-- Главное меню -->
                     <ListViewItem x:Name="listViewItemHome" 
-                                  Height="60">
+                                  Height="60"
+                                  Background="#BCD4D4">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard"
                                                      VerticalAlignment="Center"
@@ -129,7 +172,8 @@
 
                     <!-- Выбор билета -->
                     <ListViewItem x:Name="listViewItemFindTour" 
-                                  Height="60">
+                                  Height="60"
+                                  Background="#BCD4D4">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Ticket"
                                                      VerticalAlignment="Center"
@@ -137,14 +181,15 @@
                                                      Height="35"
                                                      Margin="5"/>
 
-                            <TextBlock Text="Поиск путёвки"
+                            <TextBlock Text="Поиск тура"
                                        Style="{DynamicResource txtBlockSidebar}"/>
                         </StackPanel>
                     </ListViewItem>
 
                     <!-- Купленные билеты -->
                     <ListViewItem x:Name="listViewItemTickets"
-                                  Height="60">
+                                  Height="60"
+                                  Background="#BCD4D4">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="TicketUser"
                                                      VerticalAlignment="Center"
@@ -159,63 +204,5 @@
                 </ListView>
             </StackPanel>
         </Grid>
-
-        <ScrollViewer Style="{DynamicResource scrollHome}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="4*"/>
-                    <RowDefinition Height="0.5*"/>
-                </Grid.RowDefinitions>
-
-                <Image Grid.Column="0" 
-                       Grid.Row="0"
-                       Width="420"
-                       Margin="0 10 0 0"
-                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\London.jpg"/>
-
-                <TextBlock Grid.Column="0"
-                           Grid.Row="1"
-                           Foreground="Black"
-                           Margin="5 15 0 15"
-                           Text="Предлагаем посетить Лондон"
-                           TextWrapping="Wrap"/>
-
-                <Image Grid.Column="1" 
-                       Grid.Row="0"
-                       Width="420"
-                       Margin="0 10 0 0"
-                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\Maiami.png"/>
-
-                <TextBlock Grid.Column="1"
-                           Grid.Row="1"
-                           Foreground="Black"
-                           Margin="5 15 0 15"
-                           Text="Предлагаем посетить Майами"
-                           TextWrapping="Wrap"/>
-
-                <Image Grid.Column="0" 
-                       Grid.Row="2"
-                       Grid.ColumnSpan="2"
-                       Stretch="Fill"
-                       Width="900"
-                       Height="400"
-                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\Dubai.jpg"/>
-
-                <TextBlock Grid.Column="0"
-                           Grid.Row="3"
-                           Grid.ColumnSpan="2"
-                           Foreground="Black"
-                           Margin="5 15 0 10"
-                           Text="Предлагаем посетить Дубаи"
-                           TextWrapping="Wrap"/>
-            </Grid>
-        </ScrollViewer>
     </Grid>
 </Page>

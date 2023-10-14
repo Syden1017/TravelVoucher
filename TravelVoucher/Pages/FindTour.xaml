@@ -49,117 +49,7 @@
     </Page.Triggers>
 
     <!-- Главное окно -->
-    <Grid x:Name="gridMain" 
-          Background="#ffffff">
-        <Grid Style="{DynamicResource gridTitle}">
-            <!-- Заголовок страницы -->
-            <TextBlock Text="Поиск путёвки"
-                       Style="{DynamicResource txtBlockHomeTitle}"/>
-            <StackPanel Style="{DynamicResource stcPanelTitle}">
-                <materialDesign:PopupBox Margin="10"
-                                         PlacementMode="BottomAndAlignRightEdges"
-                                         StaysOpen="False">
-                    <StackPanel>
-                        <Button x:Name="btnAccount"
-                                Click="btnAccount_Click"
-                                Content="Аккаунт"/>
-
-                        <Button x:Name="btnSettings"
-                                Click="btnSettings_Click"
-                                Content="Настройки"/>
-
-                        <Button x:Name="btnHelp"
-                                Click="btnHelp_Click"
-                                Content="Поддержка"/>
-
-                        <Separator/>
-
-                        <Button x:Name="btnLogout"
-                                Click="btnLogout_Click"
-                                Content="Выйти"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
-        </Grid>
-
-        <!-- Боковое меню -->
-        <Grid x:Name="gridMenu" 
-              Style="{DynamicResource gridSidebarMenu}">
-            <!-- Верхняя панель бокового меню -->
-            <StackPanel>
-                <Grid Style="{DynamicResource gridSidebarTop}">
-                    <Button x:Name="btnCloseMenu"
-                            Click="btnCloseMenu_Click"
-                            Style="{DynamicResource btnCloseMenu}">
-                        <materialDesign:PackIcon Foreground="#000000"
-                                                 Kind="ArrowLeft"
-                                                 Width="35"
-                                                 Height="35"/>
-                    </Button>
-
-                    <Button x:Name="btnOpenMenu" 
-                            Click="btnOpenMenu_Click"
-                            Style="{DynamicResource btnOpenMenu}">
-                        <materialDesign:PackIcon Foreground="#000000"
-                                                 Kind="Menu"
-                                                 Width="35"
-                                                 Height="35"/>
-                    </Button>
-                </Grid>
-
-                <!-- Элементы бокового меню -->
-                <ListView x:Name="listViewMenu" 
-                          SelectionChanged="listViewMenu_SelectionChanged"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                          Foreground="#000000">
-                    <!-- Главное меню -->
-                    <ListViewItem x:Name="listViewItemHome" 
-                                  Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewDashboard"
-                                                     VerticalAlignment="Center"
-                                                     Width="35"
-                                                     Height="35"
-                                                     Margin="5"/>
-
-                            <TextBlock Text="Главная"
-                                       Style="{DynamicResource txtBlockSidebar}"/>
-                        </StackPanel>
-                    </ListViewItem>
-
-                    <!-- Выбор билета -->
-                    <ListViewItem x:Name="listViewItemFindTour" 
-                                  Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Ticket"
-                                                     VerticalAlignment="Center"
-                                                     Width="35"
-                                                     Height="35"
-                                                     Margin="5"/>
-
-                            <TextBlock Text="Поиск тура"
-                                       Style="{DynamicResource txtBlockSidebar}"/>
-                        </StackPanel>
-                    </ListViewItem>
-
-                    <!-- Купленные билеты -->
-                    <ListViewItem x:Name="listViewItemTickets"
-                                  Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="TicketUser"
-                                                     VerticalAlignment="Center"
-                                                     Width="35"
-                                                     Height="35"
-                                                     Margin="5"/>
-
-                            <TextBlock Text="Мои билеты"
-                                       Style="{DynamicResource txtBlockSidebar}"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-            </StackPanel>
-        </Grid>
-
+    <Grid x:Name="gridMain">
         <Grid Style="{DynamicResource gridFindTour}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -219,6 +109,113 @@
                     Grid.Column="1"
                     Grid.Row="6"
                     Style="{DynamicResource btnFindTour}"/>
+        </Grid>
+
+        <Grid Style="{DynamicResource gridTitle}">
+            <!-- Заголовок страницы -->
+            <TextBlock Text="Поиск путёвки"
+                       Style="{DynamicResource txtBlockHomeTitle}"/>
+            <StackPanel Style="{DynamicResource stcPanelTitle}">
+                <materialDesign:PopupBox Margin="10"
+                                         PlacementMode="BottomAndAlignRightEdges"
+                                         StaysOpen="False">
+                    <StackPanel>
+                        <Button x:Name="btnAccount"
+                                Click="btnAccount_Click"
+                                Content="Аккаунт"/>
+
+                        <Button x:Name="btnSettings"
+                                Click="btnSettings_Click"
+                                Content="Настройки"/>
+
+                        <Separator/>
+
+                        <Button x:Name="btnHelp"
+                                Click="btnHelp_Click"
+                                Content="Поддержка"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+
+        <!-- Боковое меню -->
+        <Grid x:Name="gridMenu" 
+              Style="{DynamicResource gridSidebarMenu}">
+            <StackPanel>
+                <Grid Style="{DynamicResource gridSidebarTop}">
+                    <Button x:Name="btnCloseMenu"
+                            Click="btnCloseMenu_Click"
+                            Style="{DynamicResource btnCloseMenu}">
+                        <materialDesign:PackIcon Foreground="#000000"
+                                                 Kind="ArrowLeft"
+                                                 Width="35"
+                                                 Height="35"/>
+                    </Button>
+
+                    <Button x:Name="btnOpenMenu" 
+                            Click="btnOpenMenu_Click"
+                            Style="{DynamicResource btnOpenMenu}">
+                        <materialDesign:PackIcon Foreground="#000000"
+                                                 Kind="Menu"
+                                                 Width="35"
+                                                 Height="35"/>
+                    </Button>
+                </Grid>
+
+                <!-- Элементы бокового меню -->
+                <ListView x:Name="listViewMenu" 
+                          SelectionChanged="listViewMenu_SelectionChanged"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                          Foreground="#000000">
+                    <!-- Главное меню -->
+                    <ListViewItem x:Name="listViewItemHome" 
+                                  Height="60"
+                                  Background="#BCD4D4">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboard"
+                                                     VerticalAlignment="Center"
+                                                     Width="35"
+                                                     Height="35"
+                                                     Margin="5"/>
+
+                            <TextBlock Text="Главная"
+                                       Style="{DynamicResource txtBlockSidebar}"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <!-- Выбор билета -->
+                    <ListViewItem x:Name="listViewItemFindTour" 
+                                  Height="60"
+                                  Background="#BCD4D4">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Ticket"
+                                                     VerticalAlignment="Center"
+                                                     Width="35"
+                                                     Height="35"
+                                                     Margin="5"/>
+
+                            <TextBlock Text="Поиск тура"
+                                       Style="{DynamicResource txtBlockSidebar}"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <!-- Купленные билеты -->
+                    <ListViewItem x:Name="listViewItemTickets"
+                                  Height="60"
+                                  Background="#BCD4D4">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="TicketUser"
+                                                     VerticalAlignment="Center"
+                                                     Width="35"
+                                                     Height="35"
+                                                     Margin="5"/>
+
+                            <TextBlock Text="Мои билеты"
+                                       Style="{DynamicResource txtBlockSidebar}"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
