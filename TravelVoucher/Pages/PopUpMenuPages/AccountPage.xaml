@@ -70,7 +70,7 @@
                                 <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\Balance.png"/>
 
                                 <TextBlock Text="Пополнить баланс"
-                                           Style="{DynamicResource txtBlockButtonPopUpBalance}"/>
+                                           Style="{DynamicResource txtBlockButtonTopUpBalance}"/>
                             </StackPanel>
                         </Button.Content>
                     </Button>

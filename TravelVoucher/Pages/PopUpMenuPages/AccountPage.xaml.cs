@@ -22,7 +22,8 @@ namespace TravelVoucher.Pages.PopUpMenuPages
 
         private void btnTopUpBalance_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.frmObj.Navigate(new TopUpBalance());
+            TopUpBalance topUpBalance = new TopUpBalance();
+            topUpBalance.ShowDialog();
         }
 
         private void btnAccountExit_Click(object sender, RoutedEventArgs e)

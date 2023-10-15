@@ -6,12 +6,136 @@
         xmlns:local="clr-namespace:TravelVoucher.Windows"
         mc:Ignorable="d"
         
-        Height="600" 
-        Width="1000"
+        Height="310" 
+        Width="360"
         
-        Loaded="Window_Loaded">
-    
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         
-    </Grid>
+        WindowStyle="None"
+        
+        MouseDown="Window_MouseDown">
+
+    <Border Style="{DynamicResource borderTopUpBalance}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Пополнение баланса"
+                       Style="{DynamicResource txtBlockButtonTopUpBalance}"/>
+
+            <Border Grid.Row="1"
+                    Style="{DynamicResource furtherBorderTopUpBalance}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="1.6*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox x:Name="txtBoxCardNumber" 
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             Grid.ColumnSpan="6"
+                             Tag="Номер карты"
+                             Style="{DynamicResource txtBoxCardNumber}"/>
+
+                    <TextBox x:Name="txtBoxMonth"
+                             Grid.Column="1"
+                             Grid.Row="3"
+                             Tag="ММ"
+                             Style="{DynamicResource txtBoxMonth}"/>
+
+                    <TextBlock Text="/"
+                               Grid.Column="2"
+                               Grid.Row="3"
+                               Style="{DynamicResource furtherTxtBlockTopUpBalance}"/>
+
+                    <TextBox x:Name="txtBoxYear"
+                             Grid.Column="3"
+                             Grid.Row="3"
+                             Tag="ГГ"
+                             Style="{DynamicResource txtBoxYear}"/>
+
+                    <TextBox x:Name="txtBoxCodeCVC"
+                             Grid.Column="6"
+                             Grid.Row="3"
+                             Tag="CVC"
+                             Style="{DynamicResource txtBoxCodeCVC}"/>
+
+                    <TextBlock Text="Три цифры с обратной стороны карты"
+                               Grid.Column="6"
+                               Grid.Row="4"
+                               Style="{DynamicResource txtBlockHint}"/>
+
+                    <TextBlock Text="Сумма пополнения"
+                               Grid.Column="1"
+                               Grid.Row="5"
+                               Grid.ColumnSpan="4"
+                               Style="{DynamicResource txtBlockReplenishmentAmount}"/>
+
+                    <TextBox x:Name="txtBoxReplenishmentAmount"
+                             Grid.Column="5"
+                             Grid.Row="5"
+                             Grid.ColumnSpan="2"
+                             Style="{DynamicResource txtBoxReplenishmentAmount}"/>
+
+                    <Button x:Name="btnCancelTransaction"
+                            Click="btnCancelTransaction_Click"
+                            Grid.Column="1"
+                            Grid.Row="7"
+                            Grid.ColumnSpan="2"
+                            Style="{DynamicResource btnCancelTransaction}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\cancel.png"
+                                       Width="15"
+                                       Height="15"/>
+
+                                <TextBlock Text="Отмена"
+                                           Style="{DynamicResource txtBlockButtonCancelTransaction}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    
+                    <Button x:Name="btnTransaction"
+                            Click="btnTransaction_Click"
+                            Grid.Column="3"
+                            Grid.Row="7"
+                            Grid.ColumnSpan="4"
+                            Style="{DynamicResource btnTransaction}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\Balance.png"
+                                       Width="20"
+                                       Height="20"/>
+
+                                <TextBlock Text="Пополнить"
+                                           Style="{DynamicResource txtBlockButtonTransaction}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

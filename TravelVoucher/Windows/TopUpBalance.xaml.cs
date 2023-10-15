@@ -1,5 +1,7 @@
-﻿using System.Windows;
-using WpfApp1.Tools;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
+using TravelVoucher.Pages;
 
 namespace TravelVoucher.Windows
 {
@@ -13,9 +15,40 @@ namespace TravelVoucher.Windows
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Navigation.id = 12;
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void btnCancelTransaction_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnTransaction_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MessageBox.Show(
+                    "Транзакция прошла успешно",
+                    "Выполнение пополнения",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message.ToString(),
+                    "Системная ошибка",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                    );
+            }
         }
     }
 }
