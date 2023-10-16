@@ -1051,6 +1051,12 @@
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#7BABAA"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
             </Style.Setters>
         </Style>
 

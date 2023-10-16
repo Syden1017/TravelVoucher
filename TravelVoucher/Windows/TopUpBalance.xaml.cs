@@ -15,6 +15,16 @@ namespace TravelVoucher.Windows
             InitializeComponent();
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = MessageBox.Show(
+               "Действительно хотите отменить транзакцию?",
+               "Отмена транзакции",
+               MessageBoxButton.YesNo,
+               MessageBoxImage.Question,
+               MessageBoxResult.Yes) == MessageBoxResult.No;
+        }
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
