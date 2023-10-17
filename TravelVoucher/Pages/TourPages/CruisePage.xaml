@@ -121,7 +121,13 @@
                       Grid.Row="2"
                       Grid.RowSpan="11"
                       Style="{DynamicResource scrollTours}">
-
+            <ListView>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Style="{DynamicResource itemPanel}"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
         </ScrollViewer>
 
         <StackPanel Grid.Column="0"
