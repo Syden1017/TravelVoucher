@@ -18,5 +18,25 @@ namespace TravelVoucher.Pages.TourPages
         {
             Navigation.id = 6;
         }
+
+        private void btnAccount_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
