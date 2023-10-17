@@ -1,0 +1,49 @@
+﻿<Page x:Class="TravelVoucher.Pages.TourPages.ShoppingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" 
+      d:DesignWidth="1000"
+      
+      Loaded="Page_Loaded">
+
+        <Grid Background="Aquamarine" >
+            <Grid Style="{DynamicResource gridTitle}"
+              Grid.Column="0"
+              Grid.Row="0"
+              Grid.ColumnSpan="8">
+                <!-- Заголовок страницы -->
+                <TextBlock Text="Шоппинг"
+                       Style="{DynamicResource txtBlockHomeTitle}"/>
+                <StackPanel Style="{DynamicResource stcPanelTitle}">
+                    <materialDesign:PopupBox Margin="10"
+                                         PlacementMode="BottomAndAlignRightEdges"
+                                         StaysOpen="False">
+                        <StackPanel>
+                            <Button x:Name="btnAccount"
+                                Click="btnAccount_Click"
+                                Content="Аккаунт"/>
+
+                            <Button x:Name="btnSettings"
+                                Click="btnSettings_Click"
+                                Content="Настройки"/>
+
+                            <Button x:Name="btnHelp"
+                                Click="btnHelp_Click"
+                                Content="Поддержка"/>
+
+                            <Separator/>
+
+                            <Button x:Name="btnLogout"
+                                Click="btnLogout_Click"
+                                Content="Выйти"/>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+</Page>

@@ -5,8 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelVoucher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        
+        Title="{Binding 
+                ElementName=frmMain, 
+                Path=Content.Title}" 
+        
+        Height="600" 
+        Width="1000"
+        
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        
+        WindowStyle="None"
+        
+        Closing="Window_Closing"
+        MouseDown="Window_MouseDown">
 
-    </Grid>
+    <Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Grid.ColumnSpan="5"
+                        Style="{StaticResource mainTextPanel}">
+
+                <TextBlock Text="{Binding 
+                           ElementName=frmMain, 
+                           Path=Content.Title}"/>
+            </StackPanel>
+
+            <Button x:Name="btnMinimize"
+                    Click="btnMinimize_Click"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Style="{StaticResource mainButton}">
+
+                <Button.Content>
+                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\minimize.png"/>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="btnMaximize"
+                    Click="btnMaximize_Click"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Style="{StaticResource mainButton}">
+
+                <Button.Content>
+                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\maximize.png"/>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="btnExit"
+                    Click="btnExit_Click"
+                    Grid.Column="3"
+                    Grid.Row="0"
+                    Style="{StaticResource mainButton}">
+
+                <Button.Content>
+                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\exit.png"/>
+                </Button.Content>
+            </Button>
+
+            <Frame x:Name="frmMain"
+                   NavigationUIVisibility="Hidden"
+                   Grid.Column="0"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="5"/>
+        </Grid>
+    </Border>
 </Window>
