@@ -51,7 +51,13 @@
     <!-- Главное окно -->
     <Grid x:Name="gridMain">
         <ScrollViewer Style="{DynamicResource scrollMyTickets}">
-
+            <ListView>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Style="{DynamicResource itemPanel}"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
         </ScrollViewer>
 
         <Grid Style="{DynamicResource gridTitle}">

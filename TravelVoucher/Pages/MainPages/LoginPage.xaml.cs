@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using TravelVoucher.Tools;
 using WpfApp1.Tools;
 
 namespace TravelVoucher.Pages
@@ -23,7 +22,7 @@ namespace TravelVoucher.Pages
 
         private void txtBoxLogin_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (txtBoxLogin.Text != "User")
+            if (txtBoxLogin.Text == "")
             {
                 txtBoxLogin.Background = Brushes.LightCoral;
                 txtBoxLogin.BorderBrush = Brushes.Red;
@@ -41,8 +40,34 @@ namespace TravelVoucher.Pages
             }
         }
 
+        private void passBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (passBox.Password == "")
+            {
+                passBox.Background = Brushes.LightCoral;
+                passBox.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                Color colorWhite = Color.FromRgb(255, 242, 242);
+                Brush brushWhite = new SolidColorBrush(colorWhite);
+
+                Color colorBlack = Color.FromRgb(0, 0, 0);
+                Brush brushBlack = new SolidColorBrush(colorBlack);
+
+                passBox.Background = brushWhite;
+                passBox.BorderBrush = brushBlack;
+            }
+        }
+
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
+            Color colorWhite = Color.FromRgb(255, 242, 242);
+            Brush brushWhite = new SolidColorBrush(colorWhite);
+
+            Color colorBlack = Color.FromRgb(0, 0, 0);
+            Brush brushBlack = new SolidColorBrush(colorBlack);
+
             if (txtBoxLogin.Text.Length > 0)
             {
                 if (passBox.Password.Length > 0)
@@ -67,14 +92,19 @@ namespace TravelVoucher.Pages
                         }
                         else
                         {
-                            txtBoxLogin.Background = Brushes.LightGreen;
-                            txtBoxLogin.BorderBrush = Brushes.Green;
+                            txtBoxLogin.Background = brushWhite;
+                            txtBoxLogin.BorderBrush = brushBlack;
                         }
 
                         if (passBox.Password != "12345")
                         {
                             passBox.Background = Brushes.LightCoral;
                             passBox.BorderBrush = Brushes.Red;
+                        }
+                        else
+                        {
+                            passBox.Background = brushWhite;
+                            passBox.BorderBrush = brushBlack;
                         }
                     }
                 }

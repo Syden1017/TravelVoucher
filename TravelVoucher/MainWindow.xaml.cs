@@ -58,5 +58,17 @@ namespace TravelVoucher
         {
             this.Close();
         }
+
+        private void frmMain_ContentRendered(object sender, System.EventArgs e)
+        {
+            if (Navigation.id != 0)
+            {
+                btnMaximize.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnMaximize.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

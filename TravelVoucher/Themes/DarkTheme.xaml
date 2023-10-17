@@ -6,12 +6,12 @@
                TargetType="StackPanel">
             <Style.Setters>
                 <Setter Property="Background" 
-                        Value="#7BABAA"/>
+                        Value="#2F5555"/>
             </Style.Setters>
         </Style>
 
         <Style x:Key="mainButton"
-                   TargetType="Button">
+               TargetType="Button">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#0000"/>
@@ -55,10 +55,13 @@
 
                 <Setter Property="FontSize"
                         Value="16"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
-    <!-- Исчезающий текст внутри TextBox -->
+        <!-- Исчезающий текст внутри TextBox -->
         <Style x:Key="placeHolder" 
                TargetType="{x:Type TextBox}" 
                BasedOn="{StaticResource {x:Type TextBox}}">
@@ -105,18 +108,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-    
-        <!-- Панель для плитки  -->
-        <Style x:Key="itemPanel"
-               TargetType="WrapPanel">
-            <Style.Setters>
-                <Setter Property="Orientation"
-                        Value="Horizontal"/>
-
-                <Setter Property="HorizontalAlignment"
-                        Value="Center"/>
-            </Style.Setters>
-        </Style>
     <!--#endregion-->
 
     <!--#region Авторизация-->
@@ -128,10 +119,10 @@
                         Value="180"/>
 
                 <Setter Property="Background"
-                        Value="#DFEBEA"/>
+                        Value="#152626"/>
             </Style.Setters>
         </Style>
-        
+
         <Style x:Key="txtBlockTitle"
                TargetType="TextBlock">
             <Style.Setters>
@@ -143,6 +134,9 @@
 
                 <Setter Property="FontSize"
                         Value="40"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -157,13 +151,16 @@
 
                 <Setter Property="FontSize"
                         Value="26"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
         <Style x:Key="txtBlockPassword"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockLogin}">
-            
+
         </Style>
 
         <Style x:Key="txtBoxLogin"
@@ -216,7 +213,7 @@
                         Value="10"/>
 
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
@@ -226,6 +223,9 @@
 
                 <Setter Property="BorderThickness"
                         Value="1.2"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -253,7 +253,7 @@
                TargetType="Grid">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#7BABAA"/>
+                        Value="#2F5555"/>
 
                 <Setter Property="VerticalAlignment"
                         Value="Top"/>
@@ -274,6 +274,9 @@
 
                 <Setter Property="FontSize"
                         Value="40"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -313,7 +316,7 @@
                         Value="60"/>
 
                 <Setter Property="Background"
-                        Value="#7BABAA"/>
+                        Value="#2F5555"/>
             </Style.Setters>
         </Style>
 
@@ -364,14 +367,14 @@
             </Style.Setters>
         </Style>
     <!--#endregion-->
-    
+
     <!--#region Настройки главного окна-->
         <!-- Область прокрутки (главное окно) -->
         <Style x:Key="scrollHome"
                TargetType="ScrollViewer">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#DFEBEA"/>
+                        Value="#152626"/>
 
                 <Setter Property="Width"
                         Value="940"/>
@@ -401,9 +404,13 @@
 
                 <Setter Property="FontSize"
                         Value="24"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
+        <!-- Настройки картинок на главной странице -->
         <Style x:Key="mainImgHome"
                TargetType="Image">
             <Style.Setters>
@@ -429,14 +436,14 @@
             </Style.Setters>
         </Style>
     <!--#endregion-->
-    
+
     <!--#region Окно поиска путёвки-->
         <!-- Контейнер -->
         <Style x:Key="gridFindTour"
                TargetType="Grid">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#DFEBEA"/>
+                        Value="#152626"/>
 
                 <Setter Property="Width"
                         Value="940"/>
@@ -451,7 +458,7 @@
                         Value="Bottom"/>
             </Style.Setters>
         </Style>
-        
+
         <!-- Кнопки -->
         <Style x:Key="btnFontSize"
                TargetType="Button">
@@ -460,13 +467,13 @@
                         Value="32"/>
             </Style.Setters>
         </Style>
-        
+
         <Style x:Key="btnFindTour"
                TargetType="Button"
                BasedOn="{StaticResource btnFontSize}">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Margin"
                         Value="10"/>
@@ -479,6 +486,9 @@
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -499,14 +509,14 @@
             </Style.Resources>
         </Style>
     <!--#endregion-->
-        
+
     <!--#region Настройки страницы с выбором типа билета -->
         <!-- Контейнер -->
         <Style x:Key="gridTours"
                TargetType="Grid">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#DFEBEA"/>
+                        Value="#152626"/>
             </Style.Setters>
         </Style>
 
@@ -515,7 +525,7 @@
                TargetType="Button">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Margin"
                         Value="5"/>
@@ -581,6 +591,9 @@
 
                 <Setter Property="FontSize"
                         Value="20"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -600,44 +613,44 @@
             </Style.Setters>
         </Style>-->
     <!--#endregion-->
-        
+
     <!--#region Страница выбора экскурсии -->
-        <Style x:Key="txtBlockExcursion"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockHoliday}">
-            
-        </Style>
+    <Style x:Key="txtBlockExcursion"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockHoliday}">
 
-        <Style x:Key="txtBlockNumbers"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockExcursion}">
-            <Style.Setters>
-                <Setter Property="TextWrapping"
-                        Value="Wrap"/>
-            </Style.Setters>
-        </Style>
+    </Style>
 
-        <Style x:Key="txtBoxExcursion"
-               TargetType="TextBox"
-               BasedOn="{StaticResource txtBoxGuests}">
-            
-        </Style>
+    <Style x:Key="txtBlockNumbers"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockExcursion}">
+        <Style.Setters>
+            <Setter Property="TextWrapping"
+                    Value="Wrap"/>
+        </Style.Setters>
+    </Style>
 
-        <Style x:Key="txtBlockButtonBackContentExcursion"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockButtonBackContent}">
-            <Style.Setters>
-                <Setter Property="Margin"
-                        Value="-7 10 0 0"/>
-            </Style.Setters>
-        </Style>
+    <Style x:Key="txtBoxExcursion"
+           TargetType="TextBox"
+           BasedOn="{StaticResource txtBoxGuests}">
+
+    </Style>
+
+    <Style x:Key="txtBlockButtonBackContentExcursion"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource txtBlockButtonBackContent}">
+        <Style.Setters>
+            <Setter Property="Margin"
+                    Value="-7 10 0 0"/>
+        </Style.Setters>
+    </Style>
     <!--#endregion-->
-    
+
     <!--#region Страница выбора санатория -->
         <Style x:Key="txtBlockSanatorium"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockHoliday}">
-            
+
         </Style>
 
         <Style x:Key="txtBlockSanatoriumNumbers"
@@ -650,8 +663,8 @@
         </Style>
 
         <Style x:Key="txtBoxSanatorium"
-           TargetType="TextBox"
-           BasedOn="{StaticResource txtBoxGuests}">
+               TargetType="TextBox"
+               BasedOn="{StaticResource txtBoxGuests}">
 
         </Style>
     <!--#endregion-->
@@ -686,19 +699,19 @@
         <Style x:Key="txtBlockCruise"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockHoliday}">
-            
+
         </Style>
 
         <Style x:Key="txtBlockNumberOfPeoples"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockNumbers}">
-            
+
         </Style>
 
         <Style x:Key="txtBoxCruise"
                TargetType="TextBox"
                BasedOn="{StaticResource txtBoxGuests}">
-            
+
         </Style>
 
         <Style x:Key="txtBlockDays"
@@ -706,13 +719,13 @@
                BasedOn="{StaticResource txtBlockNumberOfPeoples}">
 
         </Style>
-    <!--#endregion -->    
+    <!--#endregion -->
 
     <!--#region Страница выбора автобусного тура -->
         <Style x:Key="txtBlockBusTour"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockHoliday}">
-            
+
         </Style>
 
         <Style x:Key="txtBlockBusTourNumbers"
@@ -730,14 +743,14 @@
 
         </Style>
     <!--#endregion-->
-        
-    <!--#region Области прокрутки-->   
+
+    <!--#region Области прокрутки-->
         <!-- Область прокрутки (покупка билетов) -->
         <Style x:Key="scrollTours"
                TargetType="ScrollViewer">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#F2E7E7"/>
+                        Value="#4E8E8D"/>
             </Style.Setters>
         </Style>
 
@@ -746,7 +759,7 @@
                TargetType="ScrollViewer">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#DFEBEA"/>
+                        Value="#152626"/>
 
                 <Setter Property="Width"
                         Value="940"/>
@@ -762,13 +775,13 @@
             </Style.Setters>
         </Style>
     <!--#endregion-->
-            
+
     <!--#region Окно настроек -->
         <Style x:Key="borderSettings"
-                   TargetType="Border">
+               TargetType="Border">
             <Style.Setters>
                 <Setter Property="Background"
-                             Value="#7BABAA"/>
+                        Value="#2F5555"/>
             </Style.Setters>
         </Style>
 
@@ -777,12 +790,15 @@
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
-                
+
                 <Setter Property="HorizontalAlignment"
                         Value="Center"/>
 
                 <Setter Property="FontSize"
                         Value="40"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -791,9 +807,9 @@
             <Style.Setters>
                 <Setter Property="Padding"
                         Value="20"/>
-                
+
                 <Setter Property="Background"
-                        Value="#DFEBEA"/>
+                        Value="#152626"/>
             </Style.Setters>
         </Style>
 
@@ -805,6 +821,9 @@
 
                 <Setter Property="Margin"
                         Value="5 5 0 0"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -816,7 +835,7 @@
                         Value="50 10 10 10"/>
 
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
@@ -830,7 +849,7 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver"
-                        Value="True">
+                         Value="True">
                     <Setter Property="Background"
                             Value="#74B3B1"/>
                 </Trigger>
@@ -864,7 +883,7 @@
                         Value="20 10 10 180"/>
 
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
@@ -878,7 +897,7 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver"
-                        Value="True">
+                         Value="True">
                     <Setter Property="Background"
                             Value="#74B3B1"/>
                 </Trigger>
@@ -913,27 +932,30 @@
 
                 <Setter Property="FontSize"
                         Value="24"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
     <!--#endregion-->
-    
+
     <!--#region Окно аккаунта -->
         <Style x:Key="borderAccount"
                TargetType="Border"
                BasedOn="{StaticResource borderSettings}">
-            
+
         </Style>
 
         <Style x:Key="txtBlockAccount"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockSettingsTitle}">
-            
+
         </Style>
 
         <Style x:Key="furtherBorderAccount"
                TargetType="Border"
                BasedOn="{StaticResource furtherBorderSettings}">
-            
+
         </Style>
 
         <Style x:Key="txtBlockUser"
@@ -944,6 +966,9 @@
 
                 <Setter Property="Margin"
                         Value="15 10 0 0"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -970,7 +995,7 @@
         <Style x:Key="txtBlockBalance"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockUser}">
-        
+
         </Style>
 
         <Style x:Key="txtBoxBalance"
@@ -992,7 +1017,7 @@
                         Value="0 0 0 1.2"/>
             </Style.Setters>
         </Style>
-    
+
         <!-- Кнопки на странице аккаунта -->
         <Style x:Key="btnAccountBack"
                TargetType="Button"
@@ -1016,7 +1041,7 @@
                         Value="10"/>
 
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
@@ -1064,7 +1089,7 @@
                         Value="10"/>
 
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
@@ -1105,13 +1130,13 @@
             </Style.Setters>
         </Style>
     <!--#endregion-->
-    
+
     <!--#region Окно пополнения баланса -->
         <Style x:Key="borderTopUpBalance"
                TargetType="Border">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#7BABAA"/>
+                        Value="#2F5555"/>
 
                 <Setter Property="BorderBrush"
                         Value="#000000"/>
@@ -1124,14 +1149,14 @@
         <Style x:Key="txtBlockTopUpBalance"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockAccount}">
-        
+
         </Style>
 
         <Style x:Key="furtherBorderTopUpBalance"
                TargetType="Border">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#DFEBEA"/>
+                        Value="#152626"/>
             </Style.Setters>
         </Style>
 
@@ -1144,7 +1169,7 @@
 
                 <Setter Property="BorderBrush"
                         Value="#000000"/>
-            
+
                 <Setter Property="BorderThickness"
                         Value="0 0 0 1.2"/>
 
@@ -1161,6 +1186,9 @@
 
                 <Setter Property="HorizontalAlignment"
                         Value="Center"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -1243,6 +1271,9 @@
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="7"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
@@ -1262,7 +1293,7 @@
                         Value="2 0 7 3"/>
             </Style.Setters>
         </Style>
-            
+
         <!-- Кнопки на странице пополнения -->
         <Style x:Key="txtBlockButtonTransaction"
                TargetType="TextBlock">
@@ -1272,17 +1303,20 @@
 
                 <Setter Property="FontSize"
                         Value="16"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
 
         <Style x:Key="btnTransaction"
-           TargetType="Button">
+               TargetType="Button">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="7 10 7 10"/>
 
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
@@ -1319,7 +1353,7 @@
                         Value="2 10 2 10"/>
 
                 <Setter Property="Background"
-                        Value="#84CCCA"/>
+                        Value="#4E8E8D"/>
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
@@ -1357,6 +1391,9 @@
 
                 <Setter Property="FontSize"
                         Value="12"/>
+
+                <Setter Property="Foreground"
+                        Value="#FFFFFF"/>
             </Style.Setters>
         </Style>
     <!--#endregion-->

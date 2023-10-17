@@ -10,40 +10,135 @@
       
       Loaded="Page_Loaded">
 
-        <Grid Background="Aquamarine" >
-            <Grid Style="{DynamicResource gridTitle}"
+    <Grid Style="{DynamicResource gridTours}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="2.7*"/>
+            <ColumnDefinition Width="0.2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Style="{DynamicResource gridTitle}"
               Grid.Column="0"
               Grid.Row="0"
               Grid.ColumnSpan="8">
-                <!-- Заголовок страницы -->
-                <TextBlock Text="Шоппинг"
+            <!-- Заголовок страницы -->
+            <TextBlock Text="Шоппинг"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
-                <StackPanel Style="{DynamicResource stcPanelTitle}">
-                    <materialDesign:PopupBox Margin="10"
-                                         PlacementMode="BottomAndAlignRightEdges"
-                                         StaysOpen="False">
-                        <StackPanel>
-                            <Button x:Name="btnAccount"
-                                Click="btnAccount_Click"
-                                Content="Аккаунт"/>
-
-                            <Button x:Name="btnSettings"
-                                Click="btnSettings_Click"
-                                Content="Настройки"/>
-
-                            <Button x:Name="btnHelp"
-                                Click="btnHelp_Click"
-                                Content="Поддержка"/>
-
-                            <Separator/>
-
-                            <Button x:Name="btnLogout"
-                                Click="btnLogout_Click"
-                                Content="Выйти"/>
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-                </StackPanel>
-            </Grid>
-
         </Grid>
+
+        <!-- Контент страницы -->
+        <TextBlock Text="Откуда?"
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   Style="{DynamicResource txtBlockShopping}"/>
+
+        <ComboBox x:Name="cBoxFrom"
+                  Grid.Column="1"
+                  Grid.Row="3"
+                  Margin="5"/>
+
+        <TextBlock Text="Количество людей"
+                   Grid.Column="1"
+                   Grid.Row="5"
+                   Style="{DynamicResource txtBlockShoppingNumberOfPeoples}"/>
+
+        <TextBox x:Name="txtBoxShoppingNumberOfPeoples"
+                 Grid.Column="1"
+                 Grid.Row="6"
+                 Style="{DynamicResource txtBoxShopping}"/>
+
+        <TextBlock Text="Количество дней"
+                   Grid.Column="1"
+                   Grid.Row="8"
+                   Style="{DynamicResource txtBlockShoppingDays}"/>
+
+        <TextBox x:Name="txtBoxShoppingDays"
+                 Grid.Column="1"
+                 Grid.Row="9"
+                 Style="{DynamicResource txtBoxShopping}"/>
+
+        <TextBlock Text="Куда?"
+                   Grid.Column="3"
+                   Grid.Row="2"
+                   Style="{DynamicResource txtBlockShopping}"/>
+
+        <ComboBox x:Name="cBoxRoute"
+                  Grid.Column="3"
+                  Grid.Row="3"
+                  Margin="5"/>
+
+        <TextBlock Text="Дата"
+                   Grid.Column="3"
+                   Grid.Row="5"
+                   Style="{DynamicResource txtBlockShopping}"/>
+
+        <DatePicker x:Name="datePickerShopping"
+                    Grid.Column="3"
+                    Grid.Row="6"
+                    Margin="5"/>
+
+        <TextBlock Text="Класс отеля"
+                   Grid.Column="3"
+                   Grid.Row="8"
+                   Style="{DynamicResource txtBlockShopping}"/>
+
+        <TextBlock Text="Stars"
+                   Grid.Column="3"
+                   Grid.Row="9"
+                   FontSize="24"
+                   HorizontalAlignment="Center"/>
+
+        <Button x:Name="btnBuyTicket" 
+                Click="btnBuyTicket_Click"
+                Content="Купить"
+                Grid.Column="3"
+                Grid.Row="11"
+                Style="{DynamicResource btnTours}"/>
+
+        <ScrollViewer Grid.Column="5" 
+                      Grid.Row="2"
+                      Grid.RowSpan="11"
+                      Style="{DynamicResource scrollTours}">
+
+        </ScrollViewer>
+
+        <StackPanel Grid.Column="0"
+                    Grid.Row="13"
+                    Orientation="Horizontal"
+                    Margin="-5 0 0 0">
+            <Button x:Name="btnBack"
+                    Click="btnBack_Click"
+                    Style="{DynamicResource mainButton}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\back.png"/>
+
+                        <TextBlock Text="Назад"
+                                   Style="{DynamicResource txtBlockButtonBackContent}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
 </Page>

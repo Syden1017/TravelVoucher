@@ -66,34 +66,34 @@
 
                 <Image Grid.Column="0" 
                        Grid.Row="0"
-                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\London.jpg"
+                       Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\HotTours\London.jpg"
                        Style="{DynamicResource mainImgHome}"/>
 
                 <TextBlock Grid.Column="0"
                            Grid.Row="1"
-                           Text="Предлагаем посетить Лондон"
+                           Text="Поездка в Лондон на 5 дней всего за 35000 рублей. Успевайте купить билет."
                            Style="{DynamicResource txtBlockHome}"/>
 
                 <Image Grid.Column="1" 
                        Grid.Row="0"
-                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\Maiami.png"
+                       Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\HotTours\Maiami.png"
                        Style="{DynamicResource mainImgHome}"/>
 
                 <TextBlock Grid.Column="1"
                            Grid.Row="1"
-                           Text="Предлагаем посетить Майами"
+                           Text="Поездка в Майами на берег Атлантического океана по выгодной цене - 40000 рублей."
                            Style="{DynamicResource txtBlockHome}"/>
 
                 <Image Grid.Column="0" 
                        Grid.Row="2"
                        Grid.ColumnSpan="2"
-                       Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\HotTours\Dubai.jpg"
+                       Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\HotTours\Dubai.jpg"
                        Style="{DynamicResource bigImgHome}"/>
 
                 <TextBlock Grid.Column="0"
                            Grid.Row="3"
                            Grid.ColumnSpan="2"
-                           Text="Предлагаем посетить Дубаи"
+                           Text="Отдых в Дубаи ближе, чем кажется. А с нами он ещё ближе. Купите билет в Дубаи всего за 65000 рублей."
                            Style="{DynamicResource txtBlockHome}"/>
             </Grid>
         </ScrollViewer>
