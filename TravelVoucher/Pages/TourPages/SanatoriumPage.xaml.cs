@@ -38,5 +38,10 @@ namespace TravelVoucher.Pages.TourPages
         {
 
         }
+
+        private void btnBuy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
