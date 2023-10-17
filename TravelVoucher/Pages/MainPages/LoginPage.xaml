@@ -41,6 +41,7 @@
             <TextBox x:Name="txtBoxLogin"
                      Grid.Column="2"
                      Grid.Row="1"
+                     LostFocus="txtBoxLogin_LostFocus"
                      Style="{DynamicResource txtBoxLogin}"/>
 
             <TextBlock Grid.Column="1" 

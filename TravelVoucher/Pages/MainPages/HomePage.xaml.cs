@@ -34,7 +34,7 @@ namespace TravelVoucher.Pages
         {
             MessageBox.Show(
                 "Остались вопросы?" +
-                "\nВы можете задать их по номеру телефона: 89005063245",
+                "\nВы можете задать их по номеру телефона: 89209891107",
                 "Поддержка",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information
