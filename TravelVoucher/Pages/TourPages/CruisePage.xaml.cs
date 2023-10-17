@@ -18,5 +18,15 @@ namespace TravelVoucher.Pages.TourPages
         {
             Navigation.id = 8;
         }
+
+        private void btnBuyTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.frmObj.GoBack();
+        }
     }
 }

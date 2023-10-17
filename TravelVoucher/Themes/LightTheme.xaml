@@ -1,192 +1,1302 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!-- Основные настройки окон -->
-    <Style x:Key="mainTextPanel" 
-           TargetType="StackPanel">
-        <Style.Setters>
-            <Setter Property="Background" 
-                    Value="#000000"/>
-        </Style.Setters>
-    </Style>
+    <!--#region Базовые настройки-->
+        <!-- Основное окно -->
+        <Style x:Key="mainTextPanel" 
+               TargetType="StackPanel">
+            <Style.Setters>
+                <Setter Property="Background" 
+                        Value="#7BABAA"/>
+            </Style.Setters>
+        </Style>
 
-    <Style x:Key="mainButton"
-               TargetType="Button">
-        <Style.Setters>
-            <Setter Property="Background"
-                    Value="Transparent"/>
+        <Style x:Key="mainButton"
+                   TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#0000"/>
 
-            <Setter Property="BorderThickness"
-                    Value="0"/>
+                <Setter Property="BorderThickness"
+                        Value="0"/>
 
-            <Setter Property="Margin"
-                    Value="0, 0, 0, 5"/>
+                <Setter Property="Margin"
+                        Value="0 0 0 5"/>
 
-            <Setter Property="Cursor"
-                    Value="Hand"/>
+                <Setter Property="Cursor"
+                        Value="Hand"/>
 
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#C6C6C6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Кнопка назад -->
+        <Style x:Key="txtBlockButtonBackContent"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="-7 6 0 0 "/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
+            </Style.Setters>
+        </Style>
+
+    <!-- Исчезающий текст внутри TextBox -->
+        <Style x:Key="placeHolder" 
+               TargetType="{x:Type TextBox}" 
+               BasedOn="{StaticResource {x:Type TextBox}}">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" 
-                                              VerticalAlignment="Center"/>
-                        </Border>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                     RelativeSource={RelativeSource TemplatedParent},
+                                     Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}"
+                                     x:Name="textSource"
+                                     Background="Transparent"
+                                     Panel.ZIndex="2" />
+
+                            <TextBox Text="{TemplateBinding Tag}" 
+                                     Background="{TemplateBinding Background}" 
+                                     Panel.ZIndex="1">
+
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" 
+                                                Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, 
+                                                         Source={x:Reference textSource}}" 
+                                                         Value="">
+
+                                                <Setter Property="Foreground" 
+                                                        Value="#A9A9A9"/>
+
+                                                <Setter Property="FontSize"
+                                                        Value="16"/>
+
+                                                <Setter Property="TextAlignment"
+                                                        Value="Center"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style.Setters>
+        </Style>
+    <!--#endregion-->
 
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver"
-                     Value="True">
+    <!--#region Авторизация-->
+        <!-- Страница авторизации -->
+        <Style x:Key="borderLogin"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Padding"
+                        Value="180"/>
+
                 <Setter Property="Background"
-                        Value="#C6C6C6"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+                        Value="#DFEBEA"/>
+            </Style.Setters>
+        </Style>
+        
+        <Style x:Key="txtBlockTitle"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
 
-    <!-- Страница авторизации -->
-    <Style x:Key="txtBlockTitle"
-           TargetType="TextBlock">
-        <Style.Setters>
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
+                <Setter Property="HorizontalAlignment"
+                        Value="Center"/>
 
-            <Setter Property="HorizontalAlignment"
-                    Value="Center"/>
+                <Setter Property="FontSize"
+                        Value="40"/>
+            </Style.Setters>
+        </Style>
 
-            <Setter Property="FontSize"
-                    Value="40"/>
-        </Style.Setters>
-    </Style>
+        <Style x:Key="txtBlockLogin"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
 
-    <Style x:Key="txtBlockLogin"
-           TargetType="TextBlock">
-        <Style.Setters>
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
+                <Setter Property="HorizontalAlignment"
+                        Value="Right"/>
 
-            <Setter Property="HorizontalAlignment"
-                    Value="Right"/>
+                <Setter Property="FontSize"
+                        Value="26"/>
+            </Style.Setters>
+        </Style>
 
-            <Setter Property="FontSize"
-                    Value="26"/>
-        </Style.Setters>
-    </Style>
+        <Style x:Key="txtBlockPassword"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockLogin}">
+            
+        </Style>
 
-    <!-- Заголовок окон -->
-    <Style x:Key="gridTitle"
-           TargetType="Grid">
-        <Style.Setters>
-            <Setter Property="Background"
-                    Value="#FE7D44"/>
+        <Style x:Key="txtBoxLogin"
+               TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
 
-            <Setter Property="VerticalAlignment"
-                    Value="Top"/>
+                <Setter Property="FontSize"
+                        Value="26"/>
 
-            <Setter Property="Height"
-                    Value="60"/>
-        </Style.Setters>
-    </Style>
+                <Setter Property="Margin"
+                        Value="10"/>
 
-    <Style x:Key="txtBlockHomeTitle"
-           TargetType="TextBlock">
-        <Style.Setters>
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
+                <Setter Property="TextAlignment"
+                        Value="Left"/>
 
-            <Setter Property="HorizontalAlignment"
-                    Value="Center"/>
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
 
-            <Setter Property="FontSize"
-                    Value="40"/>
-        </Style.Setters>
-    </Style>
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+            </Style.Setters>
+        </Style>
 
-    <Style x:Key="stcPanelTitle"
-           TargetType="StackPanel">
-        <Style.Setters>
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
+        <Style x:Key="passBoxPassword"
+               TargetType="PasswordBox">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
 
-            <Setter Property="HorizontalAlignment"
-                    Value="Right"/>
+                <Setter Property="FontSize"
+                        Value="26"/>
 
-            <Setter Property="Orientation"
-                    Value="Horizontal"/>
-        </Style.Setters>
-    </Style>
+                <Setter Property="Margin"
+                        Value="10"/>
 
-    <!-- Боковое меню -->
-    <Style x:Key="gridSidebarMenu"
-           TargetType="Grid">
-        <Style.Setters>
-            <Setter Property="Width"
-                    Value="60"/>
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
 
-            <Setter Property="HorizontalAlignment"
-                    Value="Left"/>
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+            </Style.Setters>
+        </Style>
 
-            <Setter Property="Background"
-                    Value="#E49302"/>
-        </Style.Setters>
-    </Style>
+        <Style x:Key="btnLogin"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
 
-    <Style x:Key="gridSidebarTop"
-           TargetType="Grid">
-        <Style.Setters>
-            <Setter Property="Height"
-                    Value="60"/>
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
 
-            <Setter Property="Background"
-                    Value="#FFFFFF"/>
-        </Style.Setters>
-    </Style>
+                <Setter Property="Cursor"
+                        Value="Hand"/>
 
-    <Style x:Key="btnOpenMenu"
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+    <!--#endregion-->
+
+    <!--#region Настройки заголовка и бокового меню-->
+        <!-- Заголовок окон -->
+        <Style x:Key="gridTitle"
+               TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#7BABAA"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Top"/>
+
+                <Setter Property="Height"
+                        Value="60"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockHomeTitle"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="FontSize"
+                        Value="40"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="stcPanelTitle"
+               TargetType="StackPanel">
+            <Style.Setters>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Right"/>
+
+                <Setter Property="Orientation"
+                        Value="Horizontal"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Боковое меню -->
+        <Style x:Key="gridSidebarMenu"
+               TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Width"
+                        Value="60"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Left"/>
+
+                <Setter Property="Background"
+                        Value="#F2E7E7"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="gridSidebarTop"
+               TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Height"
+                        Value="60"/>
+
+                <Setter Property="Background"
+                        Value="#7BABAA"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnOpenMenu"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Width"
+                        Value="60"/>
+
+                <Setter Property="Height"
+                        Value="60"/>
+
+                <Setter Property="Background"
+                        Value="{x:Null}"/>
+
+                <Setter Property="BorderBrush"
+                        Value="{x:Null}"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Top"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Right"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnCloseMenu"
+               TargetType="Button"
+               BasedOn="{StaticResource btnOpenMenu}">
+            <Style.Setters>
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Элементы бокового меню -->
+        <Style x:Key="txtBlockSidebar"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="20 10"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
+    
+    <!--#region Настройки главного окна-->
+        <!-- Область прокрутки (главное окно) -->
+        <Style x:Key="scrollHome"
+               TargetType="ScrollViewer">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#DFEBEA"/>
+
+                <Setter Property="Width"
+                        Value="940"/>
+
+                <Setter Property="Height"
+                        Value="540"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Right"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Bottom"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockHome"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Foreground"
+                        Value="#000000"/>
+
+                <Setter Property="Margin"
+                        Value="5 15 0 15"/>
+
+                <Setter Property="TextWrapping"
+                        Value="Wrap"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="mainImgHome"
+               TargetType="Image">
+            <Style.Setters>
+                <Setter Property="Width"
+                        Value="420"/>
+
+                <Setter Property="Margin"
+                        Value="0 40 0 0"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="bigImgHome"
+               TargetType="Image">
+            <Style.Setters>
+                <Setter Property="Stretch"
+                        Value="Fill"/>
+
+                <Setter Property="Width"
+                        Value="900"/>
+
+                <Setter Property="Height"
+                        Value="400"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
+    
+    <!--#region Окно поиска путёвки-->
+        <!-- Контейнер -->
+        <Style x:Key="gridFindTour"
+               TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#DFEBEA"/>
+
+                <Setter Property="Width"
+                        Value="940"/>
+
+                <Setter Property="Height"
+                        Value="540"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Right"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Bottom"/>
+            </Style.Setters>
+        </Style>
+        
+        <!-- Кнопки -->
+        <Style x:Key="btnFontSize"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="32"/>
+            </Style.Setters>
+        </Style>
+        
+        <Style x:Key="btnFindTour"
+               TargetType="Button"
+               BasedOn="{StaticResource btnFontSize}">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+    <!--#endregion-->
+        
+    <!--#region Настройки страницы с выбором типа билета -->
+        <!-- Контейнер -->
+        <Style x:Key="gridTours"
+               TargetType="Grid">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#DFEBEA"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Кнопки -->
+        <Style x:Key="btnTours"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Margin"
+                        Value="5"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+    <!--#endregion-->
+
+    <!--#region Страница выбора отдыха -->
+        <Style x:Key="txtBoxGuests"
+               TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="FontSize"
+                        Value="26"/>
+
+                <Setter Property="Margin"
+                        Value="5 5 5 7"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Left"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockHoliday"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 0 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="20"/>
+            </Style.Setters>
+        </Style>
+
+        <!--<Style x:Key="cBoxHoliday"
+               TargetType="ComboBox">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5"/>
+
+                <Setter Property="Background"
+                        Value="#0000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+
+                <Setter Property=""/>
+            </Style.Setters>
+        </Style>-->
+    <!--#endregion-->
+        
+    <!--#region Страница выбора экскурсии -->
+        <Style x:Key="txtBlockExcursion"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockHoliday}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockNumbers"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockExcursion}">
+            <Style.Setters>
+                <Setter Property="TextWrapping"
+                        Value="Wrap"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxExcursion"
+               TargetType="TextBox"
+               BasedOn="{StaticResource txtBoxGuests}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockButtonBackContentExcursion"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockButtonBackContent}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="-7 10 0 0"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
+
+    <!--#region Страница выбора круиза -->
+        <Style x:Key="txtBlockCruise"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockHoliday}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockNumberOfPeoples"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockNumbers}">
+            
+        </Style>
+
+        <Style x:Key="txtBoxCruise"
+               TargetType="TextBox"
+               BasedOn="{StaticResource txtBoxGuests}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockDays"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockNumberOfPeoples}">
+
+        </Style>
+    <!--#endregion -->    
+
+    <!--#region Страница выбора автобусного тура -->
+        <Style x:Key="txtBlockBusTour"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockHoliday}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockBusTourNumbers"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockBusTour}">
+            <Style.Setters>
+                <Setter Property="TextWrapping"
+                        Value="Wrap"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxBusTour"
+               TargetType="TextBox"
+               BasedOn="{StaticResource txtBoxGuests}">
+
+        </Style>
+    <!--#endregion-->
+        
+    <!--#region Области прокрутки-->   
+        <!-- Область прокрутки (покупка билетов) -->
+        <Style x:Key="scrollTours"
+               TargetType="ScrollViewer">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#4E8E8D"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Область прокрутки  -->
+        <Style x:Key="scrollMyTickets"
+               TargetType="ScrollViewer">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#DFEBEA"/>
+
+                <Setter Property="Width"
+                        Value="940"/>
+
+                <Setter Property="Height"
+                        Value="540"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Right"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Bottom"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
+            
+    <!--#region Окно настроек -->
+        <Style x:Key="borderSettings"
+                   TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Background"
+                             Value="#7BABAA"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockSettingsTitle"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+                
+                <Setter Property="HorizontalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="FontSize"
+                        Value="40"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="furtherBorderSettings"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Padding"
+                        Value="20"/>
+                
+                <Setter Property="Background"
+                        Value="#DFEBEA"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockSettings"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="40"/>
+
+                <Setter Property="Margin"
+                        Value="5 5 0 0"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Настройки кнопок на странице настроек -->
+        <Style x:Key="btnAccountExit"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="50 10 10 10"/>
+
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                        Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockButtonExit"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 10 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnSaveSettings"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="20 10 10 180"/>
+
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                        Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockButtonSave"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 5 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockButtonSettingsBack"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 5 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
+    
+    <!--#region Окно аккаунта -->
+        <Style x:Key="borderAccount"
+               TargetType="Border"
+               BasedOn="{StaticResource borderSettings}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockAccount"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockSettingsTitle}">
+            
+        </Style>
+
+        <Style x:Key="furtherBorderAccount"
+               TargetType="Border"
+               BasedOn="{StaticResource furtherBorderSettings}">
+            
+        </Style>
+
+        <Style x:Key="txtBlockUser"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="40"/>
+
+                <Setter Property="Margin"
+                        Value="15 10 0 0"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxUser"
+               TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+
+                <Setter Property="FontSize"
+                        Value="26"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockBalance"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockUser}">
+        
+        </Style>
+
+        <Style x:Key="txtBoxBalance"
+               TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="FontSize"
+                        Value="26"/>
+
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+            </Style.Setters>
+        </Style>
+    
+        <!-- Кнопки на странице аккаунта -->
+        <Style x:Key="btnAccountBack"
+               TargetType="Button"
+               BasedOn="{StaticResource mainButton}">
+            <Style.Setters>
+                <Setter Property="Width"
+                        Value="120"/>
+
+                <Setter Property="Height"
+                        Value="50"/>
+
+                <Setter Property="Margin"
+                        Value="0 5 155 0 "/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnTopUpBalance"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockButtonTopUpBalance"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 5 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnAccAccountExit"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
+
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockAccButtonExit"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 15 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
+    
+    <!--#region Окно пополнения баланса -->
+        <Style x:Key="borderTopUpBalance"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#7BABAA"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockTopUpBalance"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockAccount}">
+        
+        </Style>
+
+        <Style x:Key="furtherBorderTopUpBalance"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#DFEBEA"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxCardNumber"
+               TargetType="TextBox"
+               BasedOn="{StaticResource placeHolder}">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+            
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+
+                <Setter Property="Margin"
+                        Value="7"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="furtherTxtBlockTopUpBalance"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Center"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxMonth"
+               TargetType="TextBox"
+               BasedOn="{StaticResource placeHolder}">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+
+                <Setter Property="Margin"
+                        Value="7 0 2 3"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxYear"
+               TargetType="TextBox"
+               BasedOn="{StaticResource placeHolder}">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+
+                <Setter Property="Margin"
+                        Value="2 0 7 3"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxCodeCVC"
+               TargetType="TextBox"
+               BasedOn="{StaticResource placeHolder}">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 1.2"/>
+
+                <Setter Property="Margin"
+                        Value="2 0 7 3"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockHint"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="TextWrapping"
+                        Value="Wrap"/>
+
+                <Setter Property="Foreground"
+                        Value="#A9A9A9"/>
+
+                <Setter Property="FontSize"
+                        Value="10"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Right"/>
+
+                <Setter Property="Margin"
+                        Value="0 0 7 0"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockReplenishmentAmount"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="7"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBoxReplenishmentAmount"
+               TargetType="TextBox">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#FFF2F2"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 0.8"/>
+
+                <Setter Property="Margin"
+                        Value="2 0 7 3"/>
+            </Style.Setters>
+        </Style>
+            
+        <!-- Кнопки на странице пополнения -->
+        <Style x:Key="txtBlockButtonTransaction"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 0 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="btnTransaction"
            TargetType="Button">
-        <Style.Setters>
-            <Setter Property="Width"
-                    Value="60"/>
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="7 10 7 10"/>
 
-            <Setter Property="Height"
-                    Value="60"/>
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
 
-            <Setter Property="Background"
-                    Value="{x:Null}"/>
+                <Setter Property="Cursor"
+                        Value="Hand"/>
 
-            <Setter Property="BorderBrush"
-                    Value="{x:Null}"/>
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
 
-            <Setter Property="VerticalAlignment"
-                    Value="Top"/>
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
 
-            <Setter Property="HorizontalAlignment"
-                    Value="Right"/>
-        </Style.Setters>
-    </Style>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#74B3B1"/>
+                </Trigger>
+            </Style.Triggers>
 
-    <Style x:Key="btnCloseMenu"
-           TargetType="Button"
-           BasedOn="{StaticResource btnOpenMenu}">
-        <Style.Setters>
-            <Setter Property="Visibility"
-                    Value="Collapsed"/>
-        </Style.Setters>
-    </Style>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
 
-    <!-- Элементы бокового меню -->
-    <Style x:Key="txtBlockSidebar"
-           TargetType="TextBlock">
-        <Style.Setters>
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
+        <Style x:Key="btnCancelTransaction"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="2 10 2 10"/>
 
-            <Setter Property="Margin"
-                    Value="20 10"/>
+                <Setter Property="Background"
+                        Value="#84CCCA"/>
 
-            <Setter Property="FontSize"
-                    Value="24"/>
-        </Style.Setters>
-    </Style>
+                <Setter Property="Cursor"
+                        Value="Hand"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#000000"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#FF0000"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="15"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockButtonCancelTransaction"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="2 0 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="12"/>
+            </Style.Setters>
+        </Style>
+    <!--#endregion-->
 </ResourceDictionary>

@@ -9,13 +9,9 @@
       d:DesignHeight="600" 
       d:DesignWidth="1000"
       
-      Title="Вход в систему"
-      
-      Loaded="Page_Loaded"
-      
-      Background="White">
+      Loaded="Page_Loaded">
 
-    <Border Padding="180">
+    <Border Style="{DynamicResource borderLogin}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
@@ -45,27 +41,25 @@
             <TextBox x:Name="txtBoxLogin"
                      Grid.Column="2"
                      Grid.Row="1"
-                     Margin="10"
-                     TextAlignment="Left"
-                     FontSize="14"/>
+                     LostFocus="txtBoxLogin_LostFocus"
+                     Style="{DynamicResource txtBoxLogin}"/>
 
             <TextBlock Grid.Column="1" 
                        Grid.Row="2"
                        Text="Пароль:"
-                       Style="{StaticResource txtBlockLogin}"/>
+                       Style="{StaticResource txtBlockPassword}"/>
 
             <PasswordBox x:Name="passBox"
                          Grid.Column="2"
                          Grid.Row="2"
-                         Margin="10"
-                         FontSize="14"/>
+                         Style="{DynamicResource passBoxPassword}"/>
 
             <Button x:Name="btnEnter"
                     Click="btnEnter_Click"
                     Content="Войти"
                     Grid.Column="2"
                     Grid.Row="3"
-                    Margin="10"/>
+                    Style="{DynamicResource btnLogin}"/>
         </Grid>
     </Border>
 </Page>

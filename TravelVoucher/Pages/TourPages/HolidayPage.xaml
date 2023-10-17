@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       
       d:DesignHeight="600"
@@ -12,14 +11,13 @@
       
       Loaded="Page_Loaded">
 
-    <Grid Background="Aquamarine">
+    <Grid Style="{DynamicResource gridTours}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="1.7*"/>
-            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="1.4*"/>
+            <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="2.7*"/>
             <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
@@ -29,17 +27,17 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1.6*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.55*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -50,132 +48,120 @@
             <!-- Заголовок страницы -->
             <TextBlock Text="Отдых"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
-            <StackPanel Style="{DynamicResource stcPanelTitle}">
-                <materialDesign:PopupBox Margin="10"
-                                         PlacementMode="BottomAndAlignRightEdges"
-                                         StaysOpen="False">
-                    <StackPanel>
-                        <Button x:Name="btnAccount"
-                                Click="btnAccount_Click"
-                                Content="Аккаунт"/>
-
-                        <Button x:Name="btnSettings"
-                                Click="btnSettings_Click"
-                                Content="Настройки"/>
-
-                        <Button x:Name="btnHelp"
-                                Click="btnHelp_Click"
-                                Content="Поддержка"/>
-
-                        <Separator/>
-
-                        <Button x:Name="btnLogout"
-                                Click="btnLogout_Click"
-                                Content="Выйти"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
         </Grid>
 
+        <!-- Контент страницы -->
         <TextBlock Grid.Column="1" 
                    Grid.Row="2"
                    Text="Откуда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox x:Name="cBoxFrom"
                   Grid.Column="1"
                   Grid.Row="3"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="1"
+                   Grid.Row="5"
+                   Text="Тип транспорта"
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox x:Name="cBoxTransport"
                   Grid.Column="1"
-                  Grid.Row="5"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Grid.Row="6"
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="1"
+                   Grid.Row="8"
+                   Text="Курорт/отель"
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
         <ComboBox x:Name="cBoxHotel"
                   Grid.Column="1"
-                  Grid.Row="6"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Grid.Row="9"
+                  Margin="5"/>
 
         <TextBlock Grid.Column="1" 
+                   Grid.Row="11"
+                   Text="Питание"
+                   Style="{DynamicResource txtBlockHoliday}"/>
+
+        <ComboBox Name="cBoxFood"
+                  Grid.Column="1"
+                  Grid.Row="12"
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="3" 
+                   Grid.Row="2"
+                   Text="Куда?"
+                   Style="{DynamicResource txtBlockHoliday}"/>
+
+        <ComboBox x:Name="cBoxTo"
+                  Grid.Column="3"
+                  Grid.Row="3"
+                  Margin="5"/>
+
+        <TextBlock Grid.Column="3"
+                   Grid.Row="5"
+                   Text="Дата"
+                   Style="{DynamicResource txtBlockHoliday}"/>
+
+        <DatePicker x:Name="datePickerHoliday"
+                    Grid.Column="3" 
+                    Grid.Row="6"
+                    Margin="5"/>
+
+        <TextBlock Grid.Column="3" 
                    Grid.Row="8"
                    Text="Класс отеля"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
-        <TextBlock Grid.Column="1" 
+        <TextBlock Grid.Column="3" 
                    Grid.Row="9"
                    Text="Stars"
                    FontSize="24"
                    HorizontalAlignment="Center"/>
 
-        <TextBlock Grid.Column="1" 
+        <TextBlock Grid.Column="3" 
                    Grid.Row="11"
-                   Text="ComboBox"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
-
-        <TextBlock Grid.Column="1" 
-                   Grid.Row="13"
                    Text="Количество гостей"
-                   TextWrapping="Wrap"
-                   FontSize="16"/>
+                   Style="{DynamicResource txtBlockHoliday}"/>
 
-        <TextBlock Grid.Column="4" 
-                   Grid.Row="2"
-                   Text="Куда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
-
-        <ComboBox x:Name="cBoxTo"
-                  Grid.Column="4"
-                  Grid.Row="3"
-                  Width="223"/>
-
-        <TextBlock Grid.Column="4"
-                   Grid.Row="5"
-                   Margin="20 0 0 0"
-                   Text="Дата"
-                   FontSize="24"/>
-
-        <DatePicker Grid.Column="4" 
-                    Grid.Row="6"
-                    Width="220"/>
+        <TextBox x:Name="txtBoxNumberOfGuests" 
+                 Grid.Column="3"
+                 Grid.Row="12"
+                 Style="{DynamicResource txtBoxGuests}"/>
 
         <Button x:Name="btnBuyTicket" 
                 Click="btnBuyTicket_Click"
                 Content="Купить"
-                Grid.Column="4"
+                Grid.Column="3"
                 Grid.Row="13"
-                Margin="5 0 5 0"/>
-
-        <ScrollViewer Grid.Column="6" 
-                      Grid.Row="2"
-                      Grid.RowSpan="12"
-                      Background="BlanchedAlmond">
-
-        </ScrollViewer>
+                Style="{DynamicResource btnTours}"/>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="15"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal"
+                    Margin="-5 0 0 0">
             <Button x:Name="btnBack"
                     Click="btnBack_Click"
                     Style="{DynamicResource mainButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\backico.png"/>
+                        <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\back.png"/>
 
                         <TextBlock Text="Назад"
-                                   Margin="-7 6 0 0"
-                                   FontSize="16"/>
+                                   Style="{DynamicResource txtBlockButtonBackContent}"/>
                     </StackPanel>
                 </Button.Content>
             </Button>
         </StackPanel>
+
+        <ScrollViewer Grid.Column="5" 
+                      Grid.Row="2"
+                      Grid.RowSpan="12"
+                      Style="{DynamicResource scrollTours}">
+
+        </ScrollViewer>
     </Grid>
 </Page>

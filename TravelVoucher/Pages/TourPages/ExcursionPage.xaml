@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       
       d:DesignHeight="600" 
@@ -12,7 +11,7 @@
       
       Loaded="Page_Loaded">
 
-    <Grid Background="Aquamarine">
+    <Grid Style="{DynamicResource gridTours}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.6*"/>
             <ColumnDefinition Width="*"/>
@@ -29,14 +28,14 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1.2*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -48,120 +47,96 @@
             <!-- Заголовок страницы -->
             <TextBlock Text="Экскурсия"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
-            <StackPanel Style="{DynamicResource stcPanelTitle}">
-                <materialDesign:PopupBox Margin="10"
-                                         PlacementMode="BottomAndAlignRightEdges"
-                                         StaysOpen="False">
-                    <StackPanel>
-                        <Button x:Name="btnAccount"
-                                Click="btnAccount_Click"
-                                Content="Аккаунт"/>
-
-                        <Button x:Name="btnSettings"
-                                Click="btnSettings_Click"
-                                Content="Настройки"/>
-
-                        <Button x:Name="btnHelp"
-                                Click="btnHelp_Click"
-                                Content="Поддержка"/>
-
-                        <Separator/>
-
-                        <Button x:Name="btnLogout"
-                                Click="btnLogout_Click"
-                                Content="Выйти"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
         </Grid>
 
+        <!-- Контент страницы -->
         <TextBlock Grid.Column="1"
                    Grid.Row="2"
                    Text="Откуда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxFrom"
                   Grid.Column="1"
                   Grid.Row="3"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="1"
                    Grid.Row="5" 
                    Text="Тип экскурсии"
-                   TextWrapping="Wrap"
-                   FontSize="20"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxExcursionType"
                   Grid.Column="1"
                   Grid.Row="6"
-                  Grid.ColumnSpan="2"
-                  Width="150"/>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="8"
                    Text="Количество туристов:"
-                   TextWrapping="Wrap"
-                   FontSize="16"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockNumbers}"/>
 
-        <TextBlock Grid.Column="1" 
-                   Grid.Row="10"
+        <TextBox x:Name="txtBoxNumberOfTourists"
+                 Grid.Column="1"
+                 Grid.Row="9"
+                 Style="{DynamicResource txtBoxExcursion}"/>
+
+        <TextBlock Grid.Column="4" 
+                   Grid.Row="8"
                    Text="Количество дней экскурсии:"
-                   FontSize="16"
-                   TextWrapping="Wrap"
-                   Margin="5 0 0 0"/>
+                   Style="{DynamicResource txtBlockNumbers}"/>
+
+        <TextBox x:Name="txtBoxExcursionDays"
+                 Grid.Column="4"
+                 Grid.Row="9"
+                 Style="{DynamicResource txtBoxExcursion}"/>
 
         <Button x:Name="btnBuyTicket" 
                 Click="btnBuyTicket_Click"
                 Content="Купить"
                 Grid.Column="1"
                 Grid.Row="12"
-                Margin="5 0 5 0"/>
+                Style="{DynamicResource btnTours}"/>
 
         <TextBlock Grid.Column="4"
                    Grid.Row="2"
                    Text="Куда?"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxTo"
                   Grid.Column="4"
                   Grid.Row="3"
-                  Width="223"/>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="4"
                    Grid.Row="5"
-                   Margin="20 0 0 0"
                    Text="Дата"
-                   FontSize="24"/>
+                   Style="{DynamicResource txtBlockExcursion}"/>
 
-        <DatePicker Grid.Column="4" 
+        <DatePicker x:Name="datePickerExcursion" 
+                    Grid.Column="4" 
                     Grid.Row="6"
-                    Width="220"/>
+                    Margin="5"/>
 
         <ScrollViewer Grid.Column="6" 
                       Grid.Row="2"
                       Grid.RowSpan="10"
-                      Background="BlanchedAlmond">
+                      Style="{DynamicResource scrollTours}">
 
         </ScrollViewer>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="15"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal"
+                    Margin="-5 0 0 0">
             <Button x:Name="btnBack"
                     Click="btnBack_Click"
                     Style="{DynamicResource mainButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\User\Source\Repos\TravelVoucher-local\TravelVoucher\Images\ControlImages\backico.png"/>
+                        <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\back.png"/>
 
                         <TextBlock Text="Назад"
-                                   Margin="-7 6 0 0"
-                                   FontSize="16"/>
+                                   Style="{DynamicResource txtBlockButtonBackContentExcursion}"/>
                     </StackPanel>
                 </Button.Content>
             </Button>

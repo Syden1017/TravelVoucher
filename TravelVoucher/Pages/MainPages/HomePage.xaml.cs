@@ -6,18 +6,18 @@ using WpfApp1.Tools;
 namespace TravelVoucher.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MyTickets.xaml
+    /// Логика взаимодействия для HomePage.xaml
     /// </summary>
-    public partial class MyTickets : Page
+    public partial class HomePage : Page
     {
-        public MyTickets()
+        public HomePage()
         {
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Navigation.id = 3;
+            Navigation.id = 1;
         }
 
         private void btnAccount_Click(object sender, RoutedEventArgs e)
@@ -32,12 +32,13 @@ namespace TravelVoucher.Pages
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new LoginPage());
+            MessageBox.Show(
+                "Остались вопросы?" +
+                "\nВы можете задать их по номеру телефона: 89209891107",
+                "Поддержка",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+                );
         }
 
         private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -57,7 +58,13 @@ namespace TravelVoucher.Pages
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
                 case "listViewItemHome":
-                    Navigation.frmObj.Navigate(new HomePage());
+                    MessageBox.Show(
+                        "Невозможно перейти на главную страницу." +
+                        "\nПопробуйте перейти на другую страницу и повторить попытку",
+                        "Ошибка перехода",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
                     break;
 
                 case "listViewItemFindTour":
@@ -65,13 +72,7 @@ namespace TravelVoucher.Pages
                     break;
 
                 case "listViewItemTickets":
-                    MessageBox.Show(
-                        "Невозможно перейти на страницу купленных билетов." +
-                        "\nПопробуйте перейти на другую страницу и повторить попытку",
-                        "Ошибка перехода",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                        );
+                    Navigation.frmObj.Navigate(new MyTickets());
                     break;
 
                 default:

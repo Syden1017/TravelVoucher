@@ -4,13 +4,109 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TravelVoucher.Pages.PopUpMenuPages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SettingsPage"
+      mc:Ignorable="d"
+      
+      d:DesignHeight="600" 
+      d:DesignWidth="1000"
       
       Loaded="Page_Loaded">
 
-    <Grid>
-        
-    </Grid>
+    <Border Style="{DynamicResource borderSettings}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Text="Настройки"
+                       Grid.Row="0"
+                       Style="{DynamicResource txtBlockSettingsTitle}"/>
+
+            <Border Grid.Row="1"
+                    Style="{DynamicResource furtherBorderSettings}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.35*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.4*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.9*"/>
+                        <RowDefinition Height="0.9*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="0"
+                               Grid.ColumnSpan="2"
+                               Text="Тема оформления"
+                               Style="{DynamicResource txtBlockSettings}"/>
+
+                    <TextBlock Text="Язык"
+                               Grid.Column="0"
+                               Grid.Row="1"
+                               Style="{DynamicResource txtBlockSettings}"/>
+
+                    <ComboBox x:Name="cBoxLanguage"
+                              Grid.Column="3"
+                              Grid.Row="1"
+                              Grid.ColumnSpan="2"
+                              Margin="180 0 20 0"/>
+
+                    <Button x:Name="btnSave"
+                            Click="btnSave_Click"
+                            Grid.Column="3"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            Style="{DynamicResource btnSaveSettings}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\save.png"/>
+
+                                <TextBlock Text="Сохранить настройки"
+                                           Style="{DynamicResource txtBlockButtonSave}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnBack"
+                            Click="btnBack_Click"
+                            Grid.Column="0"
+                            Grid.Row="4"
+                            Style="{DynamicResource mainButton}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\seettingsBack.png"
+                                       Width="35"
+                                       Height="35"/>
+
+                                <TextBlock Text="Назад"
+                                           Style="{DynamicResource txtBlockButtonSettingsBack}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button x:Name="btnAccountExit"
+                            Click="btnAccountExit_Click"
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            Grid.ColumnSpan="3"
+                            Style="{DynamicResource btnAccountExit}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\User\source\repos\LatestVersion\TravelVoucher\Images\ControlImages\logout.png"/>
+
+                                <TextBlock Text="Выйти из профиля"
+                                           Style="{DynamicResource txtBlockButtonExit}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Page>

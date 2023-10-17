@@ -49,8 +49,11 @@
     </Page.Triggers>
 
     <!-- Главное окно -->
-    <Grid x:Name="gridMain" 
-          Background="#ffffff">
+    <Grid x:Name="gridMain">
+        <ScrollViewer Style="{DynamicResource scrollMyTickets}">
+
+        </ScrollViewer>
+
         <Grid Style="{DynamicResource gridTitle}">
             <!-- Заголовок страницы -->
             <TextBlock Text="Купленные билеты"
@@ -68,15 +71,11 @@
                                 Click="btnSettings_Click"
                                 Content="Настройки"/>
 
+                        <Separator/>
+
                         <Button x:Name="btnHelp"
                                 Click="btnHelp_Click"
                                 Content="Поддержка"/>
-
-                        <Separator/>
-
-                        <Button x:Name="btnLogout"
-                                Click="btnLogout_Click"
-                                Content="Выйти"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
@@ -85,13 +84,12 @@
         <!-- Боковое меню -->
         <Grid x:Name="gridMenu" 
               Style="{DynamicResource gridSidebarMenu}">
-            <!-- Верхняя панель бокового меню -->
             <StackPanel>
                 <Grid Style="{DynamicResource gridSidebarTop}">
                     <Button x:Name="btnCloseMenu"
                             Click="btnCloseMenu_Click"
                             Style="{DynamicResource btnCloseMenu}">
-                        <materialDesign:PackIcon Foreground="#F50128"
+                        <materialDesign:PackIcon Foreground="#000000"
                                                  Kind="ArrowLeft"
                                                  Width="35"
                                                  Height="35"/>
@@ -100,7 +98,7 @@
                     <Button x:Name="btnOpenMenu" 
                             Click="btnOpenMenu_Click"
                             Style="{DynamicResource btnOpenMenu}">
-                        <materialDesign:PackIcon Foreground="#F50128"
+                        <materialDesign:PackIcon Foreground="#000000"
                                                  Kind="Menu"
                                                  Width="35"
                                                  Height="35"/>
@@ -111,10 +109,11 @@
                 <ListView x:Name="listViewMenu" 
                           SelectionChanged="listViewMenu_SelectionChanged"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                          Foreground="White">
+                          Foreground="#000000">
                     <!-- Главное меню -->
                     <ListViewItem x:Name="listViewItemHome" 
-                                  Height="60">
+                                  Height="60"
+                                  Background="#BCD4D4">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard"
                                                      VerticalAlignment="Center"
@@ -129,7 +128,8 @@
 
                     <!-- Выбор билета -->
                     <ListViewItem x:Name="listViewItemFindTour" 
-                                  Height="60">
+                                  Height="60"
+                                  Background="#BCD4D4">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Ticket"
                                                      VerticalAlignment="Center"
@@ -144,7 +144,8 @@
 
                     <!-- Купленные билеты -->
                     <ListViewItem x:Name="listViewItemTickets"
-                                  Height="60">
+                                  Height="60"
+                                  Background="#BCD4D4">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="TicketUser"
                                                      VerticalAlignment="Center"
@@ -159,10 +160,5 @@
                 </ListView>
             </StackPanel>
         </Grid>
-
-        <ScrollViewer Background="Aquamarine"
-                      Margin="60 60 0 0">
-            
-        </ScrollViewer>
     </Grid>
 </Page>

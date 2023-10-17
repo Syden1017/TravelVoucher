@@ -1,24 +1,23 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using WpfApp1.Tools;
-using TravelVoucher.Pages.TourPages;
 using TravelVoucher.Pages.PopUpMenuPages;
+using WpfApp1.Tools;
 
 namespace TravelVoucher.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для FindTour.xaml
+    /// Логика взаимодействия для MyTickets.xaml
     /// </summary>
-    public partial class FindTour : Page
+    public partial class MyTickets : Page
     {
-        public FindTour()
+        public MyTickets()
         {
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Navigation.id = 2;
+            Navigation.id = 3;
         }
 
         private void btnAccount_Click(object sender, RoutedEventArgs e)
@@ -33,12 +32,13 @@ namespace TravelVoucher.Pages
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new LoginPage());
+            MessageBox.Show(
+                "Остались вопросы?" +
+                "\nВы можете задать их по номеру телефона: 89209891107",
+                "Поддержка",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+                );
         }
 
         private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -62,8 +62,12 @@ namespace TravelVoucher.Pages
                     break;
 
                 case "listViewItemFindTour":
+                    Navigation.frmObj.Navigate(new FindTour());
+                    break;
+
+                case "listViewItemTickets":
                     MessageBox.Show(
-                        "Невозможно перейти на страницу выбора путёвки." +
+                        "Невозможно перейти на страницу купленных билетов." +
                         "\nПопробуйте перейти на другую страницу и повторить попытку",
                         "Ошибка перехода",
                         MessageBoxButton.OK,
@@ -71,43 +75,9 @@ namespace TravelVoucher.Pages
                         );
                     break;
 
-                case "listViewItemTickets":
-                    Navigation.frmObj.Navigate(new MyTickets());
-                    break;
-
                 default:
                     break;
             }
-        }
-
-        private void btnHoliday_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new HolidayPage());
-        }
-        
-        private void btnExcursion_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new ExcursionPage());
-        }
-
-        private void btnSanatorium_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new SanatoriumPage());
-        }
-
-        private void btnShopping_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new ShoppingPage());
-        }
-
-        private void btnCruise_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new CruisePage());
-        }
-
-        private void btnBusTour_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.frmObj.Navigate(new BusTourPage());
         }
     }
 }
