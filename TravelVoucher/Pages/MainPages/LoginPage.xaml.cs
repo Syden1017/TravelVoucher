@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
+using TravelVoucher.Tools;
 using WpfApp1.Tools;
 
 namespace TravelVoucher.Pages
@@ -10,9 +13,15 @@ namespace TravelVoucher.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+        List<User> Users;
         public LoginPage()
         {
             InitializeComponent();
+
+            Users = new List<User>() 
+            { 
+                new User("User", "12345")
+            };
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -72,7 +81,8 @@ namespace TravelVoucher.Pages
             {
                 if (passBox.Password.Length > 0)
                 {
-                    if (txtBoxLogin.Text == "User" && passBox.Password == "12345")
+                    if (txtBoxLogin.Text == "User"
+                        && passBox.Password == "12345")
                     {
                         Navigation.frmObj.Navigate(new HomePage());
                     }

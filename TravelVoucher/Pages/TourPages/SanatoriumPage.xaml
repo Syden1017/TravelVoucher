@@ -127,7 +127,25 @@
                       Grid.Row="1"
                       Grid.RowSpan="9"
                       Style="{DynamicResource scrollTours}">
+            <ListView>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Style="{DynamicResource itemPanel}"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource lViewBorderSanatorium}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollViewer>
     </Grid>
 </Page>

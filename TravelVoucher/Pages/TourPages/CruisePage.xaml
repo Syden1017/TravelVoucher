@@ -127,6 +127,18 @@
                         <WrapPanel Style="{DynamicResource itemPanel}"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource lViewBorderCruise}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
 

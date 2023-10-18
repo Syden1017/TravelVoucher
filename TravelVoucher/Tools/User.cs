@@ -1,4 +1,6 @@
-﻿namespace TravelVoucher.Tools
+﻿using System.Collections.Generic;
+
+namespace TravelVoucher.Tools
 {
     public class User
     {
@@ -32,7 +34,8 @@
             }
         }
 
-        public User(string login, string password)
+        public User(string login, 
+                    string password)
         {
             this.login = login;
             this.password = password;

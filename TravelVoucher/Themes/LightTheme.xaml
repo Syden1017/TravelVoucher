@@ -111,7 +111,7 @@
                TargetType="WrapPanel">
             <Style.Setters>
                 <Setter Property="Orientation"
-                        Value="Horizontal"/>
+                        Value="Vertical"/>
 
                 <Setter Property="HorizontalAlignment"
                         Value="Center"/>
@@ -584,7 +584,31 @@
             </Style.Setters>
         </Style>
 
-        <!--<Style x:Key="cBoxHoliday"
+        <!-- Настройки плиток (страница отдыха) -->
+        <Style x:Key="lViewBorderHoliday"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#F2E7E7"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#345E5E"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+
+                <Setter Property="CornerRadius"
+                        Value="3"/>
+
+                <Setter Property="Width"
+                        Value="365"/>
+
+                <Setter Property="Height"
+                        Value="120"/>
+            </Style.Setters>
+        </Style>
+
+    <!--<Style x:Key="cBoxHoliday"
                TargetType="ComboBox">
             <Style.Setters>
                 <Setter Property="Margin"
@@ -631,6 +655,13 @@
                         Value="-7 10 0 0"/>
             </Style.Setters>
         </Style>
+
+        <!-- Настройки плиток (страница экскурсии) -->
+        <Style x:Key="lViewBorderExcursion"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+
+        </Style>
     <!--#endregion-->
     
     <!--#region Страница выбора санатория -->
@@ -652,6 +683,13 @@
         <Style x:Key="txtBoxSanatorium"
            TargetType="TextBox"
            BasedOn="{StaticResource txtBoxGuests}">
+
+        </Style>
+
+        <!-- Настройки плиток (страница санатория) -->
+        <Style x:Key="lViewBorderSanatorium"
+           TargetType="Border"
+           BasedOn="{StaticResource lViewBorderHoliday}">
 
         </Style>
     <!--#endregion-->
@@ -680,6 +718,13 @@
                BasedOn="{StaticResource txtBlockNumbers}">
 
         </Style>
+
+        <!-- Настройки плиток (страница шоппиннга) -->
+        <Style x:Key="lViewBorderShopping"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+
+        </Style>
     <!--#endregion -->
 
     <!--#region Страница выбора круиза -->
@@ -706,6 +751,13 @@
                BasedOn="{StaticResource txtBlockNumberOfPeoples}">
 
         </Style>
+
+        <!-- Настройки плиток (страница круиза) -->
+        <Style x:Key="lViewBorderCruise"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+            
+        </Style>
     <!--#endregion -->    
 
     <!--#region Страница выбора автобусного тура -->
@@ -729,6 +781,13 @@
                BasedOn="{StaticResource txtBoxGuests}">
 
         </Style>
+
+        <!-- Настройки плиток (страница автобусного тура) -->
+        <Style x:Key="lViewBorderBusTour"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+            
+        </Style>
     <!--#endregion-->
         
     <!--#region Области прокрутки-->   
@@ -737,10 +796,12 @@
                TargetType="ScrollViewer">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#F2E7E7"/>
+                        Value="#345E5E"/>
             </Style.Setters>
         </Style>
-
+    <!--#endregion-->
+    
+    <!--#region Окно мои билеты -->
         <!-- Область прокрутки (мои билеты) -->
         <Style x:Key="scrollMyTickets"
                TargetType="ScrollViewer">
@@ -759,6 +820,30 @@
 
                 <Setter Property="VerticalAlignment"
                         Value="Bottom"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Настройки плиток -->
+        <Style x:Key="lViewBorderMyTickets"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#F2E7E7"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#345E5E"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+
+                <Setter Property="CornerRadius"
+                        Value="3"/>
+
+                <Setter Property="Width"
+                        Value="365"/>
+
+                <Setter Property="Height"
+                        Value="120"/>
             </Style.Setters>
         </Style>
     <!--#endregion-->
