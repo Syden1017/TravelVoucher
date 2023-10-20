@@ -65,7 +65,7 @@
                             Style="{DynamicResource btnSaveSettings}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\save.png"/>
+                                <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\save.png"/>
 
                                 <TextBlock Text="Сохранить настройки"
                                            Style="{DynamicResource txtBlockButtonSave}"/>
@@ -80,7 +80,7 @@
                             Style="{DynamicResource mainButton}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\seettingsBack.png"
+                                <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\seettingsBack.png"
                                        Width="35"
                                        Height="35"/>
 
@@ -98,7 +98,7 @@
                             Style="{DynamicResource btnAccountExit}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\logout.png"/>
+                                <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\logout.png"/>
 
                                 <TextBlock Text="Выйти из профиля"
                                            Style="{DynamicResource txtBlockButtonExit}"/>

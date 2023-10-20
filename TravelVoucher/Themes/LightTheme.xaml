@@ -1049,6 +1049,9 @@
 
                 <Setter Property="FontSize"
                         Value="26"/>
+
+                <Setter Property="IsReadOnly"
+                        Value="True"/>
             </Style.Setters>
         </Style>
 
@@ -1075,6 +1078,9 @@
 
                 <Setter Property="BorderThickness"
                         Value="0 0 0 1.2"/>
+
+                <Setter Property="IsReadOnly"
+                        Value="True"/>
             </Style.Setters>
         </Style>
     

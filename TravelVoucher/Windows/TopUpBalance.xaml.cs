@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using TravelVoucher.Pages;
+using System.ComponentModel;
 
 namespace TravelVoucher.Windows
 {
@@ -15,14 +14,14 @@ namespace TravelVoucher.Windows
             InitializeComponent();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, CancelEventArgs e)
         {
             e.Cancel = MessageBox.Show(
-               "Действительно хотите отменить транзакцию?",
-               "Отмена транзакции",
-               MessageBoxButton.YesNo,
-               MessageBoxImage.Question,
-               MessageBoxResult.Yes) == MessageBoxResult.No;
+                           "Действительно хотите отменить транзакцию?",
+                           "Отмена транзакции",
+                           MessageBoxButton.YesNo,
+                           MessageBoxImage.Question,
+                           MessageBoxResult.Yes) == MessageBoxResult.No;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,29 +35,24 @@ namespace TravelVoucher.Windows
         private void btnCancelTransaction_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MessageBox.Show(
+                "Транзакция отменена",
+                "Отмена транзакции",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+                );
         }
 
         private void btnTransaction_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                MessageBox.Show(
-                    "Транзакция прошла успешно",
-                    "Выполнение пополнения",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+            MessageBox.Show(
+                "Транзакция прошла успешно",
+                "Выполнения пополнения",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+                );
 
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    ex.Message.ToString(),
-                    "Системная ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                    );
-            }
+            Close();
         }
     }
 }

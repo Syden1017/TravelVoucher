@@ -109,7 +109,7 @@
                             Style="{DynamicResource btnCancelTransaction}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\cancel.png"
+                                <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\cancel.png"
                                        Width="15"
                                        Height="15"/>
 
@@ -127,7 +127,7 @@
                             Style="{DynamicResource btnTransaction}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\Balance.png"
+                                <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\Balance.png"
                                        Width="20"
                                        Height="20"/>
 
