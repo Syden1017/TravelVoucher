@@ -21,7 +21,7 @@ namespace TravelVoucher.Pages.TourPages
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.frmObj.GoBack();
         }
 
         private void btnBuyTicket_Click(object sender, RoutedEventArgs e)

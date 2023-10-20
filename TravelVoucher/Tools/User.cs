@@ -1,44 +1,42 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace TravelVoucher.Tools
 {
     public class User
     {
-        public string login;
+        public string Login { get; set; }
 
-        public string password;
-
-        public string Login
-        {
-            get
-            {
-                return login;
-            }
-
-            set
-            {
-                login = value;
-            }
-        }
-
-        public string Password
-        {
-            get
-            {
-                return password;
-            }
-
-            set
-            {
-                password = value;
-            }
-        }
+        public string Password { get; set; }
 
         public User(string login, 
                     string password)
         {
-            this.login = login;
-            this.password = password;
+            Login = login;
+            Password = password;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is User otherUser)
+            {
+                return Login == otherUser.Login &&
+                       Password == otherUser.Password;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Login, Password);
+        }
+
+        public override string ToString()
+        {
+            string result = $"Login: {Login}\n" +
+                            $"Password: {Password}";
+
+            return result;
         }
     }
 }
