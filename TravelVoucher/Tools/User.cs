@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TravelVoucher.Tools
 {
@@ -38,5 +39,10 @@ namespace TravelVoucher.Tools
 
             return result;
         }
+
+        List<User> _users = new List<User>()
+        { 
+            new User("User", "12345")
+        };
     }
 }

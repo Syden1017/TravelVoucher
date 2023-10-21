@@ -13,15 +13,9 @@ namespace TravelVoucher.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
-        List<User> Users;
         public LoginPage()
         {
             InitializeComponent();
-
-            Users = new List<User>() 
-            { 
-                new User("User", "12345")
-            };
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
