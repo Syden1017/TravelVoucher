@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using System.ComponentModel;
 
 namespace TravelVoucher.Windows
 {
@@ -14,16 +13,6 @@ namespace TravelVoucher.Windows
             InitializeComponent();
         }
 
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            e.Cancel = MessageBox.Show(
-                           "Действительно хотите отменить транзакцию?",
-                           "Отмена транзакции",
-                           MessageBoxButton.YesNo,
-                           MessageBoxImage.Question,
-                           MessageBoxResult.Yes) == MessageBoxResult.No;
-        }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -34,13 +23,14 @@ namespace TravelVoucher.Windows
 
         private void btnCancelTransaction_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
             MessageBox.Show(
                 "Транзакция отменена",
                 "Отмена транзакции",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information
                 );
+            
+            this.Close();
         }
 
         private void btnTransaction_Click(object sender, RoutedEventArgs e)
@@ -51,8 +41,8 @@ namespace TravelVoucher.Windows
                 MessageBoxButton.OK,
                 MessageBoxImage.Information
                 );
-
-            Close();
+            
+            this.Close();
         }
     }
 }

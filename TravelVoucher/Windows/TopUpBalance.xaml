@@ -14,9 +14,7 @@
         
         WindowStyle="None"
         
-        MouseDown="Window_MouseDown"
-        
-        Closing="Window_Closing">
+        MouseDown="Window_MouseDown">
 
     <Border Style="{DynamicResource borderTopUpBalance}">
         <Grid>
