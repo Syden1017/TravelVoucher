@@ -16,7 +16,7 @@ namespace TravelVoucher.Tools
             Password = password;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is User otherUser)
             {
