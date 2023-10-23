@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelVoucher.Windows"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         
         Height="310" 
@@ -22,6 +24,11 @@
                 <RowDefinition Height="0.15*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <xctk:MaskedTextBox x:Name="maskedTxtBox"
+                                Mask="0000 0000 0000 0000"
+                                ValueDataType="{x:Type s:String}"
+                                Visibility="Hidden"/>
 
             <TextBlock Text="Пополнение баланса"
                        Style="{DynamicResource txtBlockButtonTopUpBalance}"/>
@@ -57,6 +64,9 @@
                              Grid.Row="1"
                              Grid.ColumnSpan="6"
                              Tag="Номер карты"
+                             Text="{Binding Mask, 
+                             ElementName=_maskedTxtBox, 
+                             ValidatesOnExceptions=True}"
                              Style="{DynamicResource txtBoxCardNumber}"/>
 
                     <TextBox x:Name="txtBoxMonth"
@@ -116,7 +126,7 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                    
+
                     <Button x:Name="btnTransaction"
                             Click="btnTransaction_Click"
                             Grid.Column="3"
