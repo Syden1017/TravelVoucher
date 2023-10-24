@@ -11,7 +11,7 @@
         </Style>
 
         <Style x:Key="mainButton"
-                   TargetType="Button">
+               TargetType="Button">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#0000"/>
@@ -46,19 +46,7 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Кнопка назад -->
-        <Style x:Key="txtBlockButtonBackContent"
-               TargetType="TextBlock">
-            <Style.Setters>
-                <Setter Property="Margin"
-                        Value="-7 6 0 0 "/>
-
-                <Setter Property="FontSize"
-                        Value="16"/>
-            </Style.Setters>
-        </Style>
-
-    <!-- Исчезающий текст внутри TextBox -->
+        <!-- Исчезающий текст внутри TextBox -->
         <Style x:Key="placeHolder" 
                TargetType="{x:Type TextBox}" 
                BasedOn="{StaticResource {x:Type TextBox}}">
@@ -143,6 +131,19 @@
             <Style.Setters>
                 <Setter Property="TextElement.FontFamily"
                         Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wght"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Кнопка назад -->
+        <Style x:Key="txtBlockButtonBackContent"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="-7 6 0 0 "/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
             </Style.Setters>
         </Style>
     <!--#endregion-->
@@ -567,6 +568,9 @@
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wght"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -613,7 +617,8 @@
         </Style>
 
         <Style x:Key="txtBlockHoliday"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 0 0 0"/>
@@ -923,7 +928,8 @@
         </Style>
 
         <Style x:Key="txtBlockSettings"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="FontSize"
                         Value="40"/>
@@ -972,7 +978,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonExit"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 10 0 0"/>
@@ -1020,7 +1027,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonSave"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 5 0 0"/>
@@ -1063,7 +1071,8 @@
         </Style>
 
         <Style x:Key="txtBlockUser"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="FontSize"
                         Value="40"/>
@@ -1258,7 +1267,10 @@
         <Style x:Key="txtBlockTopUpBalance"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockAccount}">
-        
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
         </Style>
 
         <Style x:Key="furtherBorderTopUpBalance"
@@ -1353,7 +1365,8 @@
         </Style>
 
         <Style x:Key="txtBlockHint"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="TextWrapping"
                         Value="Wrap"/>
@@ -1373,7 +1386,8 @@
         </Style>
 
         <Style x:Key="txtBlockReplenishmentAmount"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="7"/>
@@ -1399,7 +1413,8 @@
             
         <!-- Кнопки на странице пополнения -->
         <Style x:Key="txtBlockButtonTransaction"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 0 0 0"/>
@@ -1484,7 +1499,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonCancelTransaction"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="2 0 0 0"/>

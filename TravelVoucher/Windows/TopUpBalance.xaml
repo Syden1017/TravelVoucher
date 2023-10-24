@@ -31,7 +31,7 @@
                                 Visibility="Hidden"/>
 
             <TextBlock Text="Пополнение баланса"
-                       Style="{DynamicResource txtBlockButtonTopUpBalance}"/>
+                       Style="{DynamicResource txtBlockTopUpBalance}"/>
 
             <Border Grid.Row="1"
                     Style="{DynamicResource furtherBorderTopUpBalance}">

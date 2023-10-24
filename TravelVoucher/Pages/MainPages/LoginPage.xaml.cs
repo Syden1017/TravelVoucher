@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Media;
-using TravelVoucher.Tools;
 using WpfApp1.Tools;
+using static UserWork.Users;
 
 namespace TravelVoucher.Pages
 {
@@ -13,13 +11,14 @@ namespace TravelVoucher.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+        private UserDataBase userDataBase;
+
         public LoginPage()
         {
             InitializeComponent();
 
+            userDataBase = new UserDataBase();
         }
-
-        User user1 = new User("User", "12345");
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -41,7 +40,7 @@ namespace TravelVoucher.Pages
             }
             else
             {
-                txtBoxLogin.Background = brushWhite;
+                txtBoxLogin.Background = brushBlack;
                 txtBoxLogin.BorderBrush = brushBlack;
             }
         }
@@ -68,6 +67,9 @@ namespace TravelVoucher.Pages
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
+            string login = txtBoxLogin.Text;
+            string password = passBox.Password;
+
             Color colorWhite = Color.FromRgb(255, 242, 242);
             Brush brushWhite = new SolidColorBrush(colorWhite);
 
@@ -77,8 +79,7 @@ namespace TravelVoucher.Pages
             if (txtBoxLogin.Text.Length > 0
                 && passBox.Password.Length > 0)
             {
-                if (txtBoxLogin.Text == user1.Login
-                    && passBox.Password == user1.Password)
+                if (userDataBase.CheckUser(login, password))
                 {
                     Navigation.frmObj.Navigate(new HomePage());
                 }
@@ -91,7 +92,7 @@ namespace TravelVoucher.Pages
                         MessageBoxImage.Error
                         );
 
-                    if (txtBoxLogin.Text != user1.Login)
+                    if (!userDataBase.CheckLogin(login))
                     {
                         txtBoxLogin.Background = Brushes.LightCoral;
                         txtBoxLogin.BorderBrush = Brushes.Red;
@@ -102,7 +103,7 @@ namespace TravelVoucher.Pages
                         txtBoxLogin.BorderBrush = brushBlack;
                     }
 
-                    if (passBox.Password != user1.Password)
+                    if (!userDataBase.CheckPassword(password))
                     {
                         passBox.Background = Brushes.LightCoral;
                         passBox.BorderBrush = Brushes.Red;
@@ -135,7 +136,7 @@ namespace TravelVoucher.Pages
                 else if (txtBoxLogin.Text.Length > 0 
                          && passBox.Password == "")
                 {
-                    if (txtBoxLogin.Text == user1.Login)
+                    if (!userDataBase.CheckLogin(login))
                     {
                         txtBoxLogin.Background = brushWhite;
                         txtBoxLogin.BorderBrush = brushBlack;
@@ -169,7 +170,7 @@ namespace TravelVoucher.Pages
                     txtBoxLogin.Background = Brushes.LightCoral;
                     txtBoxLogin.BorderBrush = Brushes.Red;
 
-                    if (passBox.Password == user1.Password)
+                    if (!userDataBase.CheckPassword(password))
                     {
                         passBox.Background = brushWhite;
                         passBox.BorderBrush = brushBlack;

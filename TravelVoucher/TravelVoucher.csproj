@@ -16,4 +16,8 @@
     <Folder Include="Fonts\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UserWork\UserWork.csproj" />
+  </ItemGroup>
+
 </Project>
