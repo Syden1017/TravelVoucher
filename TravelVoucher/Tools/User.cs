@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TravelVoucher.Tools
+﻿namespace TravelVoucher.Tools
 {
     public class User
     {
@@ -16,22 +13,6 @@ namespace TravelVoucher.Tools
             Password = password;
         }
 
-        public override bool Equals(object? obj)
-        {
-            if (obj is User otherUser)
-            {
-                return Login == otherUser.Login &&
-                       Password == otherUser.Password;
-            }
-
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Login, Password);
-        }
-
         public override string ToString()
         {
             string result = $"Login: {Login}\n" +
@@ -39,10 +20,5 @@ namespace TravelVoucher.Tools
 
             return result;
         }
-
-        List<User> _users = new List<User>()
-        { 
-            new User("User", "12345")
-        };
     }
 }

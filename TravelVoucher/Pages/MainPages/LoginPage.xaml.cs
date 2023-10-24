@@ -16,7 +16,10 @@ namespace TravelVoucher.Pages
         public LoginPage()
         {
             InitializeComponent();
+
         }
+
+        User user1 = new User("User", "12345");
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -74,8 +77,8 @@ namespace TravelVoucher.Pages
             if (txtBoxLogin.Text.Length > 0
                 && passBox.Password.Length > 0)
             {
-                if (txtBoxLogin.Text == "User"
-                    && passBox.Password == "12345")
+                if (txtBoxLogin.Text == user1.Login
+                    && passBox.Password == user1.Password)
                 {
                     Navigation.frmObj.Navigate(new HomePage());
                 }
@@ -88,7 +91,7 @@ namespace TravelVoucher.Pages
                         MessageBoxImage.Error
                         );
 
-                    if (txtBoxLogin.Text != "User")
+                    if (txtBoxLogin.Text != user1.Login)
                     {
                         txtBoxLogin.Background = Brushes.LightCoral;
                         txtBoxLogin.BorderBrush = Brushes.Red;
@@ -99,7 +102,7 @@ namespace TravelVoucher.Pages
                         txtBoxLogin.BorderBrush = brushBlack;
                     }
 
-                    if (passBox.Password != "12345")
+                    if (passBox.Password != user1.Password)
                     {
                         passBox.Background = Brushes.LightCoral;
                         passBox.BorderBrush = Brushes.Red;
@@ -132,7 +135,7 @@ namespace TravelVoucher.Pages
                 else if (txtBoxLogin.Text.Length > 0 
                          && passBox.Password == "")
                 {
-                    if (txtBoxLogin.Text == "User")
+                    if (txtBoxLogin.Text == user1.Login)
                     {
                         txtBoxLogin.Background = brushWhite;
                         txtBoxLogin.BorderBrush = brushBlack;
@@ -166,7 +169,7 @@ namespace TravelVoucher.Pages
                     txtBoxLogin.Background = Brushes.LightCoral;
                     txtBoxLogin.BorderBrush = Brushes.Red;
 
-                    if (passBox.Password == "12345")
+                    if (passBox.Password == user1.Password)
                     {
                         passBox.Background = brushWhite;
                         passBox.BorderBrush = brushBlack;

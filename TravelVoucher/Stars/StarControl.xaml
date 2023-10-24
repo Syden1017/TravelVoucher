@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="HomeLibraryApp.UserControls.Stars.StarControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="Auto" Width="Auto">
+    <Grid x:Name="gdStar">
+
+        <Path Name="starForeground" 
+              Fill="Gray" 
+              Stroke="Transparent" 
+              StrokeThickness="1"
+              Data="M 145,0
+                    L 180,100
+                    L 72.5,38.2
+                    L  217.5,38.2 
+                    L 110,100 z"/>
+
+        <Rectangle x:Name="mask" Margin="0"/>
+
+        <Path Name="starOutline"
+              Fill="Transparent" 
+              Stroke="Transparent" 
+              StrokeThickness="1"
+              Data="M 145,0
+                    L 180,100
+                    L 72.5,38.2
+                    L  217.5,38.2 
+                    L 110,100 z"/>
+    </Grid>
+</UserControl>
