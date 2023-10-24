@@ -76,6 +76,7 @@
             <!-- Заголовок страницы -->
             <TextBlock Text="Купленные билеты"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
+            
             <StackPanel Style="{DynamicResource stcPanelTitle}">
                 <materialDesign:PopupBox Margin="10"
                                          PlacementMode="BottomAndAlignRightEdges"

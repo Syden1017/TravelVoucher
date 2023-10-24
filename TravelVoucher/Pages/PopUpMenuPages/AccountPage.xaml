@@ -85,7 +85,7 @@
                                 <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\logout.png"/>
 
                                 <TextBlock Text="Выйти из профиля"
-                       Style="{DynamicResource txtBlockAccButtonExit}"/>
+                                           Style="{DynamicResource txtBlockAccButtonExit}"/>
                             </StackPanel>
                         </Button.Content>
                     </Button>

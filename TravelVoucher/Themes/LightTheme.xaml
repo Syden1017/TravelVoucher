@@ -117,6 +117,34 @@
                         Value="Center"/>
             </Style.Setters>
         </Style>
+    
+        <!-- Шрифты -->
+        <!-- Шрифт для заголовков -->
+        <Style x:Key="txtBlockTitleFont"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Medium"/>
+            </Style.Setters>
+        </Style>
+    
+        <!-- Шрифт для обычного текста -->
+        <Style x:Key="txtBlockClassicText"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik VariableFont_wght"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Шрифт для текста в кнопках -->
+        <Style x:Key="txtBlockFurtherText"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wght"/>
+            </Style.Setters>
+        </Style>
     <!--#endregion-->
 
     <!--#region Авторизация-->
@@ -133,7 +161,8 @@
         </Style>
         
         <Style x:Key="txtBlockTitle"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockTitleFont}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -147,7 +176,8 @@
         </Style>
 
         <Style x:Key="txtBlockLogin"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -226,6 +256,9 @@
 
                 <Setter Property="BorderThickness"
                         Value="1.2"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wgh"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -264,7 +297,8 @@
         </Style>
 
         <Style x:Key="txtBlockHomeTitle"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockTitleFont}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -351,7 +385,8 @@
 
         <!-- Элементы бокового меню -->
         <Style x:Key="txtBlockSidebar"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -388,7 +423,8 @@
         </Style>
 
         <Style x:Key="txtBlockHome"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="Foreground"
                         Value="#000000"/>
@@ -479,6 +515,9 @@
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wgh"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -858,7 +897,8 @@
         </Style>
 
         <Style x:Key="txtBlockSettingsTitle"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockTitleFont}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -991,7 +1031,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonSettingsBack"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 5 0 0"/>
@@ -1138,7 +1179,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonTopUpBalance"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 5 0 0"/>
@@ -1186,7 +1228,8 @@
         </Style>
 
         <Style x:Key="txtBlockAccButtonExit"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 15 0 0"/>
