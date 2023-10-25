@@ -2,6 +2,9 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using TravelVoucher.Tools;
+using System.Windows.Controls;
+using System.Linq;
 
 namespace TravelVoucher.Windows
 {
@@ -23,6 +26,137 @@ namespace TravelVoucher.Windows
             }
         }
 
+        #region События текстового поля номера карты
+        private void txtBoxCardNumber_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtBoxCardNumber.Text == "")
+            {
+                txtBoxCardNumber.Background = Brushes.LightCoral;
+                txtBoxCardNumber.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                ColoredControl.SetBackgroundColor(txtBoxCardNumber, 255, 242, 242);
+                ColoredControl.SetBorderColor(txtBoxCardNumber, 0, 0, 0);
+            }
+        }
+
+        private void txtBoxCardNumber_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string cardNumber = txtBoxCardNumber.Text.Replace(" ", "");
+
+            if (cardNumber.Length > 0)
+            {
+                string formattedCardNumber = string.Join(" ", Enumerable.Range
+                    (0, (int)Math.Ceiling((double)cardNumber.Length / 4))
+                    .Select(i => cardNumber.Substring(i * 4, Math.Min(4, cardNumber.Length - i * 4))));
+                txtBoxCardNumber.Text = formattedCardNumber;
+                txtBoxCardNumber.CaretIndex = formattedCardNumber.Length;
+            }
+        }
+
+        private void txtBoxCardNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = txtBoxCardNumber;
+
+            if (textBox.Text.Length >= 19)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+        #region События текстового поля срока действия карты
+        private void txtBoxMonth_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtBoxMonth.Text == "")
+            {
+                txtBoxMonth.Background = Brushes.LightCoral;
+                txtBoxMonth.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                ColoredControl.SetBackgroundColor(txtBoxMonth, 255, 242, 242);
+                ColoredControl.SetBorderColor(txtBoxMonth, 0, 0, 0);
+            }
+        }
+
+        private void txtBoxMonth_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = txtBoxMonth;
+
+            if (textBox.Text.Length >= 2)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxYear_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtBoxYear.Text == "")
+            {
+                txtBoxYear.Background = Brushes.LightCoral;
+                txtBoxYear.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                ColoredControl.SetBackgroundColor(txtBoxYear, 255, 242, 242);
+                ColoredControl.SetBorderColor(txtBoxYear, 0, 0, 0);
+            }
+        }
+
+        private void txtBoxYear_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = txtBoxYear;
+
+            if (textBox.Text.Length >= 2)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+        #region События текстового поля кода на обратной стороне карты
+        private void txtBoxCodeCVC_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtBoxCodeCVC.Text == "")
+            {
+                txtBoxCodeCVC.Background = Brushes.LightCoral;
+                txtBoxCodeCVC.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
+                ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
+            }
+        }
+
+        private void txtBoxCodeCVC_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = txtBoxCodeCVC;
+
+            if (textBox.Text.Length >= 3)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+        private void txtBoxReplenishmentAmount_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtBoxReplenishmentAmount.Text == "")
+            {
+                txtBoxReplenishmentAmount.Background = Brushes.LightCoral;
+                txtBoxReplenishmentAmount.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
+            }
+        }
+
+        #region Обработчики событий при нажатии на кнопку
         private void btnCancelTransaction_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(
@@ -37,11 +171,11 @@ namespace TravelVoucher.Windows
 
         private void btnTransaction_Click(object sender, RoutedEventArgs e)
         {
-            Color colorWhite = Color.FromRgb(255, 242, 242);
-            Brush brushWhite = new SolidColorBrush(colorWhite);
-
-            Color colorBlack = Color.FromRgb(0, 0, 0);
-            Brush brushBlack = new SolidColorBrush(colorBlack);
+            int cardNumber,
+                month,
+                year,
+                cvcCode,
+                replenishmentAmount;
 
             if (txtBoxCardNumber.Text.Length > 0
                 && txtBoxMonth.Text.Length > 0
@@ -49,12 +183,6 @@ namespace TravelVoucher.Windows
                 && txtBoxCodeCVC.Text.Length > 0
                 && txtBoxReplenishmentAmount.Text.Length > 0)
             {
-                int cardNumber,
-                       month,
-                       year,
-                       cvcCode,
-                       replenishmentAmount;
-
                 if (Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
                     && Int32.TryParse(txtBoxMonth.Text, out month)
                     && Int32.TryParse(txtBoxYear.Text, out year)
@@ -88,17 +216,17 @@ namespace TravelVoucher.Windows
                         txtBoxCardNumber.Background = Brushes.LightCoral;
                         txtBoxCardNumber.BorderBrush = Brushes.Red;
 
-                        txtBoxMonth.Background = brushWhite;
-                        txtBoxMonth.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxMonth, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxMonth, 0, 0, 0);
 
-                        txtBoxYear.Background = brushWhite;
-                        txtBoxYear.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxYear, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxYear, 0, 0, 0);
 
-                        txtBoxCodeCVC.Background = brushWhite;
-                        txtBoxCodeCVC.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
 
-                        txtBoxReplenishmentAmount.Background = brushWhite;
-                        txtBoxReplenishmentAmount.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
 
                         txtBoxCardNumber.Clear();
                     }
@@ -124,11 +252,11 @@ namespace TravelVoucher.Windows
                         txtBoxYear.Background = Brushes.LightCoral;
                         txtBoxYear.BorderBrush = Brushes.Red;
 
-                        txtBoxCodeCVC.Background = brushWhite;
-                        txtBoxCodeCVC.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
 
-                        txtBoxReplenishmentAmount.Background = brushWhite;
-                        txtBoxReplenishmentAmount.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
 
                         txtBoxCardNumber.Clear();
                         txtBoxMonth.Clear();
@@ -160,8 +288,8 @@ namespace TravelVoucher.Windows
                         txtBoxCodeCVC.Background = Brushes.LightCoral;
                         txtBoxCodeCVC.BorderBrush = Brushes.Red;
 
-                        txtBoxReplenishmentAmount.Background = brushWhite;
-                        txtBoxReplenishmentAmount.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
 
                         txtBoxCardNumber.Clear();
                         txtBoxMonth.Clear();
@@ -252,8 +380,8 @@ namespace TravelVoucher.Windows
                         MessageBoxImage.Warning
                         );
 
-                    txtBoxCardNumber.Background = brushWhite;
-                    txtBoxCardNumber.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxCardNumber, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxCardNumber, 0, 0, 0);
 
                     txtBoxMonth.Background = Brushes.LightCoral;
                     txtBoxMonth.BorderBrush = Brushes.Red;
@@ -281,14 +409,14 @@ namespace TravelVoucher.Windows
                         MessageBoxImage.Warning
                         );
 
-                    txtBoxCardNumber.Background = brushWhite;
-                    txtBoxCardNumber.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxCardNumber, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxCardNumber, 0, 0, 0);
 
-                    txtBoxMonth.Background = brushWhite;
-                    txtBoxMonth.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxMonth, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxMonth, 0, 0, 0);
 
-                    txtBoxYear.Background = brushWhite;
-                    txtBoxYear.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxYear, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxYear, 0, 0, 0);
 
                     txtBoxCodeCVC.Background = Brushes.LightCoral;
                     txtBoxCodeCVC.BorderBrush = Brushes.Red;
@@ -309,22 +437,23 @@ namespace TravelVoucher.Windows
                         MessageBoxImage.Warning
                         );
 
-                    txtBoxCardNumber.Background = brushWhite;
-                    txtBoxCardNumber.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxCardNumber, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxCardNumber, 0, 0, 0);
 
-                    txtBoxMonth.Background = brushWhite;
-                    txtBoxMonth.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxMonth, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxMonth, 0, 0, 0);
 
-                    txtBoxYear.Background = brushWhite;
-                    txtBoxYear.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxYear, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxYear, 0, 0, 0);
 
-                    txtBoxCodeCVC.Background = brushWhite;
-                    txtBoxCodeCVC.BorderBrush = brushBlack;
+                    ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
 
                     txtBoxReplenishmentAmount.Background = Brushes.LightCoral;
                     txtBoxReplenishmentAmount.BorderBrush = Brushes.Red;
                 }
             }
         }
+        #endregion
     }
 }

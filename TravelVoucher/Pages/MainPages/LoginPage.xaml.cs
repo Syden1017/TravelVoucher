@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using TravelVoucher.Tools;
 using WpfApp1.Tools;
 using static UserWork.Users;
 
@@ -27,12 +28,6 @@ namespace TravelVoucher.Pages
 
         private void txtBoxLogin_LostFocus(object sender, RoutedEventArgs e)
         {
-            Color colorWhite = Color.FromRgb(255, 242, 242);
-            Brush brushWhite = new SolidColorBrush(colorWhite);
-
-            Color colorBlack = Color.FromRgb(0, 0, 0);
-            Brush brushBlack = new SolidColorBrush(colorBlack);
-
             if (txtBoxLogin.Text == "")
             {
                 txtBoxLogin.Background = Brushes.LightCoral;
@@ -40,19 +35,13 @@ namespace TravelVoucher.Pages
             }
             else
             {
-                txtBoxLogin.Background = brushBlack;
-                txtBoxLogin.BorderBrush = brushBlack;
+                ColoredControl.SetBackgroundColor(txtBoxLogin, 255, 242, 242);
+                ColoredControl.SetBorderColor(txtBoxLogin, 0, 0, 0);
             }
         }
 
         private void passBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            Color colorWhite = Color.FromRgb(255, 242, 242);
-            Brush brushWhite = new SolidColorBrush(colorWhite);
-
-            Color colorBlack = Color.FromRgb(0, 0, 0);
-            Brush brushBlack = new SolidColorBrush(colorBlack);
-
             if (passBox.Password == "")
             {
                 passBox.Background = Brushes.LightCoral;
@@ -60,8 +49,8 @@ namespace TravelVoucher.Pages
             }
             else
             {
-                passBox.Background = brushWhite;
-                passBox.BorderBrush = brushBlack;
+                ColoredControl.SetBackgroundColor(passBox, 255, 242, 242);
+                ColoredControl.SetBorderColor(passBox, 0, 0, 0);
             }
         }
 
@@ -69,12 +58,6 @@ namespace TravelVoucher.Pages
         {
             string login = txtBoxLogin.Text;
             string password = passBox.Password;
-
-            Color colorWhite = Color.FromRgb(255, 242, 242);
-            Brush brushWhite = new SolidColorBrush(colorWhite);
-
-            Color colorBlack = Color.FromRgb(0, 0, 0);
-            Brush brushBlack = new SolidColorBrush(colorBlack);
 
             if (txtBoxLogin.Text.Length > 0
                 && passBox.Password.Length > 0)
@@ -99,8 +82,8 @@ namespace TravelVoucher.Pages
                     }
                     else
                     {
-                        txtBoxLogin.Background = brushWhite;
-                        txtBoxLogin.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(txtBoxLogin, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxLogin, 0, 0, 0);
                     }
 
                     if (!userDataBase.CheckPassword(password))
@@ -110,8 +93,8 @@ namespace TravelVoucher.Pages
                     }
                     else
                     {
-                        passBox.Background = brushWhite;
-                        passBox.BorderBrush = brushBlack;
+                        ColoredControl.SetBackgroundColor(passBox, 255, 242, 242);
+                        ColoredControl.SetBorderColor(passBox, 0, 0, 0);
                     }
                 }
             }
@@ -138,18 +121,6 @@ namespace TravelVoucher.Pages
                 {
                     if (!userDataBase.CheckLogin(login))
                     {
-                        txtBoxLogin.Background = brushWhite;
-                        txtBoxLogin.BorderBrush = brushBlack;
-
-                        MessageBox.Show(
-                            "Введите пароль!",
-                            "Ошибка авторизации",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                            );
-                    }
-                    else
-                    {
                         MessageBox.Show(
                             "Введите пароль и корректное имя пользователя!",
                             "Ошибка авторизации",
@@ -159,6 +130,18 @@ namespace TravelVoucher.Pages
 
                         txtBoxLogin.Background = Brushes.LightCoral;
                         txtBoxLogin.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        ColoredControl.SetBackgroundColor(txtBoxLogin, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxLogin, 0, 0, 0);
+
+                        MessageBox.Show(
+                            "Введите пароль!",
+                            "Ошибка авторизации",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
                     }
 
                     passBox.Background = Brushes.LightCoral;
@@ -172,18 +155,6 @@ namespace TravelVoucher.Pages
 
                     if (!userDataBase.CheckPassword(password))
                     {
-                        passBox.Background = brushWhite;
-                        passBox.BorderBrush = brushBlack;
-
-                        MessageBox.Show(
-                            "Введите логин!",
-                            "Ошибка авторизации",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                            );
-                    }
-                    else
-                    {
                         MessageBox.Show(
                             "Введите логин и корректный пароль!",
                             "Ошибка авторизации",
@@ -193,6 +164,18 @@ namespace TravelVoucher.Pages
 
                         passBox.Background = Brushes.LightCoral;
                         passBox.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        ColoredControl.SetBackgroundColor(passBox, 255, 242, 242);
+                        ColoredControl.SetBorderColor(passBox, 0, 0, 0);
+
+                        MessageBox.Show(
+                            "Введите логин!",
+                            "Ошибка авторизации",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
                     }
                 }
             }

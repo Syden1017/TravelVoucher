@@ -4,8 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelVoucher.Windows"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         
         Height="310" 
@@ -24,11 +22,6 @@
                 <RowDefinition Height="0.15*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <xctk:MaskedTextBox x:Name="maskedTxtBox"
-                                Mask="0000 0000 0000 0000"
-                                ValueDataType="{x:Type s:String}"
-                                Visibility="Hidden"/>
 
             <TextBlock Text="Пополнение баланса"
                        Style="{DynamicResource txtBlockTopUpBalance}"/>
@@ -64,15 +57,17 @@
                              Grid.Row="1"
                              Grid.ColumnSpan="6"
                              Tag="Номер карты"
-                             Text="{Binding Mask, 
-                             ElementName=_maskedTxtBox, 
-                             ValidatesOnExceptions=True}"
+                             LostFocus="txtBoxCardNumber_LostFocus"
+                             TextChanged="txtBoxCardNumber_TextChanged"
+                             PreviewTextInput="txtBoxCardNumber_PreviewTextInput"
                              Style="{DynamicResource txtBoxCardNumber}"/>
 
                     <TextBox x:Name="txtBoxMonth"
                              Grid.Column="1"
                              Grid.Row="3"
                              Tag="ММ"
+                             LostFocus="txtBoxMonth_LostFocus"
+                             PreviewTextInput="txtBoxMonth_PreviewTextInput"
                              Style="{DynamicResource txtBoxMonth}"/>
 
                     <TextBlock Text="/"
@@ -84,12 +79,16 @@
                              Grid.Column="3"
                              Grid.Row="3"
                              Tag="ГГ"
+                             LostFocus="txtBoxYear_LostFocus"
+                             PreviewTextInput="txtBoxYear_PreviewTextInput"
                              Style="{DynamicResource txtBoxYear}"/>
 
                     <TextBox x:Name="txtBoxCodeCVC"
                              Grid.Column="6"
                              Grid.Row="3"
                              Tag="CVC"
+                             LostFocus="txtBoxCodeCVC_LostFocus"
+                             PreviewTextInput="txtBoxCodeCVC_PreviewTextInput"
                              Style="{DynamicResource txtBoxCodeCVC}"/>
 
                     <TextBlock Text="Три цифры с обратной стороны карты"
@@ -107,6 +106,7 @@
                              Grid.Column="5"
                              Grid.Row="5"
                              Grid.ColumnSpan="2"
+                             LostFocus="txtBoxReplenishmentAmount_LostFocus"
                              Style="{DynamicResource txtBoxReplenishmentAmount}"/>
 
                     <Button x:Name="btnCancelTransaction"
