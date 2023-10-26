@@ -60,7 +60,7 @@
             <PasswordBox x:Name="passBoxRepeatPassword"
                          Grid.Column="2"
                          Grid.Row="3"
-                         Visibility="Hidden"
+                         Visibility="Collapsed"
                          Style="{DynamicResource passBoxRegistrationPassword}"/>
 
             <Button x:Name="btnCancelRegistration"

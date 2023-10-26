@@ -19,7 +19,7 @@ namespace UserWork
             {
                 users = new List<User>
                 {
-                    new User { Login = "User", Password = "12345" },
+                    
                 };
             }
 

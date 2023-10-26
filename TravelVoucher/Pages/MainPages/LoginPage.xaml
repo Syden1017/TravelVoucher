@@ -26,6 +26,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Column="2"
@@ -61,6 +62,13 @@
                     Grid.Column="2"
                     Grid.Row="3"
                     Style="{DynamicResource btnLogin}"/>
+
+            <TextBlock x:Name="registrationLabel"
+                       Grid.Column="2"
+                       Grid.Row="4"
+                       MouseDown="registrationLabel_MouseDown"
+                       Text="Еще нет аккаунта? Зарегистрируйтесь."
+                       Style="{DynamicResource txtBlockRegistrationLabel}"/>
         </Grid>
     </Border>
 </Page>

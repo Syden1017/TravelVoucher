@@ -1,9 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Input;
 using TravelVoucher.Tools;
 using WpfApp1.Tools;
 using static UserWork.Users;
+using TravelVoucher.Pages.MainPages;
 
 namespace TravelVoucher.Pages
 {
@@ -74,6 +76,8 @@ namespace TravelVoucher.Pages
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
                         );
+
+                    registrationLabel.Visibility = Visibility.Visible;
 
                     if (!userDataBase.CheckLogin(login))
                     {
@@ -179,6 +183,11 @@ namespace TravelVoucher.Pages
                     }
                 }
             }
+        }
+
+        private void registrationLabel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Navigation.frmObj.Navigate(new RegistrationPage());
         }
     }
 }

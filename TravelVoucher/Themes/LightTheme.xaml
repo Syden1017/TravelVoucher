@@ -155,7 +155,7 @@
                TargetType="Border">
             <Style.Setters>
                 <Setter Property="Padding"
-                        Value="180"/>
+                        Value="160"/>
 
                 <Setter Property="Background"
                         Value="#DFEBEA"/>
@@ -280,6 +280,31 @@
                 </Style>
             </Style.Resources>
         </Style>
+
+        <Style x:Key="txtBlockRegistrationLabel"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="HorizontalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                        Value="True">
+                    <Setter Property="Foreground"
+                            Value="#74B3B1"/>
+
+                    <Setter Property="Cursor"
+                            Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     <!--#endregion-->
 
     <!--#region Регистрация -->
@@ -346,7 +371,7 @@
                 <Style TargetType="Border">
                     <Style.Setters>
                         <Setter Property="CornerRadius"
-                            Value="20"/>
+                                Value="20"/>
                     </Style.Setters>
                 </Style>
             </Style.Resources>
