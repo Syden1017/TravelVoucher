@@ -7,8 +7,38 @@ namespace UserWork
     {
         public class User
         {
-            public string Login { get; set; }
-            public string Password { get; set; }
+            private string login;
+            private string password;
+
+            public string Login 
+            {
+                get 
+                {
+                    return login;
+                }
+                set
+                {
+                    login = value;
+                }
+            }
+
+            public string Password 
+            {
+                get 
+                { 
+                    return password;
+                }
+                set
+                {
+                    password = value;
+                }
+            }
+
+            public User(string login, string password)
+            {
+                Login = login;
+                Password = password;
+            }
         }
 
         public class UserDataBase
@@ -17,44 +47,19 @@ namespace UserWork
 
             public UserDataBase()
             {
-                users = new List<User>
-                {
-                    
-                };
+                users = new List<User>();
             }
 
             /// <summary>
             /// Добавление нового пользователя
             /// </summary>
-            /// <param name="username">Имя пользователя для входа в систему</param>
+            /// <param name="login">Имя пользователя для входа в систему</param>
             /// <param name="password">Пароль пользователя для входа в систему</param>
             /// <exception cref="ArgumentException">Ошибка в случае, если пользователь уже существует</exception>
-            public void AddUser(string username, string password)
+            public void AddUser(string login, string password)
             {
-                // Проверяет есть ли пользоавтель в списке
-                if (UserExists(username))
-                {
-                    throw new ArgumentException("Пользователь уже существует.");
-                }
-
-                users.Add(new User { Login = username, Password = password });
-            }
-
-            /// <summary>
-            /// Проверка на наличие пользователя в системе
-            /// </summary>
-            /// <param name="username">Имя пользователя для входа в систему</param>
-            /// <returns>Истина или ложь</returns>
-            private bool UserExists(string username)
-            {
-                foreach (var user in users)
-                {
-                    if (user.Login == username)
-                    {
-                        return true;
-                    }
-                }
-                return false;
+                User newUser = new User(login, password);
+                users.Add(newUser);
             }
 
             /// <summary>
@@ -86,6 +91,15 @@ namespace UserWork
             public bool CheckPassword(string password)
             {
                 return users.Exists(user => user.Password == password);
+            }
+
+            /// <summary>
+            /// Метод для инициализации списка пользователей
+            /// </summary>
+            /// <returns>Список пользователей</returns>
+            public List<User> GetUsers()
+            {
+                return users;
             }
         }
     }
