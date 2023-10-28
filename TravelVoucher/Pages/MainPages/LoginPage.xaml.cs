@@ -120,7 +120,7 @@ namespace TravelVoucher.Pages
                     passBox.Background = Brushes.LightCoral;
                     passBox.BorderBrush = Brushes.Red;
                 }
-                else if (txtBoxLogin.Text.Length > 0 
+                else if (txtBoxLogin.Text.Length > 0
                          && passBox.Password == "")
                 {
                     if (!userDataBase.CheckLogin(login))
@@ -188,6 +188,18 @@ namespace TravelVoucher.Pages
         private void registrationLabel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Navigation.frmObj.Navigate(new RegistrationPage());
+        }
+
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (passBox.Password.Length > 0)
+            {
+                Watermark.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark.Visibility = Visibility.Visible;
+            }
         }
     }
 }

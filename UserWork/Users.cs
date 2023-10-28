@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace UserWork
 {
@@ -10,25 +11,27 @@ namespace UserWork
             private string login;
             private string password;
 
-            public string Login 
+            public string Login
             {
                 get 
                 {
                     return login;
                 }
-                set
+
+                set 
                 {
                     login = value;
                 }
             }
 
-            public string Password 
+            public string Password
             {
                 get 
                 { 
                     return password;
                 }
-                set
+
+                set 
                 {
                     password = value;
                 }
@@ -47,7 +50,10 @@ namespace UserWork
 
             public UserDataBase()
             {
-                users = new List<User>();
+                users = new List<User>
+                {
+                    new User("User", "12345")
+                };
             }
 
             /// <summary>
@@ -55,11 +61,21 @@ namespace UserWork
             /// </summary>
             /// <param name="login">Имя пользователя для входа в систему</param>
             /// <param name="password">Пароль пользователя для входа в систему</param>
-            /// <exception cref="ArgumentException">Ошибка в случае, если пользователь уже существует</exception>
             public void AddUser(string login, string password)
             {
-                User newUser = new User(login, password);
-                users.Add(newUser);
+                if (!CheckUser(login, password))
+                {
+                    users.Add(new User(login, password));
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Пользователь уже существует",
+                        "Ошибка регистрации",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning
+                        );
+                }
             }
 
             /// <summary>
@@ -93,13 +109,9 @@ namespace UserWork
                 return users.Exists(user => user.Password == password);
             }
 
-            /// <summary>
-            /// Метод для инициализации списка пользователей
-            /// </summary>
-            /// <returns>Список пользователей</returns>
-            public List<User> GetUsers()
+            public void InitializeUsers(List<User> initialUsers)
             {
-                return users;
+                users.AddRange(initialUsers);
             }
         }
     }

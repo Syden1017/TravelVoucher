@@ -11,12 +11,33 @@
       
       Loaded="Page_Loaded">
 
+    <Page.Resources>
+        <Style x:Key="passBoxRegisterPassword"
+               TargetType="PasswordBox"
+               BasedOn="{StaticResource passBoxRegistrationPassword}">
+            <Style.Setters>
+                <EventSetter Event="PasswordChanged"
+                             Handler="OnPasswordChanged"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="passBoxRepeatRegisterPassword"
+               TargetType="PasswordBox"
+               BasedOn="{StaticResource passBoxRegistrationPassword}">
+            <Style.Setters>
+                <EventSetter Event="PasswordChanged"
+                             Handler="OnPasswordChanged"/>
+            </Style.Setters>
+        </Style>
+    </Page.Resources>
+    
     <Border Style="{DynamicResource borderRegistration}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="1.2*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
@@ -32,41 +53,52 @@
 
             <TextBlock Grid.Column="2"
                        Grid.Row="0"
+                       Grid.ColumnSpan="2"
                        Text="Регистрация"
                        Style="{StaticResource txtBlockRegistrationTitle}"/>
-
-            <TextBlock Grid.Column="1" 
-                       Grid.Row="1"
-                       Text="Логин:"
-                       Style="{DynamicResource txtBlockRegistrationLogin}"/>
 
             <TextBox x:Name="txtBoxRegistrationLogin"
                      Grid.Column="2"
                      Grid.Row="1"
+                     Grid.ColumnSpan="2"
                      LostFocus="txtBoxRegistrationLogin_LostFocus"
                      Style="{DynamicResource txtBoxRegistrationLogin}"/>
-
-            <TextBlock Grid.Column="1" 
-                       Grid.Row="2"
-                       Text="Пароль:"
-                       Style="{DynamicResource txtBlockRegistrationPassword}"/>
+            <TextBlock Text="Введите логин"
+                       Grid.Column="2"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2"
+                       Style="{DynamicResource txtBlockLoginWatermark}"/>
 
             <PasswordBox x:Name="passBoxRegistration"
                          Grid.Column="2"
                          Grid.Row="2"
+                         Grid.ColumnSpan="2"
                          LostFocus="passBoxRegistration_LostFocus"
-                         Style="{DynamicResource passBoxRegistrationPassword}"/>
+                         Style="{DynamicResource passBoxRegisterPassword}"/>
+            <TextBlock Name="Watermark"
+                       Text="Введите пароль"
+                       Grid.Column="2"
+                       Grid.Row="2"
+                       Grid.ColumnSpan="2"
+                       Style="{DynamicResource txtBlockPasswordWatermark}"/>
 
             <PasswordBox x:Name="passBoxRepeatPassword"
                          Grid.Column="2"
                          Grid.Row="3"
-                         Visibility="Collapsed"
-                         Style="{DynamicResource passBoxRegistrationPassword}"/>
+                         Grid.ColumnSpan="2"
+                         Style="{DynamicResource passBoxRepeatRegisterPassword}"/>
+            <TextBlock Name="repeatWatermark"
+                       Text="Повторите пароль"
+                       Grid.Column="2"
+                       Grid.Row="3"
+                       Grid.ColumnSpan="2"
+                       Style="{DynamicResource txtBlockPasswordWatermark}"/>
 
             <Button x:Name="btnCancelRegistration"
                     Click="btnCancelRegistration_Click"
                     Grid.Column="1"
                     Grid.Row="4"
+                    Grid.ColumnSpan="2"
                     Style="{DynamicResource btnCancelRegistration}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
@@ -82,8 +114,9 @@
 
             <Button x:Name="btnRegister"
                     Click="btnRegister_Click"
-                    Grid.Column="2"
+                    Grid.Column="3"
                     Grid.Row="4"
+                    Grid.ColumnSpan="2"
                     Style="{DynamicResource btnRegister}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">

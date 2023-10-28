@@ -73,8 +73,8 @@ namespace TravelVoucher.Pages.MainPages
             string login = txtBoxRegistrationLogin.Text;
             string password = passBoxRegistration.Password;
 
-            if (txtBoxRegistrationLogin.Text.Length > 0
-                && passBoxRegistration.Password.Length > 0)
+            if (!string.IsNullOrEmpty(login)
+                && !string.IsNullOrEmpty(password))
             {
                 if (passBoxRegistration.Password == passBoxRepeatPassword.Password)
                 {
@@ -104,8 +104,8 @@ namespace TravelVoucher.Pages.MainPages
             }
             else
             {
-                if (txtBoxRegistrationLogin.Text == ""
-                    && passBoxRegistration.Password == "")
+                if (string.IsNullOrEmpty(login)
+                    && string.IsNullOrEmpty(password))
                 {
                     MessageBox.Show(
                         "Введите логин и пароль!",
@@ -119,9 +119,12 @@ namespace TravelVoucher.Pages.MainPages
 
                     passBoxRegistration.Background = Brushes.LightCoral;
                     passBoxRegistration.BorderBrush = Brushes.Red;
+
+                    passBoxRepeatPassword.Background = Brushes.LightCoral;
+                    passBoxRepeatPassword.BorderBrush = Brushes.Red;
                 }
-                else if (txtBoxRegistrationLogin.Text.Length > 0
-                         && passBoxRegistration.Password == "")
+                else if (!string.IsNullOrEmpty(login)
+                         && string.IsNullOrEmpty(password))
                 {
                     MessageBox.Show(
                         "Введите пароль!",
@@ -136,8 +139,8 @@ namespace TravelVoucher.Pages.MainPages
                     passBoxRegistration.Background = Brushes.LightCoral;
                     passBoxRegistration.BorderBrush = Brushes.Red;
                 }
-                else if (txtBoxRegistrationLogin.Text == ""
-                         && passBoxRegistration.Password.Length > 0)
+                else if (string.IsNullOrEmpty(login)
+                         && !string.IsNullOrEmpty(password))
                 {
                     MessageBox.Show(
                         "Введите логин!",
@@ -154,6 +157,27 @@ namespace TravelVoucher.Pages.MainPages
                     ColoredControl.SetBackgroundColor(passBoxRegistration, 255, 242, 242);
                     ColoredControl.SetBorderColor(passBoxRegistration, 0, 0, 0);
                 }
+            }
+        }
+
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (passBoxRegistration.Password.Length > 0)
+            {
+                Watermark.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark.Visibility = Visibility.Visible;
+            }
+
+            if (passBoxRepeatPassword.Password.Length > 0)
+            {
+                repeatWatermark.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                repeatWatermark.Visibility = Visibility.Visible;
             }
         }
     }

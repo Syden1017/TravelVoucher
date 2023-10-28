@@ -47,55 +47,7 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Исчезающий текст внутри TextBox -->
-        <Style x:Key="placeHolder" 
-               TargetType="{x:Type TextBox}" 
-               BasedOn="{StaticResource {x:Type TextBox}}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Grid>
-                            <TextBox Text="{Binding Path=Text,
-                                     RelativeSource={RelativeSource TemplatedParent},
-                                     Mode=TwoWay,
-                                     UpdateSourceTrigger=PropertyChanged}"
-                                     x:Name="textSource"
-                                     Background="Transparent"
-                                     Panel.ZIndex="2" />
-
-                            <TextBox Text="{TemplateBinding Tag}" 
-                                     Background="{TemplateBinding Background}" 
-                                     Panel.ZIndex="1">
-
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Setter Property="Foreground" 
-                                                Value="Transparent"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=Text, 
-                                                         Source={x:Reference textSource}}" 
-                                                         Value="">
-
-                                                <Setter Property="Foreground" 
-                                                        Value="#A9A9A9"/>
-
-                                                <Setter Property="FontSize"
-                                                        Value="16"/>
-
-                                                <Setter Property="TextAlignment"
-                                                        Value="Center"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    
-        <!-- Панель для плитки  -->
+    <!-- Панель для плитки  -->
         <Style x:Key="itemPanel"
                TargetType="WrapPanel">
             <Style.Setters>
@@ -147,6 +99,74 @@
                         Value="16"/>
             </Style.Setters>
         </Style>
+
+        <!-- Исчезающий текст внутри TextBox и PasswordBox -->
+        <Style x:Key="txtBlockPasswordWatermark"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="28"/>
+
+                <Setter Property="FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wght"/>
+
+                <Setter Property="IsHitTestVisible"
+                        Value="False"/>
+
+                <Setter Property="Margin"
+                        Value="20 15 10 0"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Top"/>
+
+                <Setter Property="Foreground"
+                        Value="#A9A9A9"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockAuthorizationPassword"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="26"/>
+            </Style.Setters>
+        </Style>
+    
+        <Style x:Key="txtBlockLoginWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Setter Property="Visibility"
+                    Value="Collapsed"/>
+            
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxRegistrationLogin}"
+                             Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="txtBlockAuthorizationLoginWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="26"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxLogin}"
+                             Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     <!--#endregion-->
 
     <!--#region Авторизация-->
@@ -161,7 +181,7 @@
                         Value="#DFEBEA"/>
             </Style.Setters>
         </Style>
-        
+
         <Style x:Key="txtBlockTitle"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockTitleFont}">
@@ -175,27 +195,6 @@
                 <Setter Property="FontSize"
                         Value="40"/>
             </Style.Setters>
-        </Style>
-
-        <Style x:Key="txtBlockLogin"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockClassicText}">
-            <Style.Setters>
-                <Setter Property="VerticalAlignment"
-                        Value="Center"/>
-
-                <Setter Property="HorizontalAlignment"
-                        Value="Right"/>
-
-                <Setter Property="FontSize"
-                        Value="26"/>
-            </Style.Setters>
-        </Style>
-
-        <Style x:Key="txtBlockPassword"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockLogin}">
-            
         </Style>
 
         <Style x:Key="txtBoxLogin"
@@ -320,45 +319,33 @@
         <Style x:Key="txtBlockRegistrationTitle"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockTitle}">
-            
-        </Style>
 
-        <Style x:Key="txtBlockRegistrationLogin"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockLogin}">
-            <Style.Setters>
-                <Setter Property="FontSize"
-                        Value="28"/>
-            </Style.Setters>
         </Style>
 
         <Style x:Key="txtBoxRegistrationLogin"
                TargetType="TextBox"
                BasedOn="{StaticResource txtBoxLogin}">
-            
-        </Style>
-
-        <Style x:Key="txtBlockRegistrationPassword"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockRegistrationLogin}">
-
         </Style>
 
         <Style x:Key="passBoxRegistrationPassword"
                TargetType="PasswordBox"
                BasedOn="{StaticResource passBoxPassword}">
-
+            
         </Style>
 
         <!-- Кнопки на странице регистрации -->
         <Style x:Key="btnCancelRegistration"
                TargetType="Button"
                BasedOn="{StaticResource btnLogin}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5"/>
+            </Style.Setters>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Style.Setters>
                         <Setter Property="CornerRadius"
-                                Value="20"/>
+                                Value="25"/>
                     </Style.Setters>
                 </Style>
             </Style.Resources>
@@ -367,17 +354,22 @@
         <Style x:Key="btnRegister"
                TargetType="Button"
                BasedOn="{StaticResource btnLogin}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5"/>
+            </Style.Setters>
+            
             <Style.Resources>
                 <Style TargetType="Border">
                     <Style.Setters>
                         <Setter Property="CornerRadius"
-                                Value="20"/>
+                                Value="25"/>
                     </Style.Setters>
                 </Style>
             </Style.Resources>
         </Style>
 
-    <Style x:Key="txtBlockButtonCancelRegistration"
+        <Style x:Key="txtBlockButtonCancelRegistration"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
@@ -1403,8 +1395,7 @@
         </Style>
 
         <Style x:Key="txtBoxCardNumber"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>
@@ -1423,6 +1414,32 @@
             </Style.Setters>
         </Style>
 
+        <Style x:Key="txtBlockCardNumberWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="7 10 7 10"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxCardNumber}"
+                            Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="furtherTxtBlockTopUpBalance"
                TargetType="TextBlock">
             <Style.Setters>
@@ -1435,8 +1452,7 @@
         </Style>
 
         <Style x:Key="txtBoxMonth"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>
@@ -1455,9 +1471,34 @@
             </Style.Setters>
         </Style>
 
+        <Style x:Key="txtBlockMonthWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="7 2 2 0"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxMonth}"
+                            Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="txtBoxYear"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>
@@ -1476,9 +1517,34 @@
             </Style.Setters>
         </Style>
 
+        <Style x:Key="txtBlockYearWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="2 2 7 0"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxYear}"
+                            Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="txtBoxCodeCVC"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>

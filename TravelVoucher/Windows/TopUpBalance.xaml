@@ -56,19 +56,26 @@
                              Grid.Column="1"
                              Grid.Row="1"
                              Grid.ColumnSpan="6"
-                             Tag="Номер карты"
                              LostFocus="txtBoxCardNumber_LostFocus"
                              TextChanged="txtBoxCardNumber_TextChanged"
                              PreviewTextInput="txtBoxCardNumber_PreviewTextInput"
                              Style="{DynamicResource txtBoxCardNumber}"/>
+                    <TextBlock Text="Номер карты"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="6"
+                               Style="{DynamicResource txtBlockCardNumberWatermark}"/>
 
                     <TextBox x:Name="txtBoxMonth"
                              Grid.Column="1"
                              Grid.Row="3"
-                             Tag="ММ"
                              LostFocus="txtBoxMonth_LostFocus"
                              PreviewTextInput="txtBoxMonth_PreviewTextInput"
                              Style="{DynamicResource txtBoxMonth}"/>
+                    <TextBlock Text="ММ"
+                               Grid.Column="1"
+                               Grid.Row="3"
+                               Style="{DynamicResource txtBlockMonthWatermark}"/>
 
                     <TextBlock Text="/"
                                Grid.Column="2"
@@ -78,10 +85,13 @@
                     <TextBox x:Name="txtBoxYear"
                              Grid.Column="3"
                              Grid.Row="3"
-                             Tag="ГГ"
                              LostFocus="txtBoxYear_LostFocus"
                              PreviewTextInput="txtBoxYear_PreviewTextInput"
                              Style="{DynamicResource txtBoxYear}"/>
+                    <TextBlock Text="ГГ"
+                               Grid.Column="3"
+                               Grid.Row="3"
+                               Style="{DynamicResource txtBlockYearWatermark}"/>
 
                     <TextBox x:Name="txtBoxCodeCVC"
                              Grid.Column="6"
@@ -90,6 +100,10 @@
                              LostFocus="txtBoxCodeCVC_LostFocus"
                              PreviewTextInput="txtBoxCodeCVC_PreviewTextInput"
                              Style="{DynamicResource txtBoxCodeCVC}"/>
+                    <TextBlock Text="CVC"
+                               Grid.Column="6"
+                               Grid.Row="3"
+                               Style="{DynamicResource txtBlockYearWatermark}"/>
 
                     <TextBlock Text="Три цифры с обратной стороны карты"
                                Grid.Column="6"
