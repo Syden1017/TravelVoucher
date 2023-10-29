@@ -167,6 +167,20 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
+        <Style x:Key="btnShowHidePassword"
+               TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#0000"/>
+
+                <Setter Property="Margin"
+                        Value="0 10 70 10"/>
+
+                <Setter Property="BorderThickness"
+                        Value="0 0 0 0"/>
+            </Style.Setters>
+        </Style>
     <!--#endregion-->
 
     <!--#region Авторизация-->

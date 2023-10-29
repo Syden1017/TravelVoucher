@@ -185,6 +185,20 @@ namespace TravelVoucher.Pages
             }
         }
 
+        private void btnShowPassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (passBox.PasswordChar == '●')
+            {
+                passBox.PasswordChar = '\0';
+                btnShowPassword.Content = "C:\\Users\\User\\source\\repos\\Новая папка\\TravelVoucher\\Images\\ControlImages\\closeEye.png";
+            }
+            else
+            {
+                passBox.PasswordChar = '●';
+                btnShowPassword.Content = "C:\\Users\\User\\source\\repos\\Новая папка\\TravelVoucher\\Images\\ControlImages\\openEye.png";
+            }
+        }
+
         private void registrationLabel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Navigation.frmObj.Navigate(new RegistrationPage());
