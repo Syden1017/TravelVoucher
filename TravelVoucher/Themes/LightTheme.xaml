@@ -65,7 +65,7 @@
                TargetType="TextBlock">
             <Style.Setters>
                 <Setter Property="TextElement.FontFamily"
-                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Medium"/>
+                        Value="\Fonts\#Rubik Medium"/>
             </Style.Setters>
         </Style>
     
@@ -74,7 +74,7 @@
                TargetType="TextBlock">
             <Style.Setters>
                 <Setter Property="TextElement.FontFamily"
-                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik VariableFont_wght"/>
+                        Value="\Fonts\#Rubik VariableFont_wght"/>
             </Style.Setters>
         </Style>
 
@@ -83,7 +83,7 @@
                TargetType="TextBlock">
             <Style.Setters>
                 <Setter Property="TextElement.FontFamily"
-                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wght"/>
+                        Value="\Fonts\#Rubik Italic VariableFont_wght"/>
             </Style.Setters>
         </Style>
 
@@ -93,7 +93,7 @@
                BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
-                        Value="-7 6 0 0 "/>
+                        Value="-7 12 0 0"/>
 
                 <Setter Property="FontSize"
                         Value="16"/>
@@ -107,8 +107,8 @@
                 <Setter Property="FontSize"
                         Value="28"/>
 
-                <Setter Property="FontFamily"
-                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wght"/>
+                <Setter Property="TextElement.FontFamily"
+                        Value="\Fonts\#Rubik Italic VariableFont_wght"/>
 
                 <Setter Property="IsHitTestVisible"
                         Value="False"/>
@@ -172,20 +172,6 @@
                             Value="Visible"/>
                 </DataTrigger>
             </Style.Triggers>
-        </Style>
-
-        <Style x:Key="btnShowHidePassword"
-               TargetType="Button">
-            <Style.Setters>
-                <Setter Property="Background"
-                        Value="#0000"/>
-
-                <Setter Property="Margin"
-                        Value="0 10 70 10"/>
-
-                <Setter Property="BorderThickness"
-                        Value="0 0 0 0"/>
-            </Style.Setters>
         </Style>
     <!--#endregion-->
 
@@ -310,7 +296,10 @@
                         Value="Center"/>
 
                 <Setter Property="FontSize"
-                        Value="16"/>
+                        Value="14"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="\Fonts\#Rubik Italic VariableFont_wght"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -836,7 +825,7 @@
                BasedOn="{StaticResource txtBlockButtonBackContent}">
             <Style.Setters>
                 <Setter Property="Margin"
-                        Value="-7 10 0 0"/>
+                        Value="-7 12 0 0"/>
             </Style.Setters>
         </Style>
 

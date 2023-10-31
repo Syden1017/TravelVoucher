@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
+using static UserWork.Users;
 
 namespace UserWork
 {
@@ -50,10 +52,9 @@ namespace UserWork
 
             public UserDataBase()
             {
-                users = new List<User>
-                {
-                    new User("User", "12345")
-                };
+                string filePath = "\\Data\\users.txt";
+                users = new List<User>();
+                InitializeUsers(filePath);
             }
 
             /// <summary>
@@ -63,7 +64,24 @@ namespace UserWork
             /// <param name="password">Пароль пользователя для входа в систему</param>
             public void AddUser(string login, string password)
             {
-                users.Add(new User(login, password));
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter("users.txt", true))
+                    {
+                        writer.WriteLine(login, password);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(
+                        "Ошибка записи пользователя в файл: " + 
+                        ex.Message,
+                        "Ошибка сохранения",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
+                }
             }
 
             /// <summary>
@@ -97,9 +115,26 @@ namespace UserWork
                 return users.Exists(user => user.Password == password);
             }
 
-            public void InitializeUsers(List<User> initialUsers)
+            public List<User> InitializeUsers(string filePath)
             {
-                users.AddRange(initialUsers);
+                List<User> users = new List<User>();
+
+                if (File.Exists(filePath))
+                {
+                    string[] strings = File.ReadAllLines(filePath);
+
+                    foreach (string s in strings)
+                    {
+                        string[] parts = s.Split(',');
+
+                        if (parts.Length > 2)
+                        {
+                            User user = new User(login: parts[0], password: parts[1]);
+                            users.Add(user);
+                        }
+                    }
+                }
+                return users;
             }
         }
     }

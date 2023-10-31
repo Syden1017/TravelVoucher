@@ -137,7 +137,7 @@
                     Style="{DynamicResource mainButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\back.png"/>
+                        <Image Source="\Images\ControlImages\back.png"/>
 
                         <TextBlock Text="Назад"
                                    Style="{DynamicResource txtBlockButtonBackContent}"/>
