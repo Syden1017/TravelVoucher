@@ -103,7 +103,7 @@
                     <TextBlock Text="CVC"
                                Grid.Column="6"
                                Grid.Row="3"
-                               Style="{DynamicResource txtBlockYearWatermark}"/>
+                               Style="{DynamicResource txtBlockCVCWatermark}"/>
 
                     <TextBlock Text="Три цифры с обратной стороны карты"
                                Grid.Column="6"

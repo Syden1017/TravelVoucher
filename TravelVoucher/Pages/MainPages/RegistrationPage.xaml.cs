@@ -78,16 +78,37 @@ namespace TravelVoucher.Pages.MainPages
             {
                 if (passBoxRegistration.Password == passBoxRepeatPassword.Password)
                 {
-                    MessageBox.Show(
-                        "Регистрация прошла успешно",
-                        "Регистрация",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Information
-                        );
+                    if (!userDataBase.CheckUser(login, password))
+                    {
+                        MessageBox.Show(
+                            "Регистрация прошла успешно",
+                            "Регистрация",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Information
+                            );
 
-                    userDataBase.AddUser(login, password);
+                        userDataBase.AddUser(login, password);
 
-                    Navigation.frmObj.Navigate(new LoginPage());
+                        Navigation.frmObj.Navigate(new LoginPage());
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Пользователь уже существует",
+                            "Ошибка регистрация",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning
+                            );
+
+                        txtBoxRegistrationLogin.Background = Brushes.LightCoral;
+                        txtBoxRegistrationLogin.BorderBrush = Brushes.Red;
+
+                        passBoxRegistration.Background = Brushes.LightCoral;
+                        passBoxRegistration.BorderBrush = Brushes.Red;
+
+                        passBoxRepeatPassword.Background = Brushes.LightCoral;
+                        passBoxRepeatPassword.BorderBrush = Brushes.Red;
+                    }
                 }
                 else
                 {

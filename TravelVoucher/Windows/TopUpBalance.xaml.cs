@@ -198,139 +198,136 @@ namespace TravelVoucher.Windows
 
                     this.Close();
                 }
-                else
-                {
-                    if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
+                else if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
                         && Int32.TryParse(txtBoxMonth.Text, out month)
                         && Int32.TryParse(txtBoxYear.Text, out year)
                         && Int32.TryParse(txtBoxCodeCVC.Text, out cvcCode)
                         && Int32.TryParse(txtBoxReplenishmentAmount.Text, out replenishmentAmount))
-                    {
-                        MessageBox.Show(
-                            "Введите корректный номер карты",
-                            "Ошибка пополнения",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                            );
+                {
+                    MessageBox.Show(
+                        "Введите корректный номер карты",
+                        "Ошибка пополнения",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
 
-                        txtBoxCardNumber.Background = Brushes.LightCoral;
-                        txtBoxCardNumber.BorderBrush = Brushes.Red;
+                    txtBoxCardNumber.Background = Brushes.LightCoral;
+                    txtBoxCardNumber.BorderBrush = Brushes.Red;
 
-                        ColoredControl.SetBackgroundColor(txtBoxMonth, 255, 242, 242);
-                        ColoredControl.SetBorderColor(txtBoxMonth, 0, 0, 0);
+                    ColoredControl.SetBackgroundColor(txtBoxMonth, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxMonth, 0, 0, 0);
 
-                        ColoredControl.SetBackgroundColor(txtBoxYear, 255, 242, 242);
-                        ColoredControl.SetBorderColor(txtBoxYear, 0, 0, 0);
+                    ColoredControl.SetBackgroundColor(txtBoxYear, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxYear, 0, 0, 0);
 
-                        ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
-                        ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
+                    ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
 
-                        ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
-                        ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
+                    ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
 
-                        txtBoxCardNumber.Clear();
-                    }
-                    else if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
-                             && !Int32.TryParse(txtBoxMonth.Text, out month)
-                             && !Int32.TryParse(txtBoxYear.Text, out year)
-                             && Int32.TryParse(txtBoxCodeCVC.Text, out cvcCode)
-                             && Int32.TryParse(txtBoxReplenishmentAmount.Text, out replenishmentAmount))
-                    {
-                        MessageBox.Show(
-                            "Введите корректный номер карты и срок действия",
-                            "Ошибка пополнения",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                            );
+                    txtBoxCardNumber.Clear();
+                }
+                else if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
+                         && !Int32.TryParse(txtBoxMonth.Text, out month)
+                         && !Int32.TryParse(txtBoxYear.Text, out year)
+                         && Int32.TryParse(txtBoxCodeCVC.Text, out cvcCode)
+                         && Int32.TryParse(txtBoxReplenishmentAmount.Text, out replenishmentAmount))
+                {
+                    MessageBox.Show(
+                        "Введите корректный номер карты и срок действия",
+                        "Ошибка пополнения",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
 
-                        txtBoxCardNumber.Background = Brushes.LightCoral;
-                        txtBoxCardNumber.BorderBrush = Brushes.Red;
+                    txtBoxCardNumber.Background = Brushes.LightCoral;
+                    txtBoxCardNumber.BorderBrush = Brushes.Red;
 
-                        txtBoxMonth.Background = Brushes.LightCoral;
-                        txtBoxMonth.BorderBrush = Brushes.Red;
+                    txtBoxMonth.Background = Brushes.LightCoral;
+                    txtBoxMonth.BorderBrush = Brushes.Red;
 
-                        txtBoxYear.Background = Brushes.LightCoral;
-                        txtBoxYear.BorderBrush = Brushes.Red;
+                    txtBoxYear.Background = Brushes.LightCoral;
+                    txtBoxYear.BorderBrush = Brushes.Red;
 
-                        ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
-                        ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
+                    ColoredControl.SetBackgroundColor(txtBoxCodeCVC, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxCodeCVC, 0, 0, 0);
 
-                        ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
-                        ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
+                    ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
 
-                        txtBoxCardNumber.Clear();
-                        txtBoxMonth.Clear();
-                        txtBoxYear.Clear();
-                    }
-                    else if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
-                             && !Int32.TryParse(txtBoxMonth.Text, out month)
-                             && !Int32.TryParse(txtBoxYear.Text, out year)
-                             && !Int32.TryParse(txtBoxCodeCVC.Text, out cvcCode)
-                             && Int32.TryParse(txtBoxReplenishmentAmount.Text, out replenishmentAmount))
-                    {
-                        MessageBox.Show(
-                            "Введите корректный номер карты, срок действия" +
-                            "и код на обратной стороне карты",
-                            "Ошибка пополнения",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                            );
+                    txtBoxCardNumber.Clear();
+                    txtBoxMonth.Clear();
+                    txtBoxYear.Clear();
+                }
+                else if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
+                         && !Int32.TryParse(txtBoxMonth.Text, out month)
+                         && !Int32.TryParse(txtBoxYear.Text, out year)
+                         && !Int32.TryParse(txtBoxCodeCVC.Text, out cvcCode)
+                         && Int32.TryParse(txtBoxReplenishmentAmount.Text, out replenishmentAmount))
+                {
+                    MessageBox.Show(
+                        "Введите корректный номер карты, срок действия" +
+                        "и код на обратной стороне карты",
+                        "Ошибка пополнения",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
 
-                        txtBoxCardNumber.Background = Brushes.LightCoral;
-                        txtBoxCardNumber.BorderBrush = Brushes.Red;
+                    txtBoxCardNumber.Background = Brushes.LightCoral;
+                    txtBoxCardNumber.BorderBrush = Brushes.Red;
 
-                        txtBoxMonth.Background = Brushes.LightCoral;
-                        txtBoxMonth.BorderBrush = Brushes.Red;
+                    txtBoxMonth.Background = Brushes.LightCoral;
+                    txtBoxMonth.BorderBrush = Brushes.Red;
 
-                        txtBoxYear.Background = Brushes.LightCoral;
-                        txtBoxYear.BorderBrush = Brushes.Red;
+                    txtBoxYear.Background = Brushes.LightCoral;
+                    txtBoxYear.BorderBrush = Brushes.Red;
 
-                        txtBoxCodeCVC.Background = Brushes.LightCoral;
-                        txtBoxCodeCVC.BorderBrush = Brushes.Red;
+                    txtBoxCodeCVC.Background = Brushes.LightCoral;
+                    txtBoxCodeCVC.BorderBrush = Brushes.Red;
 
-                        ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
-                        ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
+                    ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
 
-                        txtBoxCardNumber.Clear();
-                        txtBoxMonth.Clear();
-                        txtBoxYear.Clear();
-                        txtBoxCodeCVC.Clear();
-                    }
-                    else if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
-                             && !Int32.TryParse(txtBoxMonth.Text, out month)
-                             && !Int32.TryParse(txtBoxYear.Text, out year)
-                             && !Int32.TryParse(txtBoxCodeCVC.Text, out cvcCode)
-                             && !Int32.TryParse(txtBoxReplenishmentAmount.Text, out replenishmentAmount))
-                    {
-                        MessageBox.Show(
-                            "Введите корректные номер карты, срок действия, " +
-                            "код на обратной стороне карты и сумму пополнения",
-                            "Ошибка пополнения",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                            );
+                    txtBoxCardNumber.Clear();
+                    txtBoxMonth.Clear();
+                    txtBoxYear.Clear();
+                    txtBoxCodeCVC.Clear();
+                }
+                else if (!Int32.TryParse(txtBoxCardNumber.Text, out cardNumber)
+                         && !Int32.TryParse(txtBoxMonth.Text, out month)
+                         && !Int32.TryParse(txtBoxYear.Text, out year)
+                         && !Int32.TryParse(txtBoxCodeCVC.Text, out cvcCode)
+                         && !Int32.TryParse(txtBoxReplenishmentAmount.Text, out replenishmentAmount))
+                {
+                    MessageBox.Show(
+                        "Введите корректный номер карты, срок действия, " +
+                        "код на обратной стороне карты и сумму пополнения",
+                        "Ошибка пополнения",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
 
-                        txtBoxCardNumber.Background = Brushes.LightCoral;
-                        txtBoxCardNumber.BorderBrush = Brushes.Red;
+                    txtBoxCardNumber.Background = Brushes.LightCoral;
+                    txtBoxCardNumber.BorderBrush = Brushes.Red;
 
-                        txtBoxMonth.Background = Brushes.LightCoral;
-                        txtBoxMonth.BorderBrush = Brushes.Red;
+                    txtBoxMonth.Background = Brushes.LightCoral;
+                    txtBoxMonth.BorderBrush = Brushes.Red;
 
-                        txtBoxYear.Background = Brushes.LightCoral;
-                        txtBoxYear.BorderBrush = Brushes.Red;
+                    txtBoxYear.Background = Brushes.LightCoral;
+                    txtBoxYear.BorderBrush = Brushes.Red;
 
-                        txtBoxCodeCVC.Background = Brushes.LightCoral;
-                        txtBoxCodeCVC.BorderBrush = Brushes.Red;
+                    txtBoxCodeCVC.Background = Brushes.LightCoral;
+                    txtBoxCodeCVC.BorderBrush = Brushes.Red;
 
-                        txtBoxReplenishmentAmount.Background = Brushes.LightCoral;
-                        txtBoxReplenishmentAmount.BorderBrush = Brushes.Red;
+                    ColoredControl.SetBackgroundColor(txtBoxReplenishmentAmount, 255, 242, 242);
+                    ColoredControl.SetBorderColor(txtBoxReplenishmentAmount, 0, 0, 0);
 
-                        txtBoxCardNumber.Clear();
-                        txtBoxMonth.Clear();
-                        txtBoxYear.Clear();
-                        txtBoxCodeCVC.Clear();
-                        txtBoxReplenishmentAmount.Clear();
-                    }
+                    txtBoxCardNumber.Clear();
+                    txtBoxMonth.Clear();
+                    txtBoxYear.Clear();
+                    txtBoxCodeCVC.Clear();
+                    txtBoxReplenishmentAmount.Clear();
                 }
             }
             else

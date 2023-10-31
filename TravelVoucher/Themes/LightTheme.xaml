@@ -47,7 +47,7 @@
             </Style.Triggers>
         </Style>
 
-    <!-- Панель для плитки  -->
+        <!-- Панель для плитки  -->
         <Style x:Key="itemPanel"
                TargetType="WrapPanel">
             <Style.Setters>
@@ -114,7 +114,7 @@
                         Value="False"/>
 
                 <Setter Property="Margin"
-                        Value="20 15 10 0"/>
+                        Value="20 20 10 0"/>
 
                 <Setter Property="VerticalAlignment"
                         Value="Top"/>
@@ -130,6 +130,9 @@
             <Style.Setters>
                 <Setter Property="FontSize"
                         Value="26"/>
+
+                <Setter Property="Margin"
+                        Value="20 15 10 0"/>
             </Style.Setters>
         </Style>
     
@@ -138,7 +141,7 @@
                BasedOn="{StaticResource txtBlockPasswordWatermark}">
             <Setter Property="Visibility"
                     Value="Collapsed"/>
-            
+
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Text, ElementName=txtBoxRegistrationLogin}"
                              Value="">
@@ -157,6 +160,9 @@
 
                 <Setter Property="Visibility"
                         Value="Collapsed"/>
+
+                <Setter Property="Margin"
+                        Value="20 15 10 0"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -339,12 +345,19 @@
         <Style x:Key="txtBoxRegistrationLogin"
                TargetType="TextBox"
                BasedOn="{StaticResource txtBoxLogin}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="15"/>
+            </Style.Setters>
         </Style>
 
         <Style x:Key="passBoxRegistrationPassword"
                TargetType="PasswordBox"
                BasedOn="{StaticResource passBoxPassword}">
-            
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="15"/>
+            </Style.Setters>
         </Style>
 
         <!-- Кнопки на странице регистрации -->
@@ -1577,7 +1590,33 @@
             </Style.Setters>
         </Style>
 
-        <Style x:Key="txtBlockHint"
+        <Style x:Key="txtBlockCVCWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="2 2 7 0"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxCodeCVC}"
+                                Value="">
+                    <Setter Property="Visibility"
+                                Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    <Style x:Key="txtBlockHint"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>

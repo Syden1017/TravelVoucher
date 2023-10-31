@@ -4,8 +4,8 @@ using System.Windows.Media;
 using System.Windows.Input;
 using TravelVoucher.Tools;
 using WpfApp1.Tools;
-using static UserWork.Users;
 using TravelVoucher.Pages.MainPages;
+using static UserWork.Users;
 
 namespace TravelVoucher.Pages
 {

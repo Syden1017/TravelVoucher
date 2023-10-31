@@ -102,7 +102,7 @@
                     Style="{DynamicResource btnCancelRegistration}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\User\source\repos\Новая папка\TravelVoucher\Images\ControlImages\cancel.png"
+                        <Image Source="C:\Users\ИСП-32\source\repos\TravelVoucher\TravelVoucher\Images\ControlImages\cancel.png"
                                Width="25"
                                Height="25"/>
 
@@ -120,7 +120,7 @@
                     Style="{DynamicResource btnRegister}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="C:\Users\User\source\repos\Новая папка\TravelVoucher\Images\ControlImages\register.png"
+                        <Image Source="C:\Users\ИСП-32\source\repos\TravelVoucher\TravelVoucher\Images\ControlImages\register.png"
                                Width="35"
                                Height="35"/>
 

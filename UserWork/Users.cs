@@ -13,12 +13,12 @@ namespace UserWork
 
             public string Login
             {
-                get 
+                get
                 {
                     return login;
                 }
 
-                set 
+                set
                 {
                     login = value;
                 }
@@ -26,12 +26,12 @@ namespace UserWork
 
             public string Password
             {
-                get 
-                { 
+                get
+                {
                     return password;
                 }
 
-                set 
+                set
                 {
                     password = value;
                 }
@@ -63,19 +63,7 @@ namespace UserWork
             /// <param name="password">Пароль пользователя для входа в систему</param>
             public void AddUser(string login, string password)
             {
-                if (!CheckUser(login, password))
-                {
-                    users.Add(new User(login, password));
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Пользователь уже существует",
-                        "Ошибка регистрации",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Warning
-                        );
-                }
+                users.Add(new User(login, password));
             }
 
             /// <summary>
