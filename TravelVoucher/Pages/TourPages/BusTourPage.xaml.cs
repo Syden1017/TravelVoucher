@@ -28,5 +28,10 @@ namespace TravelVoucher.Pages.TourPages
         {
             Navigation.frmObj.GoBack();
         }
+
+        private void ListViewItem_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

@@ -8,22 +8,35 @@
               Fill="Gray" 
               Stroke="Transparent" 
               StrokeThickness="1"
-              Data="M 145,0
-                    L 180,100
-                    L 72.5,38.2
-                    L  217.5,38.2 
-                    L 110,100 z"/>
+              Data="M 75,0 
+                    L 90,70 
+                    L 150,70
+                    L 105,105 
+                    L 120,150 
+                    L 75,120 
+                    L 30,150 
+                    L 45,105 
+                    L 0,70 
+                    L 60,70 Z"/>
 
-        <Rectangle x:Name="mask" Margin="0"/>
+        <Rectangle x:Name="mask" 
+                   Margin="0"
+                   Width="150"
+                   Height="150"/>
 
         <Path Name="starOutline"
               Fill="Transparent" 
               Stroke="Transparent" 
               StrokeThickness="1"
-              Data="M 145,0
-                    L 180,100
-                    L 72.5,38.2
-                    L  217.5,38.2 
-                    L 110,100 z"/>
+              Data="M 75,0 
+                    L 90,70 
+                    L 150,70
+                    L 105,105 
+                    L 120,150 
+                    L 75,120 
+                    L 30,150 
+                    L 45,105 
+                    L 0,70 
+                    L 60,70 Z"/>
     </Grid>
 </UserControl>

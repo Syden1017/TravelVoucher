@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using TravelVoucher.Tools;
@@ -12,13 +13,13 @@ namespace TravelVoucher.Pages.MainPages
     /// </summary>
     public partial class RegistrationPage : Page
     {
-        private UserDataBase userDataBase;
+        private UserDataBase dataBase;
 
         public RegistrationPage()
         {
             InitializeComponent();
 
-            userDataBase = new UserDataBase();
+            dataBase = new UserDataBase();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -78,7 +79,7 @@ namespace TravelVoucher.Pages.MainPages
             {
                 if (passBoxRegistration.Password == passBoxRepeatPassword.Password)
                 {
-                    if (!userDataBase.CheckUser(login, password))
+                    if (!dataBase.CheckUser(login, password))
                     {
                         MessageBox.Show(
                             "Регистрация прошла успешно",
@@ -87,7 +88,7 @@ namespace TravelVoucher.Pages.MainPages
                             MessageBoxImage.Information
                             );
 
-                        userDataBase.AddUser(login, password);
+                        dataBase.AddUser(login, password);
 
                         Navigation.frmObj.Navigate(new LoginPage());
                     }

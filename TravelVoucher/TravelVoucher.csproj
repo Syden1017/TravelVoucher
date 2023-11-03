@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,9 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\users.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Fonts\Rubik-Italic-VariableFont_wght.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
