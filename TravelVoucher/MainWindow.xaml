@@ -19,7 +19,9 @@
         WindowStyle="None"
         
         Closing="Window_Closing"
-        MouseDown="Window_MouseDown">
+        MouseDown="Window_MouseDown"
+        
+        Icon="C:\Users\ИСП-32\source\repos\TravelVoucher\TravelVoucher\Images\Утвержденнннннннннннннннннннннный вариант.png">
 
     <Border>
         <Grid>
@@ -41,9 +43,7 @@
                         Grid.ColumnSpan="5"
                         Style="{StaticResource mainTextPanel}">
 
-                <TextBlock Text="{Binding 
-                           ElementName=frmMain, 
-                           Path=Content.Title}"/>
+                <Image Source="C:\Users\ИСП-32\source\repos\TravelVoucher\TravelVoucher\Images\Утвержденнннннннннннннннннннннный вариант.png"/>
             </StackPanel>
 
             <Button x:Name="btnMinimize"

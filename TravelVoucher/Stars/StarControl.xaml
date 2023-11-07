@@ -5,19 +5,21 @@
     <Grid x:Name="gdStar">
 
         <Path Name="starForeground" 
-              Fill="Gray" 
+              Fill="Gray"
               Stroke="Transparent" 
               StrokeThickness="1"
-              Data="M 75,0 
-                    L 90,70 
-                    L 150,70
-                    L 105,105 
-                    L 120,150 
-                    L 75,120 
-                    L 30,150 
-                    L 45,105 
-                    L 0,70 
-                    L 60,70 Z"/>
+              Data="F1 M 17.4167,
+                    32.25L 32.9107,
+                    32.25L 38,
+                    18L 43.0893,
+                    32.25L 58.5833,
+                    32.25L 45.6798,
+                    41.4944L 51.4583,
+                    56L 38,
+                    48.0833L 26.125,
+                    56L 30.5979,
+                    41.7104L 17.4167,
+                    32.25 Z"/>
 
         <Rectangle x:Name="mask" 
                    Margin="0"
@@ -28,15 +30,17 @@
               Fill="Transparent" 
               Stroke="Transparent" 
               StrokeThickness="1"
-              Data="M 75,0 
-                    L 90,70 
-                    L 150,70
-                    L 105,105 
-                    L 120,150 
-                    L 75,120 
-                    L 30,150 
-                    L 45,105 
-                    L 0,70 
-                    L 60,70 Z"/>
+              Data="F1 M 17.416,
+                    32.25L 32.910,
+                    32.25L 38,
+                    18L 43.089,
+                    32.25L 58.583,
+                    32.25L 45.679,
+                    41.494L 51.458,
+                    56L 38,
+                    48.083L 26.125,
+                    56L 30.597,
+                    41.710L 17.416,
+                    32.25 Z"/>
     </Grid>
 </UserControl>

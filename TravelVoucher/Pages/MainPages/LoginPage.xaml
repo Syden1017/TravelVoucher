@@ -9,6 +9,8 @@
       d:DesignHeight="600" 
       d:DesignWidth="1000"
       
+      Title="Авторизация"
+      
       Loaded="Page_Loaded">
 
     <Page.Resources>

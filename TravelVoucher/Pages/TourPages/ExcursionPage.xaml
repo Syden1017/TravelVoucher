@@ -15,8 +15,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.6*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0.1*"/>
             <ColumnDefinition Width="1.7*"/>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="2.7*"/>
@@ -90,9 +90,9 @@
                  Grid.Row="9"
                  Style="{DynamicResource txtBoxExcursion}"/>
 
-        <Button x:Name="btnBuyTicket" 
-                Click="btnBuyTicket_Click"
-                Content="Купить"
+        <Button x:Name="btnFindTickets" 
+                Click="btnFindTickets_Click"
+                Content="Найти"
                 Grid.Column="1"
                 Grid.Row="12"
                 Style="{DynamicResource btnTours}"/>
@@ -133,8 +133,28 @@
                         <Border Style="{DynamicResource lViewBorderExcursion}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Поездка"
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"/>
+
+                                <TextBlock Text="{Binding }"
+                                           Grid.Column="0"
+                                           Grid.Row="1"/>
+
+                                <TextBox/>
                             </Grid>
                         </Border>
                     </DataTemplate>

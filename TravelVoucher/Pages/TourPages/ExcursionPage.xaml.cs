@@ -19,7 +19,7 @@ namespace TravelVoucher.Pages.TourPages
             Navigation.id = 5;
         }
 
-        private void btnBuyTicket_Click(object sender, RoutedEventArgs e)
+        private void btnFindTickets_Click(object sender, RoutedEventArgs e)
         {
 
         }
