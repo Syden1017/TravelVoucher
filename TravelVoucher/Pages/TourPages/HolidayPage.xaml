@@ -116,11 +116,16 @@
                    Text="Класс отеля"
                    Style="{DynamicResource txtBlockHoliday}"/>
 
-        <TextBlock Grid.Column="3" 
-                   Grid.Row="9"
-                   Text="Stars"
-                   FontSize="24"
-                   HorizontalAlignment="Center"/>
+        <Border Background="#DFEBEA"
+                BorderBrush="#DFEBEA"
+                BorderThickness="1"
+                Width="200"
+                Height="30"
+                CornerRadius="5"
+                Grid.Column="3"
+                Grid.Row="9">
+            
+        </Border>
 
         <TextBlock Grid.Column="3" 
                    Grid.Row="11"

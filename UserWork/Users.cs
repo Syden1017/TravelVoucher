@@ -52,7 +52,10 @@ namespace UserWork
 
             public UserDataBase()
             {
-                users = new List<User>();
+                users = new List<User>
+                {
+                    new User("User", "12345")
+                };
             }
 
             /// <summary>
