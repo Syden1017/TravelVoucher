@@ -150,6 +150,11 @@
                                            Grid.Column="0"
                                            Grid.Row="0"
                                            Grid.ColumnSpan="3"/>
+
+                                <Image Source="{Binding ImagePath}"
+                                       Grid.Column="0"
+                                       Grid.Row="1"
+                                       Grid.ColumnSpan="3"/>
                             </Grid>
                         </Border>
                     </DataTemplate>
