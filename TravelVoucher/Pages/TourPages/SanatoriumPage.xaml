@@ -73,10 +73,16 @@
                    Text="Дата"
                    Style="{DynamicResource txtBlockSanatorium}"/>
 
-        <DatePicker x:Name="datePickerSanatorium"
-                    Grid.Column="1" 
+        <DatePicker SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
+            Margin="4" Grid.Column="1"
                     Grid.Row="8"
-                    Margin="5"/>
+                    VerticalAlignment="Center">
+            <DatePicker.CalendarStyle>
+                <Style TargetType="{x:Type Calendar}">
+                    <Setter Property="Background" Value="#7BABAA" />
+                </Style>
+            </DatePicker.CalendarStyle>
+        </DatePicker>
 
         <TextBlock Grid.Column="3" 
                    Grid.Row="1"

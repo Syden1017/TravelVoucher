@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using WpfApp1.Tools;
@@ -17,6 +18,11 @@ namespace TravelVoucher.Pages.TourPages
         public ExcursionPage()
         {
             InitializeComponent();
+            string workingDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
+            string fileName = workingDirectory + @"txt-cities-russia.txt";
+
+            cBoxFrom.ItemsSource = File.ReadAllLines(fileName);
+            cBoxTo.ItemsSource = File.ReadAllLines(fileName);
 
             Items = new ObservableCollection<Item>();
         }
