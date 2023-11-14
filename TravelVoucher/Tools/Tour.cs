@@ -5,11 +5,29 @@ using System.Windows;
 
 namespace TravelVoucher.Tools
 {
-    public partial class Tour
+    public class Tour : INotifyPropertyChanged
     {
+        private string _name;
         private DateTime _date;
         private decimal _price;
         private string _imagePath;
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
 
         public DateTime Date
         {

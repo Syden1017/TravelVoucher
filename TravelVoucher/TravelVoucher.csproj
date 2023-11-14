@@ -23,17 +23,11 @@
     <None Remove="Images\HotTours\Dubai.jpg" />
     <None Remove="Images\HotTours\London.jpg" />
     <None Remove="Images\HotTours\Maiami.png" />
-    <None Remove="Images\ToursPictures\52 да здраствует.jpg" />
-    <None Remove="Images\ToursPictures\52.jpg" />
-    <None Remove="Images\ToursPictures\RZN.jpg" />
     <None Remove="Images\ToursPictures\волгоград.jpg" />
-    <None Remove="Images\ToursPictures\геленджикь ту.jpg" />
-    <None Remove="Images\ToursPictures\геленжикь.jfif" />
-    <None Remove="Images\ToursPictures\горы россии ту.jpg" />
-    <None Remove="Images\ToursPictures\горы россии.jpg" />
-    <None Remove="Images\ToursPictures\горящий тур.jpg" />
-    <None Remove="Images\ToursPictures\дагестан 20120.jpg" />
+    <None Remove="Images\ToursPictures\Геленджик.jpg" />
+    <None Remove="Images\ToursPictures\Дагестан.jpg" />
     <None Remove="Images\ToursPictures\дагестанские москвичи.jpg" />
+    <None Remove="Images\ToursPictures\Кавказ.jpg" />
     <None Remove="Images\ToursPictures\казань ту.jpg" />
     <None Remove="Images\ToursPictures\казань.jpg" />
     <None Remove="Images\ToursPictures\калининград.jpeg" />
@@ -41,8 +35,12 @@
     <None Remove="Images\ToursPictures\красная площадь.jpg" />
     <None Remove="Images\ToursPictures\крым наш!.jpg" />
     <None Remove="Images\ToursPictures\крымский мостъ.jpeg" />
+    <None Remove="Images\ToursPictures\Рязань.jpg" />
+    <None Remove="Images\ToursPictures\Санкт Петурбург.jpg" />
+    <None Remove="Images\ToursPictures\Санкт-Петербург.jpg" />
     <None Remove="Images\ToursPictures\севастпольэ.webp" />
     <None Remove="Images\ToursPictures\сочи.jpg" />
+    <None Remove="Images\ToursPictures\Урал.jpg" />
     <None Remove="Images\ToursPictures\якутия зимой.jpg" />
     <None Remove="Images\Утвержденнннннннннннннннннннннный вариант.png" />
   </ItemGroup>
@@ -118,34 +116,28 @@
     <Resource Include="Images\HotTours\Maiami.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\52 да здраствует.jpg">
+    <Resource Include="Images\ToursPictures\Санкт-Петербург.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\52.jpg">
+    <Resource Include="Images\ToursPictures\Санкт Петурбург.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\RZN.jpg">
+    <Resource Include="Images\ToursPictures\Рязань.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\волгоград.jpg">
+    <Resource Include="Images\ToursPictures\Волгоград.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\геленджикь ту.jpg">
+    <Resource Include="Images\ToursPictures\Геленджик.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\геленжикь.jfif">
+    <Resource Include="Images\ToursPictures\Кавказ.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\горы россии ту.jpg">
+    <Resource Include="Images\ToursPictures\Урал.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\горы россии.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\горящий тур.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\дагестан 20120.jpg">
+    <Resource Include="Images\ToursPictures\Дагестан.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\ToursPictures\дагестанские москвичи.jpg">

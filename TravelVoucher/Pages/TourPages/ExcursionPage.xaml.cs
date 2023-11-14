@@ -2,8 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using TravelVoucher.Tools;
 using WpfApp1.Tools;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace TravelVoucher.Pages.TourPages
 {
@@ -12,13 +12,14 @@ namespace TravelVoucher.Pages.TourPages
     /// </summary>
     public partial class ExcursionPage : Page
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Tour> Tours { get; set; }
 
         public ExcursionPage()
         {
             InitializeComponent();
 
-            Items = new ObservableCollection<Item>();
+            Tours = new ObservableCollection<Tour>();
+            DataContext = this;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -31,7 +32,7 @@ namespace TravelVoucher.Pages.TourPages
             DateTime date = datePickerExcursion.SelectedDate ?? DateTime.Now;
             decimal price;
 
-
+            string selectedCity = cBoxTo.SelectedItem.ToString();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
