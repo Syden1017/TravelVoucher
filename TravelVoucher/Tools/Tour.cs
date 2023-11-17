@@ -1,15 +1,36 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows;
+using System.Reflection;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace TravelVoucher.Tools
 {
-    public partial class Tour
+    public class Tour : INotifyPropertyChanged
     {
+        private string _name;
         private DateTime _date;
         private decimal _price;
-        private string _imagePath;
+        private ImageSource _imagePath;
+        private string _selectedCity;
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
 
         public DateTime Date
         {
@@ -25,6 +46,17 @@ namespace TravelVoucher.Tools
                     _date = value;
                     OnPropertyChanged("Date");
                 }
+            }
+        }
+
+        public string SelectedCity
+        {
+            get { return _selectedCity; }
+            set
+            {
+                _selectedCity = value;
+                OnPropertyChanged(nameof(SelectedCity));
+                LoadImage();
             }
         }
 
@@ -45,7 +77,7 @@ namespace TravelVoucher.Tools
             }
         }
 
-        public string ImagePath
+        public ImageSource CityImage
         {
             get
             {
@@ -60,6 +92,12 @@ namespace TravelVoucher.Tools
                     OnPropertyChanged("ImagePath");
                 }
             }
+        }
+
+        private void LoadImage()
+        {
+            string imageName = $"Images/{SelectedCity}.jpg";
+            CityImage = new BitmapImage(new Uri($"pack://application:,,,/{Assembly.GetExecutingAssembly().GetName().Name};component/{imageName}"));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

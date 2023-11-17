@@ -3,8 +3,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using TravelVoucher.Tools;
 using WpfApp1.Tools;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace TravelVoucher.Pages.TourPages
 {
@@ -13,7 +13,9 @@ namespace TravelVoucher.Pages.TourPages
     /// </summary>
     public partial class ExcursionPage : Page
     {
-        public ObservableCollection<Item> Items { get; set; }
+        string imagePath = Path.Combine("C:\\Users\\ИСП-32\\source\\repos\\Новая папка\\TravelVoucher\\", "Images");
+
+        public ObservableCollection<Tour> Tours { get; set; }
 
         public ExcursionPage()
         {
@@ -24,7 +26,8 @@ namespace TravelVoucher.Pages.TourPages
             cBoxFrom.ItemsSource = File.ReadAllLines(fileName);
             cBoxTo.ItemsSource = File.ReadAllLines(fileName);
 
-            Items = new ObservableCollection<Item>();
+            Tours = new ObservableCollection<Tour>();
+            DataContext = this;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -34,10 +37,11 @@ namespace TravelVoucher.Pages.TourPages
 
         private void btnFindTickets_Click(object sender, RoutedEventArgs e)
         {
-            DateTime date = datePickerExcursion.SelectedDate ?? DateTime.Now;
-            decimal price;
-
-
+            Tours.Add(new Tour
+            {
+                Date = datePickerExcursion.SelectedDate ?? DateTime.Now,
+                
+            });
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
