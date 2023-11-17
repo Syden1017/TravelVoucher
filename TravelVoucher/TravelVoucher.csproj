@@ -25,9 +25,7 @@
     <None Remove="Images\HotTours\Maiami.png" />
     <None Remove="Images\ToursPictures\Геленджик.jpg" />
     <None Remove="Images\ToursPictures\Дагестан.jpg" />
-    <None Remove="Images\ToursPictures\дагестанские москвичи.jpg" />
     <None Remove="Images\ToursPictures\Кавказ.jpg" />
-    <None Remove="Images\ToursPictures\казань ту.jpg" />
     <None Remove="Images\ToursPictures\казань.jpg" />
     <None Remove="Images\ToursPictures\калининград.jpeg" />
     <None Remove="Images\ToursPictures\красиво.jpg" />
@@ -136,16 +134,10 @@
     <Resource Include="Images\ToursPictures\Дагестан.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\дагестанские москвичи.jpg">
+    <Resource Include="Images\ToursPictures\Казань.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\казань ту.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\казань.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\калининград.jpeg">
+    <Resource Include="Images\ToursPictures\Калининград.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\ToursPictures\красиво.jpg">

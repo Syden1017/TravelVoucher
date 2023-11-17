@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using TravelVoucher.Tools;
@@ -33,6 +34,7 @@ namespace TravelVoucher.Pages.TourPages
             decimal price;
 
             string selectedCity = cBoxTo.SelectedItem.ToString();
+            string imagePath = Path.Combine();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
