@@ -26,8 +26,6 @@
     <None Remove="Images\ToursPictures\Геленджик.jpg" />
     <None Remove="Images\ToursPictures\Дагестан.jpg" />
     <None Remove="Images\ToursPictures\Кавказ.jpg" />
-    <None Remove="Images\ToursPictures\казань.jpg" />
-    <None Remove="Images\ToursPictures\калининград.jpeg" />
     <None Remove="Images\ToursPictures\красиво.jpg" />
     <None Remove="Images\ToursPictures\красная площадь.jpg" />
     <None Remove="Images\ToursPictures\крым наш!.jpg" />
@@ -36,16 +34,9 @@
     <None Remove="Images\ToursPictures\Санкт Петурбург.jpg" />
     <None Remove="Images\ToursPictures\Санкт-Петербург.jpg" />
     <None Remove="Images\ToursPictures\севастпольэ.webp" />
-    <None Remove="Images\ToursPictures\сочи.jpg" />
     <None Remove="Images\ToursPictures\Урал.jpg" />
     <None Remove="Images\ToursPictures\якутия зимой.jpg" />
     <None Remove="Images\Утвержденнннннннннннннннннннннный вариант.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\ToursPictures\севастпольэ.webp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -116,9 +107,6 @@
     <Resource Include="Images\ToursPictures\Санкт-Петербург.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\Санкт Петурбург.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Images\ToursPictures\Рязань.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -134,28 +122,7 @@
     <Resource Include="Images\ToursPictures\Дагестан.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\ToursPictures\Казань.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\Калининград.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Images\ToursPictures\красиво.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\красная площадь.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\крым наш!.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\крымский мостъ.jpeg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\сочи.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\ToursPictures\якутия зимой.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Утвержденнннннннннннннннннннннный вариант.png">
