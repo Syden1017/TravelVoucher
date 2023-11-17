@@ -19,7 +19,9 @@
         WindowStyle="None"
         
         Closing="Window_Closing"
-        MouseDown="Window_MouseDown">
+        MouseDown="Window_MouseDown"
+        
+        Icon="\Images\Утвержденнннннннннннннннннннннный вариант.png">
 
     <Border>
         <Grid>
@@ -41,9 +43,7 @@
                         Grid.ColumnSpan="5"
                         Style="{StaticResource mainTextPanel}">
 
-                <TextBlock Text="{Binding 
-                           ElementName=frmMain, 
-                           Path=Content.Title}"/>
+                <Image Source="\Images\Утвержденнннннннннннннннннннннный вариант.png"/>
             </StackPanel>
 
             <Button x:Name="btnMinimize"
@@ -53,7 +53,7 @@
                     Style="{StaticResource mainButton}">
 
                 <Button.Content>
-                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\minimize.png"/>
+                    <Image Source="Images\ControlImages\minimize.png"/>
                 </Button.Content>
             </Button>
 
@@ -64,7 +64,7 @@
                     Style="{StaticResource mainButton}">
 
                 <Button.Content>
-                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\maximize.png"/>
+                    <Image Source="Images\ControlImages\maximize.png"/>
                 </Button.Content>
             </Button>
 
@@ -75,7 +75,7 @@
                     Style="{StaticResource mainButton}">
 
                 <Button.Content>
-                    <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\exit.png"/>
+                    <Image Source="Images\ControlImages\exit.png"/>
                 </Button.Content>
             </Button>
 

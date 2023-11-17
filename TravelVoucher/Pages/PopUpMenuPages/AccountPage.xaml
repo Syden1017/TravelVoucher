@@ -67,7 +67,7 @@
                             Style="{DynamicResource btnTopUpBalance}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\Balance.png"/>
+                                <Image Source="\Images\ControlImages\Balance.png"/>
 
                                 <TextBlock Text="Пополнить баланс"
                                            Style="{DynamicResource txtBlockButtonTopUpBalance}"/>
@@ -82,10 +82,12 @@
                             Style="{DynamicResource btnAccAccountExit}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\logout.png"/>
+                                <Image Source="\Images\ControlImages\logout.png"
+                                       Width="55"
+                                       Height="55"/>
 
                                 <TextBlock Text="Выйти из профиля"
-                       Style="{DynamicResource txtBlockAccButtonExit}"/>
+                                           Style="{DynamicResource txtBlockAccButtonExit}"/>
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -97,7 +99,7 @@
                             Style="{DynamicResource btnAccountBack}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\seettingsBack.png"
+                                <Image Source="\Images\ControlImages\seettingsBack.png"
                                        Width="35"
                                        Height="35"/>
 

@@ -9,13 +9,26 @@
       d:DesignHeight="600" 
       d:DesignWidth="1000"
       
+      Title="Авторизация"
+      
       Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <Style x:Key="passBoxPassword"
+               TargetType="PasswordBox"
+               BasedOn="{StaticResource passBoxPassword}">
+            <Style.Setters>
+                <EventSetter Event="PasswordChanged"
+                             Handler="OnPasswordChanged"/>
+            </Style.Setters>
+        </Style>
+    </Page.Resources>
 
     <Border Style="{DynamicResource borderLogin}">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="1.4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -26,6 +39,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Column="2"
@@ -33,27 +47,26 @@
                        Text="Авторизация"
                        Style="{StaticResource txtBlockTitle}"/>
 
-            <TextBlock Grid.Column="1" 
-                       Grid.Row="1"
-                       Text="Логин:"
-                       Style="{StaticResource txtBlockLogin}"/>
-
             <TextBox x:Name="txtBoxLogin"
                      Grid.Column="2"
                      Grid.Row="1"
                      LostFocus="txtBoxLogin_LostFocus"
                      Style="{DynamicResource txtBoxLogin}"/>
-
-            <TextBlock Grid.Column="1" 
-                       Grid.Row="2"
-                       Text="Пароль:"
-                       Style="{StaticResource txtBlockPassword}"/>
+            <TextBlock Text="Введите логин"
+                       Grid.Column="2"
+                       Grid.Row="1"
+                       Style="{DynamicResource txtBlockAuthorizationLoginWatermark}"/>
 
             <PasswordBox x:Name="passBox"
                          Grid.Column="2"
                          Grid.Row="2"
                          LostFocus="passBox_LostFocus"
                          Style="{DynamicResource passBoxPassword}"/>
+            <TextBlock Name="Watermark"
+                       Text="Введите пароль"
+                       Grid.Column="2"
+                       Grid.Row="2"
+                       Style="{DynamicResource txtBlockAuthorizationPassword}"/>
 
             <Button x:Name="btnEnter"
                     Click="btnEnter_Click"
@@ -61,6 +74,13 @@
                     Grid.Column="2"
                     Grid.Row="3"
                     Style="{DynamicResource btnLogin}"/>
+
+            <TextBlock x:Name="registrationLabel"
+                       Grid.Column="2"
+                       Grid.Row="4"
+                       MouseDown="registrationLabel_MouseDown"
+                       Text="Еще нет аккаунта? Зарегистрируйтесь."
+                       Style="{DynamicResource txtBlockRegistrationLabel}"/>
         </Grid>
     </Border>
 </Page>

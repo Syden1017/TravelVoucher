@@ -50,7 +50,20 @@
 
     <!-- Главное окно -->
     <Grid x:Name="gridMain">
-        <ScrollViewer Style="{DynamicResource scrollHome}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Style="{DynamicResource scrollHome}"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      Margin="-5 -5 0 0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -66,7 +79,7 @@
 
                 <Image Grid.Column="0" 
                        Grid.Row="0"
-                       Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\HotTours\London.jpg"
+                       Source="\Images\HotTours\London.jpg"
                        Style="{DynamicResource mainImgHome}"/>
 
                 <TextBlock Grid.Column="0"
@@ -76,7 +89,7 @@
 
                 <Image Grid.Column="1" 
                        Grid.Row="0"
-                       Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\HotTours\Maiami.png"
+                       Source="\Images\HotTours\Maiami.png"
                        Style="{DynamicResource mainImgHome}"/>
 
                 <TextBlock Grid.Column="1"
@@ -87,7 +100,7 @@
                 <Image Grid.Column="0" 
                        Grid.Row="2"
                        Grid.ColumnSpan="2"
-                       Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\HotTours\Dubai.jpg"
+                       Source="\Images\HotTours\Dubai.jpg"
                        Style="{DynamicResource bigImgHome}"/>
 
                 <TextBlock Grid.Column="0"
@@ -98,7 +111,8 @@
             </Grid>
         </ScrollViewer>
 
-        <Grid Style="{DynamicResource gridTitle}">
+        <Grid Style="{DynamicResource gridTitle}"
+              Grid.ColumnSpan="2">
             <!-- Заголовок страницы -->
             <TextBlock Text="Главное меню"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
@@ -127,7 +141,8 @@
 
         <!-- Боковое меню -->
         <Grid x:Name="gridMenu" 
-              Style="{DynamicResource gridSidebarMenu}">
+              Style="{DynamicResource gridSidebarMenu}"
+              Grid.RowSpan="2">
             <StackPanel>
                 <Grid Style="{DynamicResource gridSidebarTop}">
                     <Button x:Name="btnCloseMenu"

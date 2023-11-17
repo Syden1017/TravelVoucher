@@ -50,7 +50,19 @@
 
     <!-- Главное окно -->
     <Grid x:Name="gridMain">
-        <Grid Style="{DynamicResource gridFindTour}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Style="{DynamicResource gridFindTour}"
+               Grid.Column="1"
+               Grid.Row="1"
+               Margin="-5 -5 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
@@ -111,7 +123,8 @@
                     Style="{DynamicResource btnFindTour}"/>
         </Grid>
 
-        <Grid Style="{DynamicResource gridTitle}">
+        <Grid Style="{DynamicResource gridTitle}"
+              Grid.ColumnSpan="2">
             <!-- Заголовок страницы -->
             <TextBlock Text="Поиск путёвки"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
@@ -138,9 +151,11 @@
             </StackPanel>
         </Grid>
 
+
         <!-- Боковое меню -->
         <Grid x:Name="gridMenu" 
-              Style="{DynamicResource gridSidebarMenu}">
+              Style="{DynamicResource gridSidebarMenu}"
+              Grid.RowSpan="2">
             <StackPanel>
                 <Grid Style="{DynamicResource gridSidebarTop}">
                     <Button x:Name="btnCloseMenu"

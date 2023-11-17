@@ -14,9 +14,7 @@
         
         WindowStyle="None"
         
-        MouseDown="Window_MouseDown"
-        
-        Closing="Window_Closing">
+        MouseDown="Window_MouseDown">
 
     <Border Style="{DynamicResource borderTopUpBalance}">
         <Grid>
@@ -26,7 +24,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Пополнение баланса"
-                       Style="{DynamicResource txtBlockButtonTopUpBalance}"/>
+                       Style="{DynamicResource txtBlockTopUpBalance}"/>
 
             <Border Grid.Row="1"
                     Style="{DynamicResource furtherBorderTopUpBalance}">
@@ -58,14 +56,25 @@
                              Grid.Column="1"
                              Grid.Row="1"
                              Grid.ColumnSpan="6"
-                             Tag="Номер карты"
+                             LostFocus="txtBoxCardNumber_LostFocus"
+                             PreviewTextInput="txtBoxCardNumber_PreviewTextInput"
                              Style="{DynamicResource txtBoxCardNumber}"/>
+                    <TextBlock Text="Номер карты"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="6"
+                               Style="{DynamicResource txtBlockCardNumberWatermark}"/>
 
                     <TextBox x:Name="txtBoxMonth"
                              Grid.Column="1"
                              Grid.Row="3"
-                             Tag="ММ"
+                             LostFocus="txtBoxMonth_LostFocus"
+                             PreviewTextInput="txtBoxMonth_PreviewTextInput"
                              Style="{DynamicResource txtBoxMonth}"/>
+                    <TextBlock Text="ММ"
+                               Grid.Column="1"
+                               Grid.Row="3"
+                               Style="{DynamicResource txtBlockMonthWatermark}"/>
 
                     <TextBlock Text="/"
                                Grid.Column="2"
@@ -75,14 +84,25 @@
                     <TextBox x:Name="txtBoxYear"
                              Grid.Column="3"
                              Grid.Row="3"
-                             Tag="ГГ"
+                             LostFocus="txtBoxYear_LostFocus"
+                             PreviewTextInput="txtBoxYear_PreviewTextInput"
                              Style="{DynamicResource txtBoxYear}"/>
+                    <TextBlock Text="ГГ"
+                               Grid.Column="3"
+                               Grid.Row="3"
+                               Style="{DynamicResource txtBlockYearWatermark}"/>
 
                     <TextBox x:Name="txtBoxCodeCVC"
                              Grid.Column="6"
                              Grid.Row="3"
                              Tag="CVC"
+                             LostFocus="txtBoxCodeCVC_LostFocus"
+                             PreviewTextInput="txtBoxCodeCVC_PreviewTextInput"
                              Style="{DynamicResource txtBoxCodeCVC}"/>
+                    <TextBlock Text="CVC"
+                               Grid.Column="6"
+                               Grid.Row="3"
+                               Style="{DynamicResource txtBlockCVCWatermark}"/>
 
                     <TextBlock Text="Три цифры с обратной стороны карты"
                                Grid.Column="6"
@@ -99,6 +119,7 @@
                              Grid.Column="5"
                              Grid.Row="5"
                              Grid.ColumnSpan="2"
+                             LostFocus="txtBoxReplenishmentAmount_LostFocus"
                              Style="{DynamicResource txtBoxReplenishmentAmount}"/>
 
                     <Button x:Name="btnCancelTransaction"
@@ -109,7 +130,7 @@
                             Style="{DynamicResource btnCancelTransaction}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\cancel.png"
+                                <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\cancel.png"
                                        Width="15"
                                        Height="15"/>
 
@@ -118,7 +139,7 @@
                             </StackPanel>
                         </Button.Content>
                     </Button>
-                    
+
                     <Button x:Name="btnTransaction"
                             Click="btnTransaction_Click"
                             Grid.Column="3"
@@ -127,7 +148,7 @@
                             Style="{DynamicResource btnTransaction}">
                         <Button.Content>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="C:\Users\User\Source\Repos\TravelVoucher\TravelVoucher\Images\ControlImages\Balance.png"
+                                <Image Source="C:\Users\ИСП-32\Desktop\TravelVoucherLatest\TravelVoucher\Images\ControlImages\Balance.png"
                                        Width="20"
                                        Height="20"/>
 

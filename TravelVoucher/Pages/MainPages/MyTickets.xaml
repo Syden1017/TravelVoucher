@@ -50,20 +50,47 @@
 
     <!-- Главное окно -->
     <Grid x:Name="gridMain">
-        <ScrollViewer Style="{DynamicResource scrollMyTickets}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <ScrollViewer Style="{DynamicResource scrollMyTickets}"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      Margin="-5 -5 0 0">
             <ListView>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Style="{DynamicResource itemPanel}"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource lViewBorderMyTickets}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
 
-        <Grid Style="{DynamicResource gridTitle}">
+        <Grid Style="{DynamicResource gridTitle}"
+              Grid.ColumnSpan="2">
             <!-- Заголовок страницы -->
             <TextBlock Text="Купленные билеты"
                        Style="{DynamicResource txtBlockHomeTitle}"/>
+            
             <StackPanel Style="{DynamicResource stcPanelTitle}">
                 <materialDesign:PopupBox Margin="10"
                                          PlacementMode="BottomAndAlignRightEdges"
@@ -89,6 +116,7 @@
 
         <!-- Боковое меню -->
         <Grid x:Name="gridMenu" 
+              Grid.RowSpan="2"
               Style="{DynamicResource gridSidebarMenu}">
             <StackPanel>
                 <Grid Style="{DynamicResource gridSidebarTop}">

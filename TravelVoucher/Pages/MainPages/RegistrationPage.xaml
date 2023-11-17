@@ -1,0 +1,134 @@
+﻿<Page x:Class="TravelVoucher.Pages.MainPages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TravelVoucher.Pages.MainPages"
+      mc:Ignorable="d"
+      
+      d:DesignHeight="600" 
+      d:DesignWidth="1000"
+      
+      Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <Style x:Key="passBoxRegisterPassword"
+               TargetType="PasswordBox"
+               BasedOn="{StaticResource passBoxRegistrationPassword}">
+            <Style.Setters>
+                <EventSetter Event="PasswordChanged"
+                             Handler="OnPasswordChanged"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="passBoxRepeatRegisterPassword"
+               TargetType="PasswordBox"
+               BasedOn="{StaticResource passBoxRegistrationPassword}">
+            <Style.Setters>
+                <EventSetter Event="PasswordChanged"
+                             Handler="OnPasswordChanged"/>
+            </Style.Setters>
+        </Style>
+    </Page.Resources>
+    
+    <Border Style="{DynamicResource borderRegistration}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="2"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       Text="Регистрация"
+                       Style="{StaticResource txtBlockRegistrationTitle}"/>
+
+            <TextBox x:Name="txtBoxRegistrationLogin"
+                     Grid.Column="2"
+                     Grid.Row="1"
+                     Grid.ColumnSpan="2"
+                     LostFocus="txtBoxRegistrationLogin_LostFocus"
+                     Style="{DynamicResource txtBoxRegistrationLogin}"/>
+            <TextBlock Text="Введите логин"
+                       Grid.Column="2"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2"
+                       Style="{DynamicResource txtBlockLoginWatermark}"/>
+
+            <PasswordBox x:Name="passBoxRegistration"
+                         Grid.Column="2"
+                         Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         LostFocus="passBoxRegistration_LostFocus"
+                         Style="{DynamicResource passBoxRegisterPassword}"/>
+            <TextBlock Name="Watermark"
+                       Text="Введите пароль"
+                       Grid.Column="2"
+                       Grid.Row="2"
+                       Grid.ColumnSpan="2"
+                       Style="{DynamicResource txtBlockPasswordWatermark}"/>
+
+            <PasswordBox x:Name="passBoxRepeatPassword"
+                         Grid.Column="2"
+                         Grid.Row="3"
+                         Grid.ColumnSpan="2"
+                         Style="{DynamicResource passBoxRepeatRegisterPassword}"/>
+            <TextBlock Name="repeatWatermark"
+                       Text="Повторите пароль"
+                       Grid.Column="2"
+                       Grid.Row="3"
+                       Grid.ColumnSpan="2"
+                       Style="{DynamicResource txtBlockPasswordWatermark}"/>
+
+            <Button x:Name="btnCancelRegistration"
+                    Click="btnCancelRegistration_Click"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Style="{DynamicResource btnCancelRegistration}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="\Images\ControlImages\cancel.png"
+                               Width="25"
+                               Height="25"/>
+
+                        <TextBlock Text="Отмена"
+                                   Style="{DynamicResource txtBlockButtonCancelRegistration}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="btnRegister"
+                    Click="btnRegister_Click"
+                    Grid.Column="3"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Style="{DynamicResource btnRegister}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="\Images\ControlImages\register.png"
+                               Width="35"
+                               Height="35"/>
+
+                        <TextBlock Text="Зарегистрироваться"
+                                   Style="{DynamicResource txtBlockButtonRegister}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+    </Border>
+</Page>

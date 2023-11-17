@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
     <!--#region Базовые настройки-->
         <!-- Основное окно -->
         <Style x:Key="mainTextPanel" 
@@ -11,7 +12,7 @@
         </Style>
 
         <Style x:Key="mainButton"
-                   TargetType="Button">
+               TargetType="Button">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#0000"/>
@@ -46,76 +47,131 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Кнопка назад -->
-        <Style x:Key="txtBlockButtonBackContent"
+        <!-- Панель для плитки  -->
+        <Style x:Key="itemPanel"
+               TargetType="WrapPanel">
+            <Style.Setters>
+                <Setter Property="Orientation"
+                        Value="Vertical"/>
+
+                <Setter Property="HorizontalAlignment"
+                        Value="Center"/>
+            </Style.Setters>
+        </Style>
+    
+        <!-- Шрифты -->
+        <!-- Шрифт для заголовков -->
+        <Style x:Key="txtBlockTitleFont"
                TargetType="TextBlock">
             <Style.Setters>
+                <Setter Property="TextElement.FontFamily"
+                        Value="\Fonts\#Rubik Medium"/>
+            </Style.Setters>
+        </Style>
+    
+        <!-- Шрифт для обычного текста -->
+        <Style x:Key="txtBlockClassicText"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="TextElement.FontFamily"
+                        Value="\Fonts\#Rubik VariableFont_wght"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Шрифт для текста в кнопках -->
+        <Style x:Key="txtBlockFurtherText"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="TextElement.FontFamily"
+                        Value="\Fonts\#Rubik Italic VariableFont_wght"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Кнопка назад -->
+        <Style x:Key="txtBlockButtonBackContent"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
+            <Style.Setters>
                 <Setter Property="Margin"
-                        Value="-7 6 0 0 "/>
+                        Value="-7 12 0 0"/>
 
                 <Setter Property="FontSize"
                         Value="16"/>
             </Style.Setters>
         </Style>
 
-    <!-- Исчезающий текст внутри TextBox -->
-        <Style x:Key="placeHolder" 
-               TargetType="{x:Type TextBox}" 
-               BasedOn="{StaticResource {x:Type TextBox}}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Grid>
-                            <TextBox Text="{Binding Path=Text,
-                                     RelativeSource={RelativeSource TemplatedParent},
-                                     Mode=TwoWay,
-                                     UpdateSourceTrigger=PropertyChanged}"
-                                     x:Name="textSource"
-                                     Background="Transparent"
-                                     Panel.ZIndex="2" />
+        <!-- Исчезающий текст внутри TextBox и PasswordBox -->
+        <Style x:Key="txtBlockPasswordWatermark"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="28"/>
 
-                            <TextBox Text="{TemplateBinding Tag}" 
-                                     Background="{TemplateBinding Background}" 
-                                     Panel.ZIndex="1">
+                <Setter Property="TextElement.FontFamily"
+                        Value="\Fonts\#Rubik Italic VariableFont_wght"/>
 
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Setter Property="Foreground" 
-                                                Value="Transparent"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=Text, 
-                                                         Source={x:Reference textSource}}" 
-                                                         Value="">
+                <Setter Property="IsHitTestVisible"
+                        Value="False"/>
 
-                                                <Setter Property="Foreground" 
-                                                        Value="#A9A9A9"/>
+                <Setter Property="Margin"
+                        Value="20 20 10 0"/>
 
-                                                <Setter Property="FontSize"
-                                                        Value="16"/>
+                <Setter Property="VerticalAlignment"
+                        Value="Top"/>
 
-                                                <Setter Property="TextAlignment"
-                                                        Value="Center"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+                <Setter Property="Foreground"
+                        Value="#A9A9A9"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockAuthorizationPassword"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="26"/>
+
+                <Setter Property="Margin"
+                        Value="20 15 10 0"/>
+            </Style.Setters>
         </Style>
     
-        <!-- Панель для плитки  -->
-        <Style x:Key="itemPanel"
-               TargetType="WrapPanel">
-            <Style.Setters>
-                <Setter Property="Orientation"
-                        Value="Horizontal"/>
+        <Style x:Key="txtBlockLoginWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Setter Property="Visibility"
+                    Value="Collapsed"/>
 
-                <Setter Property="HorizontalAlignment"
-                        Value="Center"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxRegistrationLogin}"
+                             Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="txtBlockAuthorizationLoginWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="26"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="Margin"
+                        Value="20 15 10 0"/>
             </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxLogin}"
+                             Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     <!--#endregion-->
 
@@ -125,15 +181,16 @@
                TargetType="Border">
             <Style.Setters>
                 <Setter Property="Padding"
-                        Value="180"/>
+                        Value="160"/>
 
                 <Setter Property="Background"
                         Value="#DFEBEA"/>
             </Style.Setters>
         </Style>
-        
+
         <Style x:Key="txtBlockTitle"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockTitleFont}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -144,26 +201,6 @@
                 <Setter Property="FontSize"
                         Value="40"/>
             </Style.Setters>
-        </Style>
-
-        <Style x:Key="txtBlockLogin"
-               TargetType="TextBlock">
-            <Style.Setters>
-                <Setter Property="VerticalAlignment"
-                        Value="Center"/>
-
-                <Setter Property="HorizontalAlignment"
-                        Value="Right"/>
-
-                <Setter Property="FontSize"
-                        Value="26"/>
-            </Style.Setters>
-        </Style>
-
-        <Style x:Key="txtBlockPassword"
-               TargetType="TextBlock"
-               BasedOn="{StaticResource txtBlockLogin}">
-            
         </Style>
 
         <Style x:Key="txtBoxLogin"
@@ -226,6 +263,9 @@
 
                 <Setter Property="BorderThickness"
                         Value="1.2"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wgh"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -244,6 +284,129 @@
                     </Style.Setters>
                 </Style>
             </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockRegistrationLabel"
+               TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="HorizontalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="VerticalAlignment"
+                        Value="Center"/>
+
+                <Setter Property="FontSize"
+                        Value="14"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="\Fonts\#Rubik Italic VariableFont_wght"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                        Value="True">
+                    <Setter Property="Foreground"
+                            Value="#74B3B1"/>
+
+                    <Setter Property="Cursor"
+                            Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    <!--#endregion-->
+
+    <!--#region Регистрация -->
+        <Style x:Key="borderRegistration"
+               TargetType="Border"
+               BasedOn="{StaticResource borderLogin}">
+            <Style.Setters>
+                <Setter Property="Padding"
+                        Value="100"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockRegistrationTitle"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockTitle}">
+
+        </Style>
+
+        <Style x:Key="txtBoxRegistrationLogin"
+               TargetType="TextBox"
+               BasedOn="{StaticResource txtBoxLogin}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="15"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="passBoxRegistrationPassword"
+               TargetType="PasswordBox"
+               BasedOn="{StaticResource passBoxPassword}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="15"/>
+            </Style.Setters>
+        </Style>
+
+        <!-- Кнопки на странице регистрации -->
+        <Style x:Key="btnCancelRegistration"
+               TargetType="Button"
+               BasedOn="{StaticResource btnLogin}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5"/>
+            </Style.Setters>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="25"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="btnRegister"
+               TargetType="Button"
+               BasedOn="{StaticResource btnLogin}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5"/>
+            </Style.Setters>
+            
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Style.Setters>
+                        <Setter Property="CornerRadius"
+                                Value="25"/>
+                    </Style.Setters>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="txtBlockButtonCancelRegistration"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="5 0 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockButtonRegister"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
+            <Style.Setters>
+                <Setter Property="Margin"
+                        Value="7 0 0 0"/>
+
+                <Setter Property="FontSize"
+                        Value="26"/>
+            </Style.Setters>
         </Style>
     <!--#endregion-->
 
@@ -264,7 +427,8 @@
         </Style>
 
         <Style x:Key="txtBlockHomeTitle"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockTitleFont}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -351,7 +515,8 @@
 
         <!-- Элементы бокового меню -->
         <Style x:Key="txtBlockSidebar"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -372,23 +537,12 @@
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#DFEBEA"/>
-
-                <Setter Property="Width"
-                        Value="940"/>
-
-                <Setter Property="Height"
-                        Value="540"/>
-
-                <Setter Property="HorizontalAlignment"
-                        Value="Right"/>
-
-                <Setter Property="VerticalAlignment"
-                        Value="Bottom"/>
             </Style.Setters>
         </Style>
 
         <Style x:Key="txtBlockHome"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="Foreground"
                         Value="#000000"/>
@@ -479,6 +633,9 @@
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wgh"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -528,6 +685,9 @@
 
                 <Setter Property="Cursor"
                         Value="Hand"/>
+
+                <Setter Property="TextElement.FontFamily"
+                        Value="C:\Users\User\source\repos\Новая папка\TravelVoucher\Fonts\#Rubik Italic VariableFont_wght"/>
             </Style.Setters>
 
             <Style.Triggers>
@@ -574,7 +734,8 @@
         </Style>
 
         <Style x:Key="txtBlockHoliday"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 0 0 0"/>
@@ -584,7 +745,31 @@
             </Style.Setters>
         </Style>
 
-        <!--<Style x:Key="cBoxHoliday"
+        <!-- Настройки плиток (страница отдыха) -->
+        <Style x:Key="lViewBorderHoliday"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#F2E7E7"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#345E5E"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+
+                <Setter Property="CornerRadius"
+                        Value="3"/>
+
+                <Setter Property="Width"
+                        Value="365"/>
+
+                <Setter Property="Height"
+                        Value="120"/>
+            </Style.Setters>
+        </Style>
+
+    <!--<Style x:Key="cBoxHoliday"
                TargetType="ComboBox">
             <Style.Setters>
                 <Setter Property="Margin"
@@ -628,8 +813,15 @@
                BasedOn="{StaticResource txtBlockButtonBackContent}">
             <Style.Setters>
                 <Setter Property="Margin"
-                        Value="-7 10 0 0"/>
+                        Value="-7 12 0 0"/>
             </Style.Setters>
+        </Style>
+
+        <!-- Настройки плиток (страница экскурсии) -->
+        <Style x:Key="lViewBorderExcursion"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+
         </Style>
     <!--#endregion-->
     
@@ -652,6 +844,13 @@
         <Style x:Key="txtBoxSanatorium"
            TargetType="TextBox"
            BasedOn="{StaticResource txtBoxGuests}">
+
+        </Style>
+
+        <!-- Настройки плиток (страница санатория) -->
+        <Style x:Key="lViewBorderSanatorium"
+           TargetType="Border"
+           BasedOn="{StaticResource lViewBorderHoliday}">
 
         </Style>
     <!--#endregion-->
@@ -680,6 +879,13 @@
                BasedOn="{StaticResource txtBlockNumbers}">
 
         </Style>
+
+        <!-- Настройки плиток (страница шоппиннга) -->
+        <Style x:Key="lViewBorderShopping"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+
+        </Style>
     <!--#endregion -->
 
     <!--#region Страница выбора круиза -->
@@ -706,6 +912,13 @@
                BasedOn="{StaticResource txtBlockNumberOfPeoples}">
 
         </Style>
+
+        <!-- Настройки плиток (страница круиза) -->
+        <Style x:Key="lViewBorderCruise"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+            
+        </Style>
     <!--#endregion -->    
 
     <!--#region Страница выбора автобусного тура -->
@@ -729,6 +942,13 @@
                BasedOn="{StaticResource txtBoxGuests}">
 
         </Style>
+
+        <!-- Настройки плиток (страница автобусного тура) -->
+        <Style x:Key="lViewBorderBusTour"
+               TargetType="Border"
+               BasedOn="{StaticResource lViewBorderHoliday}">
+            
+        </Style>
     <!--#endregion-->
         
     <!--#region Области прокрутки-->   
@@ -737,28 +957,42 @@
                TargetType="ScrollViewer">
             <Style.Setters>
                 <Setter Property="Background"
-                        Value="#F2E7E7"/>
+                        Value="#345E5E"/>
             </Style.Setters>
         </Style>
-
+    <!--#endregion-->
+    
+    <!--#region Окно мои билеты -->
         <!-- Область прокрутки (мои билеты) -->
         <Style x:Key="scrollMyTickets"
                TargetType="ScrollViewer">
             <Style.Setters>
-                <Setter Property="Background"
+            <Setter Property="Background"
                         Value="#DFEBEA"/>
+        </Style.Setters>
+        </Style>
+
+        <!-- Настройки плиток -->
+        <Style x:Key="lViewBorderMyTickets"
+               TargetType="Border">
+            <Style.Setters>
+                <Setter Property="Background"
+                        Value="#F2E7E7"/>
+
+                <Setter Property="BorderBrush"
+                        Value="#345E5E"/>
+
+                <Setter Property="BorderThickness"
+                        Value="1.2"/>
+
+                <Setter Property="CornerRadius"
+                        Value="3"/>
 
                 <Setter Property="Width"
-                        Value="940"/>
+                        Value="365"/>
 
                 <Setter Property="Height"
-                        Value="540"/>
-
-                <Setter Property="HorizontalAlignment"
-                        Value="Right"/>
-
-                <Setter Property="VerticalAlignment"
-                        Value="Bottom"/>
+                        Value="120"/>
             </Style.Setters>
         </Style>
     <!--#endregion-->
@@ -773,7 +1007,8 @@
         </Style>
 
         <Style x:Key="txtBlockSettingsTitle"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockTitleFont}">
             <Style.Setters>
                 <Setter Property="VerticalAlignment"
                         Value="Center"/>
@@ -798,7 +1033,8 @@
         </Style>
 
         <Style x:Key="txtBlockSettings"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="FontSize"
                         Value="40"/>
@@ -847,7 +1083,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonExit"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 10 0 0"/>
@@ -895,7 +1132,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonSave"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 5 0 0"/>
@@ -906,7 +1144,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonSettingsBack"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 5 0 0"/>
@@ -937,7 +1176,8 @@
         </Style>
 
         <Style x:Key="txtBlockUser"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="FontSize"
                         Value="40"/>
@@ -964,6 +1204,9 @@
 
                 <Setter Property="FontSize"
                         Value="26"/>
+
+                <Setter Property="IsReadOnly"
+                        Value="True"/>
             </Style.Setters>
         </Style>
 
@@ -990,6 +1233,9 @@
 
                 <Setter Property="BorderThickness"
                         Value="0 0 0 1.2"/>
+
+                <Setter Property="IsReadOnly"
+                        Value="True"/>
             </Style.Setters>
         </Style>
     
@@ -1047,7 +1293,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonTopUpBalance"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 5 0 0"/>
@@ -1095,7 +1342,8 @@
         </Style>
 
         <Style x:Key="txtBlockAccButtonExit"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 15 0 0"/>
@@ -1124,7 +1372,10 @@
         <Style x:Key="txtBlockTopUpBalance"
                TargetType="TextBlock"
                BasedOn="{StaticResource txtBlockAccount}">
-        
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="24"/>
+            </Style.Setters>
         </Style>
 
         <Style x:Key="furtherBorderTopUpBalance"
@@ -1136,8 +1387,7 @@
         </Style>
 
         <Style x:Key="txtBoxCardNumber"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>
@@ -1150,7 +1400,36 @@
 
                 <Setter Property="Margin"
                         Value="7"/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
             </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockCardNumberWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="7 10 7 10"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxCardNumber}"
+                            Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <Style x:Key="furtherTxtBlockTopUpBalance"
@@ -1165,8 +1444,7 @@
         </Style>
 
         <Style x:Key="txtBoxMonth"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>
@@ -1179,12 +1457,40 @@
 
                 <Setter Property="Margin"
                         Value="7 0 2 3"/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
             </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockMonthWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="7 2 2 0"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxMonth}"
+                            Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <Style x:Key="txtBoxYear"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>
@@ -1197,12 +1503,40 @@
 
                 <Setter Property="Margin"
                         Value="2 0 7 3"/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
             </Style.Setters>
+        </Style>
+
+        <Style x:Key="txtBlockYearWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="2 2 7 0"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxYear}"
+                            Value="">
+                    <Setter Property="Visibility"
+                            Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <Style x:Key="txtBoxCodeCVC"
-               TargetType="TextBox"
-               BasedOn="{StaticResource placeHolder}">
+               TargetType="TextBox">
             <Style.Setters>
                 <Setter Property="Background"
                         Value="#FFF2F2"/>
@@ -1215,11 +1549,41 @@
 
                 <Setter Property="Margin"
                         Value="2 0 7 3"/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
             </Style.Setters>
         </Style>
 
-        <Style x:Key="txtBlockHint"
-               TargetType="TextBlock">
+        <Style x:Key="txtBlockCVCWatermark" 
+               TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource txtBlockPasswordWatermark}">
+            <Style.Setters>
+                <Setter Property="FontSize"
+                        Value="18"/>
+
+                <Setter Property="Visibility"
+                        Value="Collapsed"/>
+
+                <Setter Property="TextAlignment"
+                        Value="Center"/>
+
+                <Setter Property="Margin"
+                        Value="2 2 7 0"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=txtBoxCodeCVC}"
+                                Value="">
+                    <Setter Property="Visibility"
+                                Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    <Style x:Key="txtBlockHint"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="TextWrapping"
                         Value="Wrap"/>
@@ -1239,10 +1603,11 @@
         </Style>
 
         <Style x:Key="txtBlockReplenishmentAmount"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockClassicText}">
             <Style.Setters>
                 <Setter Property="Margin"
-                        Value="7"/>
+                            Value="7"/>
             </Style.Setters>
         </Style>
 
@@ -1260,12 +1625,16 @@
 
                 <Setter Property="Margin"
                         Value="2 0 7 3"/>
+
+                <Setter Property="FontSize"
+                        Value="16"/>
             </Style.Setters>
         </Style>
             
         <!-- Кнопки на странице пополнения -->
         <Style x:Key="txtBlockButtonTransaction"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="5 0 0 0"/>
@@ -1350,7 +1719,8 @@
         </Style>
 
         <Style x:Key="txtBlockButtonCancelTransaction"
-               TargetType="TextBlock">
+               TargetType="TextBlock"
+               BasedOn="{StaticResource txtBlockFurtherText}">
             <Style.Setters>
                 <Setter Property="Margin"
                         Value="2 0 0 0"/>

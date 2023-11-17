@@ -2,13 +2,197 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\ControlImages\back.png" />
+    <None Remove="Images\ControlImages\Balance.png" />
+    <None Remove="Images\ControlImages\cancel.png" />
+    <None Remove="Images\ControlImages\closeEye.png" />
+    <None Remove="Images\ControlImages\exit.png" />
+    <None Remove="Images\ControlImages\logout.png" />
+    <None Remove="Images\ControlImages\maximize.png" />
+    <None Remove="Images\ControlImages\minimize.png" />
+    <None Remove="Images\ControlImages\openEye.png" />
+    <None Remove="Images\ControlImages\register.png" />
+    <None Remove="Images\ControlImages\save.png" />
+    <None Remove="Images\ControlImages\seettingsBack.png" />
+    <None Remove="Images\HotTours\Dubai.jpg" />
+    <None Remove="Images\HotTours\London.jpg" />
+    <None Remove="Images\HotTours\Maiami.png" />
+    <None Remove="Images\ToursPictures\52 да здраствует.jpg" />
+    <None Remove="Images\ToursPictures\52.jpg" />
+    <None Remove="Images\ToursPictures\RZN.jpg" />
+    <None Remove="Images\ToursPictures\волгоград.jpg" />
+    <None Remove="Images\ToursPictures\геленджикь ту.jpg" />
+    <None Remove="Images\ToursPictures\геленжикь.jfif" />
+    <None Remove="Images\ToursPictures\горы россии ту.jpg" />
+    <None Remove="Images\ToursPictures\горы россии.jpg" />
+    <None Remove="Images\ToursPictures\горящий тур.jpg" />
+    <None Remove="Images\ToursPictures\дагестан 20120.jpg" />
+    <None Remove="Images\ToursPictures\дагестанские москвичи.jpg" />
+    <None Remove="Images\ToursPictures\казань ту.jpg" />
+    <None Remove="Images\ToursPictures\казань.jpg" />
+    <None Remove="Images\ToursPictures\калининград.jpeg" />
+    <None Remove="Images\ToursPictures\красиво.jpg" />
+    <None Remove="Images\ToursPictures\красная площадь.jpg" />
+    <None Remove="Images\ToursPictures\крым наш!.jpg" />
+    <None Remove="Images\ToursPictures\крымский мостъ.jpeg" />
+    <None Remove="Images\ToursPictures\севастпольэ.webp" />
+    <None Remove="Images\ToursPictures\сочи.jpg" />
+    <None Remove="Images\ToursPictures\якутия зимой.jpg" />
+    <None Remove="Images\Утвержденнннннннннннннннннннннный вариант.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ToursPictures\севастпольэ.webp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\HotTours\London.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ControlImages\back.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\cancel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\closeEye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\logout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\maximize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.1" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UserWork\UserWork.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ControlImages\Balance.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\exit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\minimize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\openEye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\register.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\save.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ControlImages\seettingsBack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\HotTours\Dubai.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\HotTours\Maiami.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\52 да здраствует.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\52.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\RZN.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\волгоград.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\геленджикь ту.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\геленжикь.jfif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\горы россии ту.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\горы россии.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\горящий тур.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\дагестан 20120.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\дагестанские москвичи.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\казань ту.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\казань.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\калининград.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\красиво.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\красная площадь.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\крым наш!.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\крымский мостъ.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\сочи.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\якутия зимой.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Утвержденнннннннннннннннннннннный вариант.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Fonts\Rubik-Italic-VariableFont_wght.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Fonts\Rubik-Medium.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Fonts\Rubik-VariableFont_wght.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Input;
+using TravelVoucher.Tools;
 using WpfApp1.Tools;
+using TravelVoucher.Pages.MainPages;
+using static UserWork.Users;
+using System.Collections.Generic;
 
 namespace TravelVoucher.Pages
 {
@@ -10,9 +15,13 @@ namespace TravelVoucher.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+        private UserDataBase userDataBase;
+
         public LoginPage()
         {
             InitializeComponent();
+
+            userDataBase = new UserDataBase();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -29,14 +38,8 @@ namespace TravelVoucher.Pages
             }
             else
             {
-                Color colorWhite = Color.FromRgb(255, 242, 242);
-                Brush brushWhite = new SolidColorBrush(colorWhite);
-
-                Color colorBlack = Color.FromRgb(0, 0, 0);
-                Brush brushBlack = new SolidColorBrush(colorBlack);
-
-                txtBoxLogin.Background = brushWhite;
-                txtBoxLogin.BorderBrush = brushBlack;
+                ColoredControl.SetBackgroundColor(txtBoxLogin, 255, 242, 242);
+                ColoredControl.SetBorderColor(txtBoxLogin, 0, 0, 0);
             }
         }
 
@@ -49,92 +52,154 @@ namespace TravelVoucher.Pages
             }
             else
             {
-                Color colorWhite = Color.FromRgb(255, 242, 242);
-                Brush brushWhite = new SolidColorBrush(colorWhite);
-
-                Color colorBlack = Color.FromRgb(0, 0, 0);
-                Brush brushBlack = new SolidColorBrush(colorBlack);
-
-                passBox.Background = brushWhite;
-                passBox.BorderBrush = brushBlack;
+                ColoredControl.SetBackgroundColor(passBox, 255, 242, 242);
+                ColoredControl.SetBorderColor(passBox, 0, 0, 0);
             }
         }
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            Color colorWhite = Color.FromRgb(255, 242, 242);
-            Brush brushWhite = new SolidColorBrush(colorWhite);
+            string login = txtBoxLogin.Text;
+            string password = passBox.Password;
 
-            Color colorBlack = Color.FromRgb(0, 0, 0);
-            Brush brushBlack = new SolidColorBrush(colorBlack);
-
-            if (txtBoxLogin.Text.Length > 0)
+            if (txtBoxLogin.Text.Length > 0
+                && passBox.Password.Length > 0)
             {
-                if (passBox.Password.Length > 0)
+                if (userDataBase.CheckUser(login, password))
                 {
-                    if (txtBoxLogin.Text == "User" && passBox.Password == "12345")
-                    {
-                        Navigation.frmObj.Navigate(new HomePage());
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            "Неправильный логин или пароль",
-                            "Ошибка авторизации",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error
-                            );
-
-                        if (txtBoxLogin.Text != "User")
-                        {
-                            txtBoxLogin.Background = Brushes.LightCoral;
-                            txtBoxLogin.BorderBrush = Brushes.Red;
-                        }
-                        else
-                        {
-                            txtBoxLogin.Background = brushWhite;
-                            txtBoxLogin.BorderBrush = brushBlack;
-                        }
-
-                        if (passBox.Password != "12345")
-                        {
-                            passBox.Background = Brushes.LightCoral;
-                            passBox.BorderBrush = Brushes.Red;
-                        }
-                        else
-                        {
-                            passBox.Background = brushWhite;
-                            passBox.BorderBrush = brushBlack;
-                        }
-                    }
+                    Navigation.frmObj.Navigate(new HomePage());
                 }
                 else
                 {
                     MessageBox.Show(
-                        "Введите пароль!",
+                        "Неправильный логин или пароль",
                         "Ошибка авторизации",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
                         );
 
-                    passBox.Background = Brushes.LightCoral;
-                    passBox.BorderBrush = Brushes.Red;
+                    registrationLabel.Visibility = Visibility.Visible;
+
+                    if (!userDataBase.CheckLogin(login))
+                    {
+                        txtBoxLogin.Background = Brushes.LightCoral;
+                        txtBoxLogin.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        ColoredControl.SetBackgroundColor(txtBoxLogin, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxLogin, 0, 0, 0);
+                    }
+
+                    if (!userDataBase.CheckPassword(password))
+                    {
+                        passBox.Background = Brushes.LightCoral;
+                        passBox.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        ColoredControl.SetBackgroundColor(passBox, 255, 242, 242);
+                        ColoredControl.SetBorderColor(passBox, 0, 0, 0);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show(
-                    "Введите логин и пароль!",
-                    "Ошибка авторизации",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                    );
+                if (txtBoxLogin.Text == ""
+                    && passBox.Password == "")
+                {
+                    MessageBox.Show(
+                        "Введите логин и пароль!",
+                        "Ошибка авторизации",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
 
-                txtBoxLogin.Background = Brushes.LightCoral;
-                txtBoxLogin.BorderBrush = Brushes.Red;
+                    txtBoxLogin.Background = Brushes.LightCoral;
+                    txtBoxLogin.BorderBrush = Brushes.Red;
 
-                passBox.Background = Brushes.LightCoral;
-                passBox.BorderBrush = Brushes.Red;
+                    passBox.Background = Brushes.LightCoral;
+                    passBox.BorderBrush = Brushes.Red;
+                }
+                else if (txtBoxLogin.Text.Length > 0
+                         && passBox.Password == "")
+                {
+                    if (!userDataBase.CheckLogin(login))
+                    {
+                        MessageBox.Show(
+                            "Введите пароль и корректное имя пользователя!",
+                            "Ошибка авторизации",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
+
+                        txtBoxLogin.Background = Brushes.LightCoral;
+                        txtBoxLogin.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        ColoredControl.SetBackgroundColor(txtBoxLogin, 255, 242, 242);
+                        ColoredControl.SetBorderColor(txtBoxLogin, 0, 0, 0);
+
+                        MessageBox.Show(
+                            "Введите пароль!",
+                            "Ошибка авторизации",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
+                    }
+
+                    passBox.Background = Brushes.LightCoral;
+                    passBox.BorderBrush = Brushes.Red;
+                }
+                else if (txtBoxLogin.Text == ""
+                         && passBox.Password.Length > 0)
+                {
+                    txtBoxLogin.Background = Brushes.LightCoral;
+                    txtBoxLogin.BorderBrush = Brushes.Red;
+
+                    if (!userDataBase.CheckPassword(password))
+                    {
+                        MessageBox.Show(
+                            "Введите логин и корректный пароль!",
+                            "Ошибка авторизации",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
+
+                        passBox.Background = Brushes.LightCoral;
+                        passBox.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        ColoredControl.SetBackgroundColor(passBox, 255, 242, 242);
+                        ColoredControl.SetBorderColor(passBox, 0, 0, 0);
+
+                        MessageBox.Show(
+                            "Введите логин!",
+                            "Ошибка авторизации",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error
+                            );
+                    }
+                }
+            }
+        }
+
+        private void registrationLabel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Navigation.frmObj.Navigate(new RegistrationPage());
+        }
+
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (passBox.Password.Length > 0)
+            {
+                Watermark.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark.Visibility = Visibility.Visible;
             }
         }
     }
