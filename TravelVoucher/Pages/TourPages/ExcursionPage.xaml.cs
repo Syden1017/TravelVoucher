@@ -13,8 +13,6 @@ namespace TravelVoucher.Pages.TourPages
     /// </summary>
     public partial class ExcursionPage : Page
     {
-        string imagePath = Path.Combine("C:\\Users\\ИСП-32\\source\\repos\\Новая папка\\TravelVoucher\\", "Images");
-
         public ObservableCollection<Tour> Tours { get; set; }
 
         public ExcursionPage()
@@ -42,6 +40,28 @@ namespace TravelVoucher.Pages.TourPages
                 Date = datePickerExcursion.SelectedDate ?? DateTime.Now,
                 
             });
+        }
+
+        private void cBoxTo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            String selectedItem = (String)cBoxTo.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                string selectedCity = selectedItem.ToString();
+
+                string imagePath = "";
+
+                switch (selectedCity)
+                {
+                    case "Рязань":
+                        imagePath = "Images/Рязань.jpg";
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
