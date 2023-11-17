@@ -1,7 +1,9 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows;
+using System.Reflection;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace TravelVoucher.Tools
 {
@@ -10,7 +12,8 @@ namespace TravelVoucher.Tools
         private string _name;
         private DateTime _date;
         private decimal _price;
-        private string _imagePath;
+        private ImageSource _imagePath;
+        private string _selectedCity;
 
         public string Name
         {
@@ -46,6 +49,17 @@ namespace TravelVoucher.Tools
             }
         }
 
+        public string SelectedCity
+        {
+            get { return _selectedCity; }
+            set
+            {
+                _selectedCity = value;
+                OnPropertyChanged(nameof(SelectedCity));
+                LoadImage();
+            }
+        }
+
         public decimal Price
         {
             get
@@ -63,7 +77,7 @@ namespace TravelVoucher.Tools
             }
         }
 
-        public string ImagePath
+        public ImageSource CityImage
         {
             get
             {
@@ -78,6 +92,12 @@ namespace TravelVoucher.Tools
                     OnPropertyChanged("ImagePath");
                 }
             }
+        }
+
+        private void LoadImage()
+        {
+            string imageName = $"Images/{SelectedCity}.jpg";
+            CityImage = new BitmapImage(new Uri($"pack://application:,,,/{Assembly.GetExecutingAssembly().GetName().Name};component/{imageName}"));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

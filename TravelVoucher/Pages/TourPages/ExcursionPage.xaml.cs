@@ -13,6 +13,8 @@ namespace TravelVoucher.Pages.TourPages
     /// </summary>
     public partial class ExcursionPage : Page
     {
+        string imagePath = Path.Combine("C:\\Users\\ИСП-32\\source\\repos\\Новая папка\\TravelVoucher\\", "Images");
+
         public ObservableCollection<Tour> Tours { get; set; }
 
         public ExcursionPage()
@@ -30,11 +32,11 @@ namespace TravelVoucher.Pages.TourPages
 
         private void btnFindTickets_Click(object sender, RoutedEventArgs e)
         {
-            DateTime date = datePickerExcursion.SelectedDate ?? DateTime.Now;
-            decimal price;
-
-            string selectedCity = cBoxTo.SelectedItem.ToString();
-            string imagePath = Path.Combine();
+            Tours.Add(new Tour
+            {
+                Date = datePickerExcursion.SelectedDate ?? DateTime.Now,
+                
+            });
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

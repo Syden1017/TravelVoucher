@@ -103,6 +103,7 @@
                    Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxTo"
+                  SelectionChanged="cBoxTo_SelectionChanged"
                   Grid.Column="4"
                   Grid.Row="3"
                   Margin="5"/>
@@ -152,6 +153,7 @@
                                            Grid.ColumnSpan="3"/>
 
                                 <Image Source="{Binding ImagePath}"
+                                       x:Name="imgCity"
                                        Grid.Column="0"
                                        Grid.Row="1"
                                        Grid.ColumnSpan="3"/>
