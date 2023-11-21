@@ -59,6 +59,7 @@
             <RowDefinition Height="65"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <Grid Style="{DynamicResource gridFindTour}"
                Grid.Column="1"
                Grid.Row="1"

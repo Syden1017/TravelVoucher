@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages"
+      xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       
       d:DesignHeight="600" 
@@ -75,10 +75,12 @@
                    Text="Количество туристов:"
                    Style="{DynamicResource txtBlockNumbers}"/>
 
-        <TextBox x:Name="txtBoxNumberOfTourists"
-                 Grid.Column="1"
-                 Grid.Row="9"
-                 Style="{DynamicResource txtBoxExcursion}"/>
+        <xctk:IntegerUpDown Grid.Column="1"
+                            Grid.Row="9"
+                            Margin="5 5 5 7"
+                            Background="#FFF2F2"
+                            FontSize="26"
+                            x:Name="upDownTourist"/>
 
         <TextBlock Grid.Column="4" 
                    Grid.Row="8"
@@ -165,6 +167,9 @@
                                        Grid.Column="0"
                                        Grid.Row="1"
                                        Grid.ColumnSpan="3"/>
+
+                                <TextBlock Text="{Binding Price,
+                                                  StringFormat=C}"/>
 
                                 <Button x:Name="btnBuyTicket"/>
                             </Grid>
