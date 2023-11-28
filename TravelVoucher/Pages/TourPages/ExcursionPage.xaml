@@ -117,8 +117,9 @@
                    Style="{DynamicResource txtBlockExcursion}"/>
 
         <DatePicker SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
-            Margin="4" Grid.Column="4"
                     x:Name="datePickerExcursion"
+                    Margin="4" 
+                    Grid.Column="4"
                     Grid.Row="6"
                     VerticalAlignment="Center">
             <DatePicker.CalendarStyle>
@@ -132,7 +133,7 @@
                       Grid.Row="2"
                       Grid.RowSpan="10"
                       Style="{DynamicResource scrollTours}">
-            <ListView ItemsSource="{Binding}">
+            <ListView ItemsSource="{Binding Tours}">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Style="{DynamicResource itemPanel}"/>
@@ -169,7 +170,7 @@
                                        Grid.ColumnSpan="3"/>
 
                                 <TextBlock Text="{Binding Price,
-                                                  StringFormat=C}"/>
+                                                  StringFormat={}{0:N2} руб}"/>
 
                                 <Button x:Name="btnBuyTicket"/>
                             </Grid>

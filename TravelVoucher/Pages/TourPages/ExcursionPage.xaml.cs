@@ -15,23 +15,18 @@ namespace TravelVoucher.Pages.TourPages
     /// </summary>
     public partial class ExcursionPage : Page
     {
-        public ObservableCollection<Tour> Tours { get; set; }
-
         string imagePath = "";
-
-        BitmapImage newImage = new BitmapImage();
 
         public ExcursionPage()
         {
             InitializeComponent();
             string workingDirectory = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
             string fileName = workingDirectory + @"txt-cities-russia.txt";
+            string file = workingDirectory + @"excursionTypes.txt";
 
             cBoxFrom.ItemsSource = File.ReadAllLines(fileName);
             cBoxTo.ItemsSource = File.ReadAllLines(fileName);
-
-            Tours = new ObservableCollection<Tour>();
-            DataContext = this;
+            cBoxExcursionType.ItemsSource = File.ReadAllLines(file);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -41,23 +36,7 @@ namespace TravelVoucher.Pages.TourPages
 
         private void btnFindTickets_Click(object sender, RoutedEventArgs e)
         {
-            byte[] image = Convert.FromBase64String(imagePath);
-
-            using(MemoryStream stream = new MemoryStream(image))
-            {
-                newImage.BeginInit();
-                newImage.StreamSource = stream;
-                newImage.CacheOption = BitmapCacheOption.OnLoad;
-                newImage.EndInit();
-            }
-
-            Tours.Add(new Tour
-            {
-                Date = datePickerExcursion.SelectedDate ?? DateTime.Now,
-                Name = cBoxTo.Text,
-                CityImage = newImage,
-                Price = 2000 * Convert.ToInt32(upDownTourist.Text) * Convert.ToInt32(txtBoxExcursionDays.Text)
-            });
+            DateTime selectedDate = datePickerExcursion.SelectedDate ?? DateTime.Now;
         }
 
         private void cBoxTo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -83,6 +62,45 @@ namespace TravelVoucher.Pages.TourPages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Navigation.frmObj.GoBack();
+        }
+
+        private void CalculatePrice()
+        {
+            int price = 0;
+
+            string selectedItem = (String)cBoxExcursionType.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                string selectedExcursionType = selectedItem.ToString();
+
+                switch(selectedExcursionType) 
+                {
+                    case "обзорная":
+                        price = 1800 * Convert.ToInt32(upDownTourist.Text);
+                        break;
+
+                    case "историческая":
+                        price = 2400 * Convert.ToInt32(upDownTourist.Text);
+                        break;
+
+                    case "городская":
+                        price = 3000 * Convert.ToInt32(upDownTourist.Text);
+                        break;
+                    
+                    case "загородная":
+                        price = 3400 * Convert.ToInt32(upDownTourist.Text);
+                        break;
+
+                    case "музейная":
+                        price = 2000 * Convert.ToInt32(upDownTourist.Text);
+                        break;
+
+                    case "учебная":
+                        price = 800 * Convert.ToInt32(upDownTourist.Text);
+                        break;
+                }
+            }
         }
     }
 }
