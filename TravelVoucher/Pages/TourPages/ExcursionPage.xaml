@@ -105,8 +105,6 @@
                    Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxTo"
-                  SelectedItem="{Binding SelectedCity}"
-                  SelectionChanged="cBoxTo_SelectionChanged"
                   Grid.Column="4"
                   Grid.Row="3"
                   Margin="5"/>
@@ -116,7 +114,8 @@
                    Text="Дата"
                    Style="{DynamicResource txtBlockExcursion}"/>
 
-        <DatePicker SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
+        <DatePicker SelectedDate="{Binding SelectedDate, 
+                                   RelativeSource={RelativeSource TemplatedParent}}"
                     x:Name="datePickerExcursion"
                     Margin="4" 
                     Grid.Column="4"
@@ -133,7 +132,8 @@
                       Grid.Row="2"
                       Grid.RowSpan="10"
                       Style="{DynamicResource scrollTours}">
-            <ListView ItemsSource="{Binding Tours}">
+            <ListView ItemsSource="{Binding Tours}"
+                      x:Name="lViewFoundExcursions">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Style="{DynamicResource itemPanel}"/>
@@ -157,22 +157,39 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Text="{Binding Name,
-                                                  StringFormat=Поездка по {}}"
+                                <TextBlock Text="{Binding Path=Name}"
                                            Grid.Column="0"
                                            Grid.Row="0"
-                                           Grid.ColumnSpan="3"/>
+                                           Grid.ColumnSpan="3"
+                                           Foreground="#000"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
 
-                                <Image Source="{Binding CityImage}"
+                                <Image Source="{Binding Path=CityImage}"
                                        x:Name="imgCity"
                                        Grid.Column="0"
                                        Grid.Row="1"
-                                       Grid.ColumnSpan="3"/>
+                                       Grid.ColumnSpan="3"
+                                       Width="30"
+                                       Height="30"/>
 
-                                <TextBlock Text="{Binding Price,
-                                                  StringFormat={}{0:N2} руб}"/>
+                                <TextBlock Text="{Binding Path=Price,
+                                                  StringFormat={}{0:N2} руб}"
+                                           Grid.Column="0"
+                                           Grid.Row="2"
+                                           Padding="5 0 0 0"/>
 
-                                <Button x:Name="btnBuyTicket"/>
+                                <TextBlock Text="{Binding Path=Date,
+                                                  StringFormat={}{0:dd.MM.yyyy}}"
+                                           Grid.Column="1"
+                                           Grid.Row="2"/>
+
+                                <Button x:Name="btnBuyTicket"
+                                        Content="Купить"
+                                        Grid.Column="0"
+                                        Grid.Row="3"
+                                        Grid.ColumnSpan="3"
+                                        Style="{DynamicResource btnTours}"/>
                             </Grid>
                         </Border>
                     </DataTemplate>
