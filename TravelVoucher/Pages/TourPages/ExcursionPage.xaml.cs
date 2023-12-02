@@ -1,8 +1,11 @@
 ﻿using Humanizer;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using TravelVoucher.Tools;
 using WpfApp1.Tools;
 
@@ -14,6 +17,9 @@ namespace TravelVoucher.Pages.TourPages
     public partial class ExcursionPage : Page
     {
         string imagePath = "";
+
+        private List<string> _pathImages;
+        public List<string> ListImages { get; private set; }
 
         public ExcursionPage()
         {
@@ -34,11 +40,14 @@ namespace TravelVoucher.Pages.TourPages
 
         private void btnFindTickets_Click(object sender, RoutedEventArgs e)
         {
-            DateTime selectedDate = datePickerExcursion.SelectedDate ?? DateTime.Now;
+            // Получение данных из элементов управления
             string selectedCity = cBoxTo.SelectedItem.ToString();
+            DateTime selectedDate = datePickerExcursion.SelectedDate ?? DateTime.Now;
+            string excursionType = cBoxExcursionType.SelectedItem.ToString();
+
             string name = GetExcursionName(selectedCity);
-            double calculatedPrice = CalculatePrice();
-            string img = GetImagePath(selectedCity);
+            double calculatedPrice = CalculatePrice(excursionType);
+            string img = GetImage(selectedCity);
 
             ExcursionItem newItem = new ExcursionItem
             {
@@ -57,15 +66,17 @@ namespace TravelVoucher.Pages.TourPages
         }
 
         #region Методы
-        private double CalculatePrice()
+        /// <summary>
+        /// Расчёт суммы в зависимости от типа экскурсии
+        /// </summary>
+        /// <returns>Подсчитанная стоимость поездки</returns>
+        private double CalculatePrice(string type)
         {
             double price = 0.00;
 
-            string selectedItem = (String)cBoxExcursionType.SelectedItem;
-
-            if (selectedItem != null)
+            if (type != null)
             {
-                string selectedExcursionType = selectedItem.ToString();
+                string selectedExcursionType = type.ToString();
 
                 switch(selectedExcursionType) 
                 {
@@ -98,10 +109,8 @@ namespace TravelVoucher.Pages.TourPages
             return price;
         }
 
-        private string GetImagePath(string city)
+        private string GetImage(string city)
         {
-            string imagePath = "";
-
             if (city != null)
             {
                 string selectedCity = city.ToString();
@@ -124,6 +133,30 @@ namespace TravelVoucher.Pages.TourPages
         {
             string excursionName = "Экскурсия по " + selectedCity.Humanize(LetterCasing.Title);
             return excursionName;
+        }
+
+        private List<string> GetPathImages()
+        {
+            string pathDir = Path.Combine(Environment.CurrentDirectory, "Images");
+
+            List<string> result = new List<string>();
+            foreach (var pathFile in Directory.GetFiles(pathDir))
+            {
+                result.Add(pathFile);
+            }
+
+            return result;
+        }
+
+        private List<string> GetListImages()
+        {
+            List<string> result = new List<string>();
+            foreach (var path in _pathImages)
+            {
+                result.Add(Path.GetFileName(path));
+            }
+
+            return result;
         }
         #endregion
     }

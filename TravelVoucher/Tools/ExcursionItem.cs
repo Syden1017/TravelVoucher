@@ -1,5 +1,4 @@
-﻿using Humanizer;
-using System;
+﻿using System;
 
 namespace TravelVoucher.Tools
 {

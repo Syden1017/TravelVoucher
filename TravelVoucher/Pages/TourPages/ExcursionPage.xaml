@@ -105,6 +105,7 @@
                    Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxTo"
+                  SelectionChanged="cBoxTo_SelectionChanged"
                   Grid.Column="4"
                   Grid.Row="3"
                   Margin="5"/>
@@ -132,7 +133,7 @@
                       Grid.Row="2"
                       Grid.RowSpan="10"
                       Style="{DynamicResource scrollTours}">
-            <ListView ItemsSource="{Binding Tours}"
+            <ListView ItemsSource="{Binding ExcursionItem}"
                       x:Name="lViewFoundExcursions">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -165,30 +166,31 @@
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"/>
 
-                                <Image Source="{Binding Path=CityImage}"
+                                <Image Source="{Binding CityImage}"
                                        x:Name="imgCity"
                                        Grid.Column="0"
                                        Grid.Row="1"
-                                       Grid.ColumnSpan="3"
-                                       Width="30"
-                                       Height="30"/>
+                                       Grid.ColumnSpan="3"/>
 
                                 <TextBlock Text="{Binding Path=Price,
-                                                  StringFormat={}{0:N2} руб}"
+                                                  StringFormat='Цена: {0:C}',
+                                                  ConverterCulture='ru-RU'}"
                                            Grid.Column="0"
                                            Grid.Row="2"
                                            Padding="5 0 0 0"/>
 
                                 <TextBlock Text="{Binding Path=Date,
-                                                  StringFormat={}{0:dd.MM.yyyy}}"
+                                                  StringFormat='Дата: {0:dd.MM.yyyy}'}"
                                            Grid.Column="1"
-                                           Grid.Row="2"/>
+                                           Grid.Row="2"
+                                           Grid.ColumnSpan="2"
+                                           Margin="50 0 0 0"/>
 
                                 <Button x:Name="btnBuyTicket"
                                         Content="Купить"
                                         Grid.Column="0"
                                         Grid.Row="3"
-                                        Grid.ColumnSpan="3"
+                                        Grid.ColumnSpan="2"
                                         Style="{DynamicResource btnTours}"/>
                             </Grid>
                         </Border>
