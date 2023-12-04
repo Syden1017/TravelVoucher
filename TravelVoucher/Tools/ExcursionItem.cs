@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Media.Imaging;
 
 namespace TravelVoucher.Tools
 {
@@ -10,6 +13,13 @@ namespace TravelVoucher.Tools
 
         public double Price { get; set; }
 
-        public string CityImage { get; set; }
+        public BitmapImage CityImage { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

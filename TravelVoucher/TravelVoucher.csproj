@@ -23,6 +23,7 @@
     <None Remove="Images\HotTours\Dubai.jpg" />
     <None Remove="Images\HotTours\London.jpg" />
     <None Remove="Images\HotTours\Maiami.png" />
+    <None Remove="Images\ToursPictures\defaultImage.jpg" />
     <None Remove="Images\ToursPictures\Геленджик.jpg" />
     <None Remove="Images\ToursPictures\Дагестан.jpg" />
     <None Remove="Images\ToursPictures\Кавказ.jpg" />
@@ -103,6 +104,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\HotTours\Maiami.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ToursPictures\defaultImage.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\ToursPictures\Санкт-Петербург.jpg">
