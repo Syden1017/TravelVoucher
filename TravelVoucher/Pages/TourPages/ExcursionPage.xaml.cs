@@ -101,6 +101,11 @@ namespace TravelVoucher.Pages.TourPages
             return price;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selectedCity">Выбранный элемент в combobox</param>
+        /// <returns></returns>
         private string GetExcursionName(string selectedCity)
         {
             string excursionName = "Экскурсия по " + selectedCity.Humanize(LetterCasing.Title);
