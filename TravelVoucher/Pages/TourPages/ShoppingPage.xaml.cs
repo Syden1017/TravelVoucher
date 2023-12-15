@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using WpfApp1.Tools;
 
 namespace TravelVoucher.Pages.TourPages
@@ -34,6 +35,41 @@ namespace TravelVoucher.Pages.TourPages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Navigation.frmObj.GoBack();
+        }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleButton button = sender as ToggleButton;
+            int newvalue = int.Parse(button.Tag.ToString());
+            int Value = newvalue;
+        }
+
+        private void ToggleButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            ToggleButton button = sender as ToggleButton;
+            int newvalue = int.Parse(button.Tag.ToString());
+            int Value = newvalue;
+        }
+
+        private void ToggleButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            ToggleButton button = sender as ToggleButton;
+            int newvalue = int.Parse(button.Tag.ToString());
+            int Value = newvalue;
+        }
+
+        private void ToggleButton_Click_3(object sender, RoutedEventArgs e)
+        {
+            ToggleButton button = sender as ToggleButton;
+            int newvalue = int.Parse(button.Tag.ToString());
+            int Value = newvalue;
+        }
+
+        private void ToggleButton_Click_4(object sender, RoutedEventArgs e)
+        {
+            ToggleButton button = sender as ToggleButton;
+            int newvalue = int.Parse(button.Tag.ToString());
+            int Value = newvalue;
         }
     }
 }

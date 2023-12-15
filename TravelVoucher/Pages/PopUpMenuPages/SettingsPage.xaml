@@ -57,7 +57,7 @@
                               Grid.ColumnSpan="2"
                               Margin="180 0 20 0">
                         <ComboBoxItem Content="Русский"/>
-                        <ComboBoxItem Content="Eanglich"/>
+                        <ComboBoxItem Content="English"/>
                     </ComboBox>
 
                         <ComboBox x:Name="cBoxDesignTheme"
