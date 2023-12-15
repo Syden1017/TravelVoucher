@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages"
+      xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       
       d:DesignHeight="600" 
@@ -75,10 +75,12 @@
                    Text="Количество туристов:"
                    Style="{DynamicResource txtBlockNumbers}"/>
 
-        <TextBox x:Name="txtBoxNumberOfTourists"
-                 Grid.Column="1"
-                 Grid.Row="9"
-                 Style="{DynamicResource txtBoxExcursion}"/>
+        <xctk:IntegerUpDown Grid.Column="1"
+                            Grid.Row="9"
+                            Margin="5 5 5 7"
+                            Background="#FFF2F2"
+                            FontSize="26"
+                            x:Name="upDownTourist"/>
 
         <TextBlock Grid.Column="4" 
                    Grid.Row="8"
@@ -103,7 +105,6 @@
                    Style="{DynamicResource txtBlockExcursion}"/>
 
         <ComboBox x:Name="cBoxTo"
-                  SelectionChanged="cBoxTo_SelectionChanged"
                   Grid.Column="4"
                   Grid.Row="3"
                   Margin="5"/>
@@ -113,9 +114,11 @@
                    Text="Дата"
                    Style="{DynamicResource txtBlockExcursion}"/>
 
-        <DatePicker SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
-            Margin="4" Grid.Column="4"
+        <DatePicker SelectedDate="{Binding SelectedDate, 
+                                   RelativeSource={RelativeSource TemplatedParent}}"
                     x:Name="datePickerExcursion"
+                    Margin="4" 
+                    Grid.Column="4"
                     Grid.Row="6"
                     VerticalAlignment="Center">
             <DatePicker.CalendarStyle>
@@ -129,7 +132,8 @@
                       Grid.Row="2"
                       Grid.RowSpan="10"
                       Style="{DynamicResource scrollTours}">
-            <ListView>
+            <ListView ItemsSource="{Binding ExcursionItem}"
+                      x:Name="lViewFoundExcursions">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Style="{DynamicResource itemPanel}"/>
@@ -153,17 +157,40 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Text="{Binding Name,
-                                                  StringFormat=Поездка по {}}"
+                                <TextBlock Text="{Binding Path=Name}"
                                            Grid.Column="0"
                                            Grid.Row="0"
-                                           Grid.ColumnSpan="3"/>
+                                           Grid.ColumnSpan="3"
+                                           Foreground="#000"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
 
-                                <Image Source="{Binding ImagePath}"
-                                       x:Name="imgCity"
+                                <Image x:Name="imgCity"
+                                       Source="{Binding CityImage}"
                                        Grid.Column="0"
                                        Grid.Row="1"
                                        Grid.ColumnSpan="3"/>
+
+                                <TextBlock Text="{Binding Path=Price,
+                                                  StringFormat='Цена: {0:C}',
+                                                  ConverterCulture='ru-RU'}"
+                                           Grid.Column="0"
+                                           Grid.Row="2"
+                                           Padding="5 0 0 0"/>
+
+                                <TextBlock Text="{Binding Path=Date,
+                                                  StringFormat='Дата: {0:dd.MM.yyyy}'}"
+                                           Grid.Column="1"
+                                           Grid.Row="2"
+                                           Grid.ColumnSpan="2"
+                                           Margin="50 0 0 0"/>
+
+                                <Button x:Name="btnBuyTicket"
+                                        Content="Купить"
+                                        Grid.Column="0"
+                                        Grid.Row="3"
+                                        Grid.ColumnSpan="2"
+                                        Style="{DynamicResource btnTours}"/>
                             </Grid>
                         </Border>
                     </DataTemplate>
