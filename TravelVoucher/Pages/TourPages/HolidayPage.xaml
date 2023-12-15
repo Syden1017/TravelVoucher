@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TravelVoucher.Pages.TourPages"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:stars1="clr-namespace:HomeLibraryApp.UserControls.Stars"
       mc:Ignorable="d" 
       
@@ -70,14 +71,7 @@
         <ComboBox x:Name="cBoxTransport"
                   Grid.Column="1"
                   Grid.Row="6"
-                  Margin="5">
-            <ComboBoxItem Content="Машина (своя)"/>
-            <ComboBoxItem Content="Машина (аренда)"/>
-            <ComboBoxItem Content="Автобус"/>
-            <ComboBoxItem Content="Поезд"/>
-            <ComboBoxItem Content="Самолёт"/>
-            <ComboBoxItem Content="Активные средства самостоятельного передвижения"/>
-        </ComboBox>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="1"
                    Grid.Row="8"
@@ -97,15 +91,7 @@
         <ComboBox Name="cBoxFood"
                   Grid.Column="1"
                   Grid.Row="12"
-                  Margin="5">
-            <ComboBoxItem Content = "Без питания"/>
-            <ComboBoxItem Content = "Только завтрак"/>
-            <ComboBoxItem Content = "Полупансион(завтрак + ужин)"/>
-            <ComboBoxItem Content = "Полный пансион(завтрак + обед + ужин)"/>
-            <ComboBoxItem Content = "Все включено(завтрак + обед + ужин + напитки местного производства)"/>
-            <ComboBoxItem Content = "Расширенный пансион(завтрак + ужин + напитки всех видов)"/>
-            <ComboBoxItem Content = "Расширенный полный пансион(завтрак + обед + ужин + напитки всех видов)"/>
-        </ComboBox>
+                  Margin="5"/>
 
         <TextBlock Grid.Column="3" 
                    Grid.Row="2"
@@ -122,8 +108,11 @@
                    Text="Дата"
                    Style="{DynamicResource txtBlockHoliday}"/>
 
-        <DatePicker SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}}"
-            Margin="4" Grid.Column="3" x:Name="DataPic"
+        <DatePicker SelectedDate="{Binding SelectedDate, 
+                                   RelativeSource={RelativeSource TemplatedParent}}"
+                    Margin="4" 
+                    Grid.Column="3" 
+                    x:Name="datePickerHoliday"
                     Grid.Row="6"
                     VerticalAlignment="Center">
             <DatePicker.CalendarStyle>
@@ -152,6 +141,7 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Grid.Resources>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -160,11 +150,31 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <ToggleButton Grid.Column="0" Tag="1" Cursor="Hand"  Template="{StaticResource ratingtemplate}" Click="ToggleButton_Click" />
-            <ToggleButton Grid.Column="1" Tag="2" Cursor="Hand"  Template="{StaticResource ratingtemplate}" Click="ToggleButton_Click_1"/>
-            <ToggleButton Grid.Column="2" Tag="3" Cursor="Hand"  Template="{StaticResource ratingtemplate}" Click="ToggleButton_Click_2"/>
-            <ToggleButton Grid.Column="3" Tag="4" Cursor="Hand"  Template="{StaticResource ratingtemplate}" Click="ToggleButton_Click_3"/>
-            <ToggleButton Grid.Column="4" Tag="5" Cursor="Hand"  Template="{StaticResource ratingtemplate}" Click="ToggleButton_Click_4"/>
+            <ToggleButton Grid.Column="0" 
+                          Tag="1" 
+                          Cursor="Hand"  
+                          Template="{StaticResource ratingtemplate}" 
+                          Click="ToggleButton_Click" />
+            <ToggleButton Grid.Column="1" 
+                          Tag="2" 
+                          Cursor="Hand"  
+                          Template="{StaticResource ratingtemplate}" 
+                          Click="ToggleButton_Click_1"/>
+            <ToggleButton Grid.Column="2" 
+                          Tag="3" 
+                          Cursor="Hand"  
+                          Template="{StaticResource ratingtemplate}" 
+                          Click="ToggleButton_Click_2"/>
+            <ToggleButton Grid.Column="3" 
+                          Tag="4" 
+                          Cursor="Hand"  
+                          Template="{StaticResource ratingtemplate}" 
+                          Click="ToggleButton_Click_3"/>
+            <ToggleButton Grid.Column="4" 
+                          Tag="5" 
+                          Cursor="Hand"  
+                          Template="{StaticResource ratingtemplate}" 
+                          Click="ToggleButton_Click_4"/>
 
         </Grid>
         <TextBlock Grid.Column="3" 
@@ -172,14 +182,15 @@
                    Text="Количество гостей"
                    Style="{DynamicResource txtBlockHoliday}"/>
 
-        <TextBox x:Name="txtBoxNumberOfGuests" 
-                 Grid.Column="3"
-                 Grid.Row="12"
-                 Style="{DynamicResource txtBoxGuests}"/>
+        <xctk:IntegerUpDown x:Name="upDownNumberOfGuests" 
+                            Grid.Column="3"
+                            Grid.Row="12"
+                            Background="#FFF2F2"
+                            FontSize="26"/>
 
         <Button x:Name="btnBuyTicket" 
                 Click="btnBuyTicket_Click"
-                Content="Купить"
+                Content="Найти"
                 Grid.Column="3"
                 Grid.Row="13"
                 Style="{DynamicResource btnTours}"/>
@@ -206,7 +217,8 @@
                       Grid.Row="2"
                       Grid.RowSpan="12"
                       Style="{DynamicResource scrollTours}">
-            <ListView>
+            <ListView ItemsSource="{Binding HolidayItem}"
+                      x:Name="lViewFoundHoldays">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Style="{DynamicResource itemPanel}"/>
@@ -215,7 +227,8 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border Style="{DynamicResource lViewBorderExcursion}">
+                        <Border Style="{DynamicResource lViewBorderExcursion}"
+                                Height="200">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -224,6 +237,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
@@ -258,10 +272,17 @@
                                            Grid.ColumnSpan="2"
                                            Margin="50 0 0 0"/>
 
+                                <TextBlock Text="{Binding Path=Vehicle,
+                                                  StringFormat='Тип передвижения: {0}'}"
+                                           Grid.Column="0"
+                                           Grid.Row="3"
+                                           Grid.ColumnSpan="2"
+                                           Padding="5 0 0 0"/>
+
                                 <Button x:Name="btnBuyTicket"
                                         Content="Купить"
                                         Grid.Column="0"
-                                        Grid.Row="3"
+                                        Grid.Row="4"
                                         Grid.ColumnSpan="2"
                                         Style="{DynamicResource btnTours}"/>
                             </Grid>
